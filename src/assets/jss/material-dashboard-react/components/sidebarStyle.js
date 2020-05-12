@@ -17,7 +17,7 @@ import {
 
 const sidebarStyle = theme => ({
   headlogo: {
-    marginLeft: "30px"
+    textAlign: "center"
   },
   drawerPaper: {
     border: "none",

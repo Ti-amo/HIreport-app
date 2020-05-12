@@ -14,9 +14,6 @@ import Icon from "@material-ui/core/Icon";
 import ListSubheader from '@material-ui/core/ListSubheader';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import Collapse from '@material-ui/core/Collapse';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import DraftsIcon from '@material-ui/icons/Drafts';
-import SendIcon from '@material-ui/icons/Send';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import StarBorder from '@material-ui/icons/StarBorder';
@@ -31,6 +28,11 @@ const useStyles = makeStyles(styles);
 
 export default function Sidebar(props) {
   const classes = useStyles();
+  const [open, setOpen] = React.useState(false);
+
+  const handleClick = () => {
+    setOpen(!open);
+  };
   // verifies if routeName is the one active (in browser input)
   function activeRoute(routeName) {
     return window.location.href.indexOf(routeName) > -1 ? true : false;
@@ -39,6 +41,7 @@ export default function Sidebar(props) {
   var links = (
     <List className={classes.list}>
       {routes.map((prop, key) => {
+        console.log("PROPS", prop)
         var activePro = " ";
         var listItemClasses;
         if (prop.path === "/upgrade-to-pro") {
@@ -54,6 +57,7 @@ export default function Sidebar(props) {
         const whiteFontClasses = classNames({
           [" " + classes.whiteFont]: activeRoute(prop.layout + prop.path)
         });
+
         return (
           <NavLink
             to={prop.layout + prop.path}
@@ -61,7 +65,8 @@ export default function Sidebar(props) {
             activeClassName="active"
             key={key}
           >
-            <ListItem button className={classes.itemLink + listItemClasses}>
+
+            <ListItem button className={classes.itemLink + listItemClasses} onClick={prop.path === "/myreports" ? (handleClick) : null} >
               {typeof prop.icon === "string" ? (
                 <Icon
                   className={classNames(classes.itemIcon, whiteFontClasses, {
@@ -77,6 +82,7 @@ export default function Sidebar(props) {
                     })}
                   />
                 )}
+               
               <ListItemText
                 primary={props.rtlActive ? prop.rtlName : prop.name}
                 className={classNames(classes.itemText, whiteFontClasses, {
@@ -84,7 +90,24 @@ export default function Sidebar(props) {
                 })}
                 disableTypography={true}
               />
-            </ListItem>
+                {prop.path === "/myreports" ? (open ? <ExpandLess /> : <ExpandMore />)
+                 : null}
+                 </ListItem> 
+                 {prop.path === "/myreports" ? (
+                 <Collapse in={open} timeout="auto" unmountOnExit>
+                <List component="div" disablePadding>
+                  <ListItem button className={classes.nested}>
+                    <ListItemIcon>
+                      <StarBorder />
+                    </ListItemIcon>
+                    <ListItemText primary="Starred" />
+                  </ListItem>
+                </List>
+              </Collapse>
+           
+            ) : null }
+           
+              
           </NavLink>
         );
       })}
@@ -92,22 +115,19 @@ export default function Sidebar(props) {
   );
   var brand = (
     <div className={classes.logo}>
-      <a
-        href="https://www.creative-tim.com?ref=mdr-sidebar"
-        className={classNames(classes.logoLink, {
-          [classes.logoLinkRTL]: props.rtlActive
-        })}
-        target="_blank"
+      <NavLink
+        to={routes[0].layout + routes[0].path}
       >
         <div className={classes.headlogo}>
-          <span style={{fontSize: 22 , color: "#00ACC1"}}>
-          <i className="fas fa-chart-bar ml2"></i> &nbsp;
-          </span>
-          
-        REPORT APP
-       </div>
+          <span style={{ fontSize: 22, color: "#00ACC1" }}>
+            <i className="fas fa-chart-bar ml2"></i> &nbsp;
 
-      </a>
+          </span>
+          <span style={{ fontSize: 22, color: "white" }}>REPORT APP</span>
+
+        </div>
+
+      </NavLink>
     </div>
   );
   return (
