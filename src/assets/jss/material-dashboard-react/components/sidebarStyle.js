@@ -16,6 +16,9 @@ import {
 } from "assets/jss/material-dashboard-react.js";
 
 const sidebarStyle = theme => ({
+  headlogo: {
+    marginLeft: "30px"
+  },
   drawerPaper: {
     border: "none",
     position: "fixed",
@@ -63,6 +66,7 @@ const sidebarStyle = theme => ({
   logo: {
     position: "relative",
     padding: "15px 15px",
+    textAlign: "center",
     zIndex: "4",
     "&:after": {
       content: '""',
