@@ -11,12 +11,15 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Icon from "@material-ui/core/Icon";
+import Divider from '@material-ui/core/Divider'
 import ListSubheader from '@material-ui/core/ListSubheader';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import Collapse from '@material-ui/core/Collapse';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
-import StarBorder from '@material-ui/icons/StarBorder';
+import LinearScaleIcon from '@material-ui/icons/LinearScale';
+import PolymerIcon from '@material-ui/icons/Polymer';
+import VerticalSplitIcon from '@material-ui/icons/VerticalSplit';
 
 // core components
 import AdminNavbarLinks from "components/Navbars/AdminNavbarLinks.js";
@@ -82,7 +85,7 @@ export default function Sidebar(props) {
                     })}
                   />
                 )}
-               
+
               <ListItemText
                 primary={props.rtlActive ? prop.rtlName : prop.name}
                 className={classNames(classes.itemText, whiteFontClasses, {
@@ -90,24 +93,64 @@ export default function Sidebar(props) {
                 })}
                 disableTypography={true}
               />
-                {prop.path === "/myreports" ? (open ? <ExpandLess /> : <ExpandMore />)
-                 : null}
-                 </ListItem> 
-                 {prop.path === "/myreports" ? (
-                 <Collapse in={open} timeout="auto" unmountOnExit>
+              {prop.path === "/myreports" ? (open ? <ExpandLess /> : <ExpandMore />)
+                : null}
+            </ListItem>
+            {prop.path === "/myreports" ? (
+              <Collapse in={open} timeout="auto" unmountOnExit>
+                <Divider />
+
                 <List component="div" disablePadding>
-                  <ListItem button className={classes.nested}>
-                    <ListItemIcon>
-                      <StarBorder />
-                    </ListItemIcon>
-                    <ListItemText primary="Starred" />
+                  <ListItem button className={classes.nested  + listItemClasses}>
+                    <Icon
+                      className={classNames(classes.itemIcon, whiteFontClasses, {
+                        [classes.itemIconRTL]: props.rtlActive
+                      })}
+                    >
+                      <LinearScaleIcon />
+                    </Icon>
+                    <ListItemText
+                      primary="Báo cáo về đường dây điện"
+                      className={classes.nestedText}
+                      disableTypography={true}
+                    />
+                  </ListItem>
+
+                  <ListItem button className={classes.nested + listItemClasses}>
+                    <Icon
+                      className={classNames(classes.itemIcon, whiteFontClasses, {
+                        [classes.itemIconRTL]: props.rtlActive
+                      })}
+                    >
+                      <VerticalSplitIcon />
+                    </Icon>
+                    <ListItemText
+                      primary="Báo cáo về cột điện"
+                      className={classes.nestedText}
+                      disableTypography={true}
+                    />
+                  </ListItem>
+
+                  <ListItem button className={classes.nested + listItemClasses}>
+                    <Icon
+                      className={classNames(classes.itemIcon, whiteFontClasses, {
+                        [classes.itemIconRTL]: props.rtlActive
+                      })}
+                    >
+                      <PolymerIcon />
+                    </Icon>
+                    <ListItemText
+                      primary="Báo cáo về hành lang tuyến"
+                      className={classes.nestedText}
+                      disableTypography={true}
+                    />
                   </ListItem>
                 </List>
               </Collapse>
-           
-            ) : null }
-           
-              
+
+            ) : null}
+
+
           </NavLink>
         );
       })}

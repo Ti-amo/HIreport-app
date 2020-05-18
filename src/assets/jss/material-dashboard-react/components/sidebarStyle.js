@@ -155,7 +155,7 @@ const sidebarStyle = theme => ({
     margin: "10px 15px 0",
     borderRadius: "3px",
     position: "relative",
-    display: "block",
+    display: "flex",
     padding: "10px 15px",
     backgroundColor: "transparent",
     ...defaultFont
@@ -175,6 +175,25 @@ const sidebarStyle = theme => ({
     marginRight: "3px",
     marginLeft: "15px",
     float: "right"
+  },
+  nested: {
+    width: "auto",
+    transition: "all 300ms linear",
+    margin: "10px 15px 0",
+    borderRadius: "3px",
+    position: "relative",
+    display: "flex",
+    padding: "10px 15px",
+    backgroundColor: "transparent",
+    ...defaultFont,
+    marginLeft: "50px"
+  },
+  nestedText: {
+    ...defaultFont,
+    margin: "0",
+    lineHeight: "30px",
+    fontSize: "14px",
+    color: whiteColor
   },
   itemText: {
     ...defaultFont,
