@@ -101,50 +101,71 @@ export default function Sidebar(props) {
                 <Divider />
 
                 <List component="div" disablePadding>
-                  <ListItem button className={classes.nested  + listItemClasses}>
-                    <Icon
-                      className={classNames(classes.itemIcon, whiteFontClasses, {
-                        [classes.itemIconRTL]: props.rtlActive
-                      })}
-                    >
-                      <LinearScaleIcon />
-                    </Icon>
-                    <ListItemText
-                      primary="Báo cáo về đường dây điện"
-                      className={classes.nestedText}
-                      disableTypography={true}
-                    />
-                  </ListItem>
+                  <NavLink
+                    to={prop.layout + prop.path + "/daydien"}
+                    className={activePro + classes.item}
+                    activeClassName="active"
+                    key={key}
+                  >
+                    <ListItem button className={classes.nested}>
+                      <Icon
+                        className={classNames(classes.itemIcon, whiteFontClasses, {
+                          [classes.itemIconRTL]: props.rtlActive
+                        })}
+                      >
+                        <LinearScaleIcon />
+                      </Icon>
+                      <ListItemText
+                        primary="Báo cáo về đường dây điện"
+                        className={classes.nestedText}
+                        disableTypography={true}
+                      />
+                    </ListItem>
+                  </NavLink>
+                  <NavLink
+                    to={prop.layout + prop.path + "/cotdien"}
+                    className={activePro + classes.item}
+                    activeClassName="active"
+                    key={key}
+                  >
+                    <ListItem button className={classes.nested}>
+                      <Icon
+                        className={classNames(classes.itemIcon, whiteFontClasses, {
+                          [classes.itemIconRTL]: props.rtlActive
+                        })}
+                      >
+                        <VerticalSplitIcon />
+                      </Icon>
+                      <ListItemText
+                        primary="Báo cáo về cột điện"
+                        className={classes.nestedText}
+                        disableTypography={true}
+                      />
+                    </ListItem>
+                  </NavLink>
 
-                  <ListItem button className={classes.nested + listItemClasses}>
-                    <Icon
-                      className={classNames(classes.itemIcon, whiteFontClasses, {
-                        [classes.itemIconRTL]: props.rtlActive
-                      })}
-                    >
-                      <VerticalSplitIcon />
-                    </Icon>
-                    <ListItemText
-                      primary="Báo cáo về cột điện"
-                      className={classes.nestedText}
-                      disableTypography={true}
-                    />
-                  </ListItem>
+                  <NavLink
+                    to={prop.layout + prop.path + "/hanhlangtuyen"}
+                    className={activePro + classes.item}
+                    activeClassName="active"
+                    key={key}
+                  >
+                    <ListItem button className={classes.nested}>
+                      <Icon
+                        className={classNames(classes.itemIcon, whiteFontClasses, {
+                          [classes.itemIconRTL]: props.rtlActive
+                        })}
+                      >
+                        <PolymerIcon />
+                      </Icon>
+                      <ListItemText
+                        primary="Báo cáo về hành lang tuyến"
+                        className={classes.nestedText}
+                        disableTypography={true}
+                      />
+                    </ListItem>
+                  </NavLink>
 
-                  <ListItem button className={classes.nested + listItemClasses}>
-                    <Icon
-                      className={classNames(classes.itemIcon, whiteFontClasses, {
-                        [classes.itemIconRTL]: props.rtlActive
-                      })}
-                    >
-                      <PolymerIcon />
-                    </Icon>
-                    <ListItemText
-                      primary="Báo cáo về hành lang tuyến"
-                      className={classes.nestedText}
-                      disableTypography={true}
-                    />
-                  </ListItem>
                 </List>
               </Collapse>
 

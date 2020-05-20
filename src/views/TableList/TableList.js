@@ -8,6 +8,7 @@ import Table from "components/Table/Table.js";
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
+import SearchBar from "material-ui-search-bar";
 
 const styles = {
   cardCategoryWhite: {
@@ -43,15 +44,26 @@ const useStyles = makeStyles(styles);
 
 export default function TableList() {
   const classes = useStyles();
+  const [searchValue, setSearchValue] = React.useState();
   return (
     <GridContainer>
       <GridItem xs={12} sm={12} md={12}>
         <Card>
           <CardHeader color="primary">
-            <h4 className={classes.cardTitleWhite}>Simple Table</h4>
+            {/* <h4 className={classes.cardTitleWhite}>Simple Table</h4>
             <p className={classes.cardCategoryWhite}>
               Here is a subtitle for this table
-            </p>
+            </p> */}
+
+            <SearchBar
+              value={searchValue}
+              onChange={newValue => setSearchValue(newValue)}
+              onRequestSearch={() => console.log(searchValue)}
+              style={{
+                margin: "0 auto",
+                maxWidth: 800
+              }}
+            />
           </CardHeader>
           <CardBody>
             <Table
