@@ -43,7 +43,8 @@ const tableStyle = theme => ({
     color: "inherit",
     ...defaultFont,
     "&, &$tableCell": {
-      fontSize: "1em"
+      fontSize: "1.5em",
+      fontStyle: "bold"
     }
   },
   tableCell: {
@@ -71,6 +72,10 @@ const tableStyle = theme => ({
     display: "table-row",
     outline: "none",
     verticalAlign: "middle"
+  },
+  icon: {
+    marginLeft: "12px",
+    marginRight: "12px"
   }
 });
 

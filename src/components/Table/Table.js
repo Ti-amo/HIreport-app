@@ -7,6 +7,10 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
+import CreateIcon from "@material-ui/icons/Create";
+import DeleteIcon from "@material-ui/icons/Delete";
+import ShareIcon from "@material-ui/icons/Share";
+import Pagination from "@material-ui/lab/Pagination";
 // core components
 import styles from "assets/jss/material-dashboard-react/components/tableStyle.js";
 
@@ -31,6 +35,8 @@ export default function CustomTable(props) {
                   </TableCell>
                 );
               })}
+              <TableCell>
+              </TableCell>
             </TableRow>
           </TableHead>
         ) : null}
@@ -45,11 +51,17 @@ export default function CustomTable(props) {
                     </TableCell>
                   );
                 })}
+                <TableCell>
+                  <CreateIcon className={classes.icon}></CreateIcon>
+                  <DeleteIcon className={classes.icon}></DeleteIcon>
+                  <ShareIcon className={classes.icon}></ShareIcon>
+                </TableCell>
               </TableRow>
             );
           })}
         </TableBody>
       </Table>
+      <Pagination count={10} color="info" />
     </div>
   );
 }

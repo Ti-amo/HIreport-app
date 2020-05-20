@@ -9,8 +9,16 @@ import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
 import SearchBar from "material-ui-search-bar";
+import { Icon } from "@material-ui/core";
+import Button from "components/CustomButtons/Button"
+import AddIcon from "@material-ui/icons/Add";
+
 
 const styles = {
+  createButton: {
+    marginLeft: "15px",
+    marginBottom: "20px"
+  },
   cardCategoryWhite: {
     "&,& a,& a:hover,& a:focus": {
       color: "rgba(255,255,255,.62)",
@@ -47,15 +55,25 @@ export default function TableList() {
   const [searchValue, setSearchValue] = React.useState();
   return (
     <GridContainer>
+
       <GridItem xs={12} sm={12} md={12}>
+      <div>
+      <Button className={classes.createButton} type="button" variant="contained" color="info">
+            <AddIcon />
+          &nbsp;
+        TẠO BÁO CÁO
+      </Button>
+      </div>
+        
         <Card>
-          <CardHeader color="primary">
+          <CardHeader color="info">
             {/* <h4 className={classes.cardTitleWhite}>Simple Table</h4>
             <p className={classes.cardCategoryWhite}>
               Here is a subtitle for this table
             </p> */}
 
             <SearchBar
+              placeholder="Tìm kiếm báo cáo"
               value={searchValue}
               onChange={newValue => setSearchValue(newValue)}
               onRequestSearch={() => console.log(searchValue)}
@@ -67,21 +85,22 @@ export default function TableList() {
           </CardHeader>
           <CardBody>
             <Table
-              tableHeaderColor="primary"
-              tableHead={["Name", "Country", "City", "Salary"]}
+              tableHeaderColor="info"
+              tableHead={["Tên báo cáo", "Người tạo", "Thời gian", "Loại báo cáo"]}
               tableData={[
-                ["Dakota Rice", "Niger", "Oud-Turnhout", "$36,738"],
-                ["Minerva Hooper", "Curaçao", "Sinaai-Waas", "$23,789"],
-                ["Sage Rodriguez", "Netherlands", "Baileux", "$56,142"],
-                ["Philip Chaney", "Korea, South", "Overland Park", "$38,735"],
-                ["Doris Greene", "Malawi", "Feldkirchen in Kärnten", "$63,542"],
-                ["Mason Porter", "Chile", "Gloucester", "$78,615"]
+                ["Đường dây điện số 5", "Thế Hùng", "15/10/2019", "Đường dây điện"],
+                ["Cột điện số G4FGD", "Thế Hùng", "13/10/2019", "Cột điện"],
+                ["Đường dây điện số 3", "Thế Hùng", "15/10/2019", "Đường dây điện"],
+                ["Đường dây điện số 5", "Thế Hùng", "15/10/2019", "Đường dây điện"],
+                ["Đường dây điện số 5", "Thế Hùng", "15/10/2019", "Đường dây điện"],
+                ["Đường dây điện số 5", "Thế Hùng", "15/10/2019", "Đường dây điện"],
+                ["Đường dây điện số 5", "Thế Hùng", "15/10/2019", "Đường dây điện"],
               ]}
             />
           </CardBody>
         </Card>
       </GridItem>
-      <GridItem xs={12} sm={12} md={12}>
+      {/* <GridItem xs={12} sm={12} md={12}>
         <Card plain>
           <CardHeader plain color="primary">
             <h4 className={classes.cardTitleWhite}>
@@ -118,7 +137,7 @@ export default function TableList() {
             />
           </CardBody>
         </Card>
-      </GridItem>
+      </GridItem> */}
     </GridContainer>
   );
 }
