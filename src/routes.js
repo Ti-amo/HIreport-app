@@ -69,7 +69,7 @@ const detailRoutes = [
 const dashboardRoutes = [
   {
     path: "/home",
-    name: "Home",
+    name: "Trang chủ",
     rtlName: "لوحة القيادة",
     icon: Dashboard,
     component: DashboardPage,
@@ -77,7 +77,7 @@ const dashboardRoutes = [
   },
   {
     path: "/user",
-    name: "User Profile",
+    name: "Người dùng",
     rtlName: "ملف تعريفي للمستخدم",
     icon: Person,
     component: UserProfile,
@@ -85,7 +85,7 @@ const dashboardRoutes = [
   },
   {
     path: "/myreports",
-    name: "My Reports",
+    name: "Báo cáo của tôi",
     rtlName: "قائمة الجدول",
     icon: "content_paste",
     component: TableList,
@@ -94,7 +94,7 @@ const dashboardRoutes = [
   },
   {
     path: "/recentlyreports",
-    name: "Recently Reports",
+    name: "Báo cáo gần đây",
     rtlName: "طباعة",
     icon: LibraryBooks,
     component: Typography,
@@ -118,7 +118,7 @@ const dashboardRoutes = [
   // },
   {
     path: "/importantreports",
-    name: "Important Reports",
+    name: "Báo cáo quan trọng",
     rtlName: "إخطارات",
     icon: Star,
     component: NotificationsPage,
