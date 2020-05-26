@@ -52,7 +52,7 @@ const tableStyle = theme => ({
     lineHeight: "1.42857143",
     padding: "12px 8px",
     verticalAlign: "middle",
-    fontSize: "0.8125rem"
+    fontSize: "0.9rem"
   },
   tableResponsive: {
     width: "100%",
@@ -67,7 +67,7 @@ const tableStyle = theme => ({
     verticalAlign: "middle"
   },
   tableBodyRow: {
-    height: "48px",
+    height: "45px",
     color: "inherit",
     display: "table-row",
     outline: "none",

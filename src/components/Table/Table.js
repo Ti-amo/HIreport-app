@@ -11,6 +11,7 @@ import CreateIcon from "@material-ui/icons/Create";
 import DeleteIcon from "@material-ui/icons/Delete";
 import ShareIcon from "@material-ui/icons/Share";
 import Pagination from "@material-ui/lab/Pagination";
+import Button from "components/CustomButtons/Button.js";
 // core components
 import styles from "assets/jss/material-dashboard-react/components/tableStyle.js";
 
@@ -52,15 +53,40 @@ export default function CustomTable(props) {
                   );
                 })}
                 <TableCell>
-                  <CreateIcon className={classes.icon}></CreateIcon>
-                  <DeleteIcon className={classes.icon}></DeleteIcon>
-                  <ShareIcon className={classes.icon}></ShareIcon>
+                  <Button
+                    justIcon 
+                    round 
+                    color="transparent" 
+                    className={classes.icon}
+                  >
+                    <CreateIcon />
+                  </Button>
+                  <Button
+                    justIcon 
+                    round 
+                    color="transparent" 
+                    className={classes.icon}
+                  >
+                    <DeleteIcon />
+                  </Button>
+                  <Button
+                    justIcon 
+                    round 
+                    color="transparent" 
+                    className={classes.icon}
+                  >
+                    <ShareIcon />
+                  </Button>
+                  {/* <CreateIcon className={classes.icon}></CreateIcon> */}
+                  {/* <DeleteIcon className={classes.icon}></DeleteIcon> */}
+                  {/* <ShareIcon className={classes.icon}></ShareIcon> */}
                 </TableCell>
               </TableRow>
             );
           })}
         </TableBody>
       </Table>
+      <br/>
       <Pagination count={10} color="info" />
     </div>
   );

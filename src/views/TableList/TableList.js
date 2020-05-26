@@ -93,8 +93,8 @@ export default function TableList() {
                 ["Đường dây điện số 3", "Thế Hùng", "15/10/2019", "Đường dây điện"],
                 ["Đường dây điện số 5", "Thế Hùng", "15/10/2019", "Đường dây điện"],
                 ["Đường dây điện số 5", "Thế Hùng", "15/10/2019", "Đường dây điện"],
-                ["Đường dây điện số 5", "Thế Hùng", "15/10/2019", "Đường dây điện"],
-                ["Đường dây điện số 5", "Thế Hùng", "15/10/2019", "Đường dây điện"],
+                // ["Đường dây điện số 5", "Thế Hùng", "15/10/2019", "Đường dây điện"],
+                // ["Đường dây điện số 5", "Thế Hùng", "15/10/2019", "Đường dây điện"],
               ]}
             />
           </CardBody>
