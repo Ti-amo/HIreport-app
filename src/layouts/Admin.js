@@ -12,6 +12,7 @@ import Sidebar from "components/Sidebar/Sidebar.js";
 import FixedPlugin from "components/FixedPlugin/FixedPlugin.js";
 
 import routes from "routes.js";
+import myreportroutes from "myreportroutes.js";
 
 import styles from "assets/jss/material-dashboard-react/layouts/adminStyle.js";
 
@@ -22,6 +23,15 @@ let ps;
 
 const switchRoutes = (
   <Switch>
+    {myreportroutes.map((prop, key) => {
+      return (
+        <Route
+          path={prop.layout + "/myreports" + prop.path}
+          component={prop.component}
+          key={key}
+        />
+      );
+    })}
     {routes.map((prop, key) => {
       if (prop.layout === "/admin") {
         return (
@@ -34,6 +44,7 @@ const switchRoutes = (
       }
       return null;
     })}
+
     <Redirect from="/admin" to="/admin/dashboard" />
   </Switch>
 );
@@ -116,8 +127,8 @@ export default function Admin({ ...rest }) {
             <div className={classes.container}>{switchRoutes}</div>
           </div>
         ) : (
-          <div className={classes.map}>{switchRoutes}</div>
-        )}
+            <div className={classes.map}>{switchRoutes}</div>
+          )}
         {/* {getRoute() ? <Footer /> : null} */}
         {/* <FixedPlugin
           handleImageClick={handleImageClick}

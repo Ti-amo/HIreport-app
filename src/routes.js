@@ -40,32 +40,7 @@ import RouteCorridor from "views/RouteCorridor/RouteCorridor";
 // core components/views for RTL layout
 import RTLPage from "views/RTLPage/RTLPage.js";
 
-const detailRoutes = [
-  {
-    path: "/daydien",
-    name: "daydien",
-    rtlName: "لوحة القيادة",
-    icon: Dashboard,
-    component: PowerLine,
-    layout: "/admin"
-  },
-  {
-    path: "/cotdien",
-    name: "cotdien",
-    rtlName: "لوحة القيادة",
-    icon: Dashboard,
-    component: PowerPole,
-    layout: "/admin"
-  },
-  {
-    path: "/hanhlangtuyen",
-    name: "hanhlangtuyen",
-    rtlName: "لوحة القيادة",
-    icon: Dashboard,
-    component: RouteCorridor,
-    layout: "/admin"
-  }
-]
+
 const dashboardRoutes = [
   {
     path: "/home",
@@ -89,8 +64,7 @@ const dashboardRoutes = [
     rtlName: "قائمة الجدول",
     icon: "content_paste",
     component: TableList,
-    layout: "/admin",
-    detail: detailRoutes
+    layout: "/admin"
   },
   {
     path: "/recentlyreports",
