@@ -10,11 +10,15 @@ import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
 import SearchBar from "material-ui-search-bar";
 import { Icon } from "@material-ui/core";
-import Button from "components/CustomButtons/Button"
+import Button from "components/CustomButtons/Button";
 import AddIcon from "@material-ui/icons/Add";
+import RpTemplate from "../../components/Report/ReportTemplate";
 
 
 const styles = {
+  reportTempaltes: {
+    marginBottom: "50px"
+  },
   createButton: {
     marginLeft: "15px",
     marginBottom: "20px"
@@ -55,44 +59,97 @@ export default function TableList() {
   const [searchValue, setSearchValue] = React.useState();
   return (
     <GridContainer>
-
       <GridItem xs={12} sm={12} md={12}>
-      <div>
-      <Button className={classes.createButton} type="button" variant="contained" color="info">
+        <div>
+          <Button
+            className={classes.createButton}
+            type="button"
+            variant="contained"
+            color="info"
+          >
             <AddIcon />
-          &nbsp;
-        TẠO BÁO CÁO
-      </Button>
-      </div>
-        
-        <Card>
+            &nbsp; TẠO BÁO CÁO
+          </Button>
+        </div>
+        <Card className={classes.reportTempaltes}>
           <CardHeader color="info">
+            <h4 className={classes.cardTitleWhite}>Mẫu báo cáo</h4>
+          </CardHeader>
+          <CardBody>
+            <GridContainer>
+              <GridItem xs={4} sm={4} md={4}>
+                <RpTemplate image="daydien.jpg" des="aaaaa"></RpTemplate>
+              </GridItem>
+              <GridItem xs={4} sm={4} md={4}>
+                <RpTemplate></RpTemplate>
+              </GridItem>
+              <GridItem xs={4} sm={4} md={4}>
+                <RpTemplate></RpTemplate>
+              </GridItem>
+            </GridContainer>
+          </CardBody>
+        </Card>
+        <Card className={classes.list}>
+          <CardHeader color="info">
+            <GridContainer>
+              <GridItem xs={6} sm={6} md={6}>
+                <h4 className={classes.cardTitleWhite}>Simple Table</h4>
+              </GridItem>
+              <GridItem xs={5} sm={5} md={5}>
+                <SearchBar
+                  placeholder="Tìm kiếm báo cáo"
+                  value={searchValue}
+                  onChange={newValue => setSearchValue(newValue)}
+                  onRequestSearch={() => console.log(searchValue)}
+                  style={{
+                    margin: "0 auto",
+                    maxWidth: 800
+                  }}
+                />
+              </GridItem>
+            </GridContainer>
             {/* <h4 className={classes.cardTitleWhite}>Simple Table</h4>
             <p className={classes.cardCategoryWhite}>
               Here is a subtitle for this table
             </p> */}
 
-            <SearchBar
-              placeholder="Tìm kiếm báo cáo"
-              value={searchValue}
-              onChange={newValue => setSearchValue(newValue)}
-              onRequestSearch={() => console.log(searchValue)}
-              style={{
-                margin: "0 auto",
-                maxWidth: 800
-              }}
-            />
+
           </CardHeader>
           <CardBody>
             <Table
               tableHeaderColor="info"
-              tableHead={["Tên báo cáo", "Người tạo", "Thời gian", "Loại báo cáo"]}
+              tableHead={[
+                "Tên báo cáo",
+                "Người tạo",
+                "Thời gian",
+                "Loại báo cáo"
+              ]}
               tableData={[
-                ["Đường dây điện số 5", "Thế Hùng", "15/10/2019", "Đường dây điện"],
+                [
+                  "Đường dây điện số 5",
+                  "Thế Hùng",
+                  "15/10/2019",
+                  "Đường dây điện"
+                ],
                 ["Cột điện số G4FGD", "Thế Hùng", "13/10/2019", "Cột điện"],
-                ["Đường dây điện số 3", "Thế Hùng", "15/10/2019", "Đường dây điện"],
-                ["Đường dây điện số 5", "Thế Hùng", "15/10/2019", "Đường dây điện"],
-                ["Đường dây điện số 5", "Thế Hùng", "15/10/2019", "Đường dây điện"],
+                [
+                  "Đường dây điện số 3",
+                  "Thế Hùng",
+                  "15/10/2019",
+                  "Đường dây điện"
+                ],
+                [
+                  "Đường dây điện số 5",
+                  "Thế Hùng",
+                  "15/10/2019",
+                  "Đường dây điện"
+                ],
+                [
+                  "Đường dây điện số 5",
+                  "Thế Hùng",
+                  "15/10/2019",
+                  "Đường dây điện"
+                ]
                 // ["Đường dây điện số 5", "Thế Hùng", "15/10/2019", "Đường dây điện"],
                 // ["Đường dây điện số 5", "Thế Hùng", "15/10/2019", "Đường dây điện"],
               ]}
