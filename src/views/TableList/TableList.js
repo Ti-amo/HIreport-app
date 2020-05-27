@@ -10,7 +10,7 @@ import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
 import SearchBar from "material-ui-search-bar";
 import { Icon } from "@material-ui/core";
-import Button from "components/CustomButtons/Button"
+import Button from "components/CustomButtons/Button";
 import AddIcon from "@material-ui/icons/Add";
 
 
@@ -55,16 +55,19 @@ export default function TableList() {
   const [searchValue, setSearchValue] = React.useState();
   return (
     <GridContainer>
-
       <GridItem xs={12} sm={12} md={12}>
-      <div>
-      <Button className={classes.createButton} type="button" variant="contained" color="info">
+        <div>
+          <Button
+            className={classes.createButton}
+            type="button"
+            variant="contained"
+            color="info"
+          >
             <AddIcon />
-          &nbsp;
-        TẠO BÁO CÁO
-      </Button>
-      </div>
-        
+            &nbsp; TẠO BÁO CÁO
+          </Button>
+        </div>
+
         <Card>
           <CardHeader color="info">
             {/* <h4 className={classes.cardTitleWhite}>Simple Table</h4>
@@ -86,13 +89,38 @@ export default function TableList() {
           <CardBody>
             <Table
               tableHeaderColor="info"
-              tableHead={["Tên báo cáo", "Người tạo", "Thời gian", "Loại báo cáo"]}
+              tableHead={[
+                "Tên báo cáo",
+                "Người tạo",
+                "Thời gian",
+                "Loại báo cáo"
+              ]}
               tableData={[
-                ["Đường dây điện số 5", "Thế Hùng", "15/10/2019", "Đường dây điện"],
+                [
+                  "Đường dây điện số 5",
+                  "Thế Hùng",
+                  "15/10/2019",
+                  "Đường dây điện"
+                ],
                 ["Cột điện số G4FGD", "Thế Hùng", "13/10/2019", "Cột điện"],
-                ["Đường dây điện số 3", "Thế Hùng", "15/10/2019", "Đường dây điện"],
-                ["Đường dây điện số 5", "Thế Hùng", "15/10/2019", "Đường dây điện"],
-                ["Đường dây điện số 5", "Thế Hùng", "15/10/2019", "Đường dây điện"],
+                [
+                  "Đường dây điện số 3",
+                  "Thế Hùng",
+                  "15/10/2019",
+                  "Đường dây điện"
+                ],
+                [
+                  "Đường dây điện số 5",
+                  "Thế Hùng",
+                  "15/10/2019",
+                  "Đường dây điện"
+                ],
+                [
+                  "Đường dây điện số 5",
+                  "Thế Hùng",
+                  "15/10/2019",
+                  "Đường dây điện"
+                ]
                 // ["Đường dây điện số 5", "Thế Hùng", "15/10/2019", "Đường dây điện"],
                 // ["Đường dây điện số 5", "Thế Hùng", "15/10/2019", "Đường dây điện"],
               ]}
