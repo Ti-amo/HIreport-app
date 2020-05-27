@@ -45,34 +45,37 @@ export default function CustomTable(props) {
           {tableData.map((prop, key) => {
             return (
               <TableRow key={key} className={classes.tableBodyRow}>
-                {prop.map((prop, key) => {
-                  return (
-                    <TableCell className={classes.tableCell} key={key}>
-                      {prop}
-                    </TableCell>
-                  );
-                })}
-                <TableCell className={classes.tableCell}>
+                <TableCell className={classes.tableCell} key={key}>
+                  {prop.name}
+                </TableCell>
+                <TableCell className={classes.tableCell} key={key}>
+                  {prop.createdBy}
+                </TableCell><TableCell className={classes.tableCell} key={key}>
+                  {prop.dateTime}
+                </TableCell><TableCell className={classes.tableCell} key={key}>
+                  {prop.title}
+                </TableCell>
+                <TableCell>
                   <Button
-                    justIcon 
-                    round 
-                    color="transparent" 
+                    justIcon
+                    round
+                    color="transparent"
                     className={classes.icon}
                   >
                     <CreateIcon />
                   </Button>
                   <Button
-                    justIcon 
-                    round 
-                    color="transparent" 
+                    justIcon
+                    round
+                    color="transparent"
                     className={classes.icon}
                   >
                     <DeleteIcon />
                   </Button>
                   <Button
-                    justIcon 
-                    round 
-                    color="transparent" 
+                    justIcon
+                    round
+                    color="transparent"
                     className={classes.icon}
                   >
                     <ShareIcon />
@@ -83,7 +86,7 @@ export default function CustomTable(props) {
           })}
         </TableBody>
       </Table>
-      <br/>
+      <br />
       <Pagination count={10} color="info" />
     </div>
   );
