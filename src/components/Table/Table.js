@@ -52,7 +52,7 @@ export default function CustomTable(props) {
                     </TableCell>
                   );
                 })}
-                <TableCell>
+                <TableCell className={classes.tableCell}>
                   <Button
                     justIcon 
                     round 
@@ -77,9 +77,6 @@ export default function CustomTable(props) {
                   >
                     <ShareIcon />
                   </Button>
-                  {/* <CreateIcon className={classes.icon}></CreateIcon> */}
-                  {/* <DeleteIcon className={classes.icon}></DeleteIcon> */}
-                  {/* <ShareIcon className={classes.icon}></ShareIcon> */}
                 </TableCell>
               </TableRow>
             );

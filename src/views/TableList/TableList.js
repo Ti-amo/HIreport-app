@@ -12,9 +12,13 @@ import SearchBar from "material-ui-search-bar";
 import { Icon } from "@material-ui/core";
 import Button from "components/CustomButtons/Button";
 import AddIcon from "@material-ui/icons/Add";
+import RpTemplate from "../../components/Report/ReportTemplate";
 
 
 const styles = {
+  reportTempaltes: {
+    marginBottom: "50px"
+  },
   createButton: {
     marginLeft: "15px",
     marginBottom: "20px"
@@ -67,24 +71,49 @@ export default function TableList() {
             &nbsp; TẠO BÁO CÁO
           </Button>
         </div>
-
-        <Card>
+        <Card className={classes.reportTempaltes}>
           <CardHeader color="info">
+            <h4 className={classes.cardTitleWhite}>Mẫu báo cáo</h4>
+          </CardHeader>
+          <CardBody>
+            <GridContainer>
+              <GridItem xs={4} sm={4} md={4}>
+                <RpTemplate image="daydien.jpg" des="aaaaa"></RpTemplate>
+              </GridItem>
+              <GridItem xs={4} sm={4} md={4}>
+                <RpTemplate></RpTemplate>
+              </GridItem>
+              <GridItem xs={4} sm={4} md={4}>
+                <RpTemplate></RpTemplate>
+              </GridItem>
+            </GridContainer>
+          </CardBody>
+        </Card>
+        <Card className={classes.list}>
+          <CardHeader color="info">
+            <GridContainer>
+              <GridItem xs={6} sm={6} md={6}>
+                <h4 className={classes.cardTitleWhite}>Simple Table</h4>
+              </GridItem>
+              <GridItem xs={5} sm={5} md={5}>
+                <SearchBar
+                  placeholder="Tìm kiếm báo cáo"
+                  value={searchValue}
+                  onChange={newValue => setSearchValue(newValue)}
+                  onRequestSearch={() => console.log(searchValue)}
+                  style={{
+                    margin: "0 auto",
+                    maxWidth: 800
+                  }}
+                />
+              </GridItem>
+            </GridContainer>
             {/* <h4 className={classes.cardTitleWhite}>Simple Table</h4>
             <p className={classes.cardCategoryWhite}>
               Here is a subtitle for this table
             </p> */}
 
-            <SearchBar
-              placeholder="Tìm kiếm báo cáo"
-              value={searchValue}
-              onChange={newValue => setSearchValue(newValue)}
-              onRequestSearch={() => console.log(searchValue)}
-              style={{
-                margin: "0 auto",
-                maxWidth: 800
-              }}
-            />
+
           </CardHeader>
           <CardBody>
             <Table
