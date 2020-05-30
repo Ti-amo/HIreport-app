@@ -17,15 +17,15 @@ var delays2 = 80,
 
 const dailySalesChart = {
   data: {
-    labels: ["M", "T", "W", "T", "F", "S", "S"],
-    series: [[12, 17, 7, 17, 23, 18, 38]]
+    labels: ["T2", "T3", "T4", "T5", "T6", "T7", "CN"],
+    series: [[2, 7, 5, 7, 3, 8, 9]]
   },
   options: {
     lineSmooth: Chartist.Interpolation.cardinal({
       tension: 0
     }),
     low: 0,
-    high: 50, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+    high: 20, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
     chartPadding: {
       top: 0,
       right: 0,
@@ -72,27 +72,28 @@ const dailySalesChart = {
 const emailsSubscriptionChart = {
   data: {
     labels: [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "Mai",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec"
+      "Thg.1",
+      "Thg.2",
+      "Thg.3",
+      "Thg.4",
+      "Thg.5",
+      // "Jun",
+      // "Jul",
+      // "Aug",
+      // "Sep",
+      // "Oct",
+      // "Nov",
+      // "Dec"
     ],
-    series: [[542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895]]
+    series: [[31, 43, 20, 40, 57]]
+    // series: [[542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895]]
   },
   options: {
     axisX: {
       showGrid: false
     },
     low: 0,
-    high: 1000,
+    high: 100,
     chartPadding: {
       top: 0,
       right: 5,

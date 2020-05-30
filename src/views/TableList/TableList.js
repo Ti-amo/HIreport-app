@@ -78,13 +78,25 @@ export default function TableList() {
           <CardBody>
             <GridContainer>
               <GridItem xs={4} sm={4} md={4}>
-                <RpTemplate image="daydien.jpg" des="aaaaa"></RpTemplate>
+                <RpTemplate
+                  title="Đường dây điện"
+                  des="Báo cáo về sự cố của đường dây điện"
+                  image="https://st2.depositphotos.com/2317051/11374/i/950/depositphotos_113748554-stock-photo-black-and-white-silhouette-of.jpg"
+                ></RpTemplate>
               </GridItem>
               <GridItem xs={4} sm={4} md={4}>
-                <RpTemplate></RpTemplate>
+                <RpTemplate
+                  title="Cột điện"
+                  des="Báo cáo về sự cố của cột điện"
+                  image="https://previews.123rf.com/images/gbradic/gbradic1011/gbradic101100001/8202747-transmission-tower-silhouette.jpg"
+                ></RpTemplate>
               </GridItem>
               <GridItem xs={4} sm={4} md={4}>
-                <RpTemplate></RpTemplate>
+                <RpTemplate
+                  title="Hành lang tuyến"
+                  des="Báo cáo về sự cố của hành lang lưới điện"
+                  image="https://st2.depositphotos.com/2193402/7266/v/950/depositphotos_72667421-stock-illustration-high-voltage-power-lines.jpg"
+                ></RpTemplate>
               </GridItem>
             </GridContainer>
           </CardBody>
@@ -93,7 +105,7 @@ export default function TableList() {
           <CardHeader color="info">
             <GridContainer>
               <GridItem xs={6} sm={6} md={6}>
-                <h4 className={classes.cardTitleWhite}>Simple Table</h4>
+                <h4 className={classes.cardTitleWhite}>Danh sách báo cáo</h4>
               </GridItem>
               <GridItem xs={5} sm={5} md={5}>
                 <SearchBar
