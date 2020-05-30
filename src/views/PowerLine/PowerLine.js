@@ -14,6 +14,7 @@ import Button from "components/CustomButtons/Button";
 import AddIcon from "@material-ui/icons/Add";
 import { Autocomplete } from "@material-ui/lab";
 // import SearchBar from "components/Search/Search.js";
+import { Link } from "react-router-dom";
 
 const styles = {
   buttonWrap: {
@@ -101,14 +102,16 @@ export default function TableList() {
         <div>
           <p className={classes.textTitle}>Báo cáo đường dây điện</p>
           <div className={classes.buttonWrap}>
-            <Button
-              className={classes.createButton}
-              type="button"
-              variant="contained"
-              color="info"
-            >
-              <AddIcon /> &nbsp; TẠO BÁO CÁO
-            </Button>
+            <Link to="/create">
+              <Button
+                className={classes.createButton}
+                type="button"
+                variant="contained"
+                color="info"
+              >
+                <AddIcon /> &nbsp; TẠO BÁO CÁO
+              </Button>
+            </Link>
           </div>
         </div>
 

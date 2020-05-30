@@ -15,8 +15,10 @@ import CardFooter from "components/Card/CardFooter.js";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
+import Admin from "layouts/Admin.js";
 
 import avatar from "assets/img/faces/marc.jpg";
+import { Router, Route, Switch, Redirect, Link } from "react-router-dom";
 
 const styles = {
   root: {
@@ -126,7 +128,7 @@ export default function Create() {
 
                 <GridItem xs={12} sm={12} md={4}>
                   <CustomInput
-                    labelText="Postal Code"
+                    labelText="Thời gian kiểm tra"
                     id="postal-code"
                     formControlProps={{
                       fullWidth: true
@@ -136,7 +138,7 @@ export default function Create() {
               </GridContainer>
               <GridContainer>
                 <GridItem xs={3} sm={6} md={12}>
-                <FormControl fullWidth>
+                  <FormControl fullWidth>
                     <InputLabel id="demo-simple-select-label">Tình trạng</InputLabel>
                     <Select
                       labelId="demo-simple-select-label"
@@ -151,9 +153,29 @@ export default function Create() {
                   </FormControl>
                 </GridItem>
               </GridContainer>
+
+              <GridContainer>
+                <GridItem xs={3} sm={6} md={12}>
+                  <CustomInput
+                    labelText="Chi tiết về tình trạng"
+                    id="city"
+                    formControlProps={{
+                      fullWidth: true
+                    }}
+                  />
+                </GridItem>
+
+              </GridContainer>
             </CardBody>
             <CardFooter>
-              <Button color="info">Update Profile</Button>
+              <Link to="/admin/myreports">
+                <Button color="info">
+                  Tạo mới
+                </Button>
+              </Link>
+
+
+
             </CardFooter>
           </Card>
         </GridItem>
