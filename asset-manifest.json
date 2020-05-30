@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/material-dashboard-react/static/css/main.c051d8ca.chunk.css",
+    "main.js": "/material-dashboard-react/static/js/main.a3908514.chunk.js",
+    "main.js.map": "/material-dashboard-react/static/js/main.a3908514.chunk.js.map",
+    "runtime-main.js": "/material-dashboard-react/static/js/runtime-main.2c4f3a29.js",
+    "runtime-main.js.map": "/material-dashboard-react/static/js/runtime-main.2c4f3a29.js.map",
+    "static/css/2.656545ef.chunk.css": "/material-dashboard-react/static/css/2.656545ef.chunk.css",
+    "static/js/2.24286608.chunk.js": "/material-dashboard-react/static/js/2.24286608.chunk.js",
+    "static/js/2.24286608.chunk.js.map": "/material-dashboard-react/static/js/2.24286608.chunk.js.map",
+    "index.html": "/material-dashboard-react/index.html",
+    "precache-manifest.98df115aa238bf5449b2fa77539900e6.js": "/material-dashboard-react/precache-manifest.98df115aa238bf5449b2fa77539900e6.js",
+    "service-worker.js": "/material-dashboard-react/service-worker.js",
+    "static/css/2.656545ef.chunk.css.map": "/material-dashboard-react/static/css/2.656545ef.chunk.css.map",
+    "static/css/main.c051d8ca.chunk.css.map": "/material-dashboard-react/static/css/main.c051d8ca.chunk.css.map",
+    "static/js/2.24286608.chunk.js.LICENSE.txt": "/material-dashboard-react/static/js/2.24286608.chunk.js.LICENSE.txt",
+    "static/js/main.a3908514.chunk.js.LICENSE.txt": "/material-dashboard-react/static/js/main.a3908514.chunk.js.LICENSE.txt",
+    "static/media/marc.jpg": "/material-dashboard-react/static/media/marc.8880a65c.jpg",
+    "static/media/sidebar-1.jpg": "/material-dashboard-react/static/media/sidebar-1.8e9f0a3c.jpg",
+    "static/media/sidebar-2.jpg": "/material-dashboard-react/static/media/sidebar-2.310509c9.jpg",
+    "static/media/sidebar-3.jpg": "/material-dashboard-react/static/media/sidebar-3.25031690.jpg",
+    "static/media/sidebar-4.jpg": "/material-dashboard-react/static/media/sidebar-4.fc9cb053.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2c4f3a29.js",
+    "static/css/2.656545ef.chunk.css",
+    "static/js/2.24286608.chunk.js",
+    "static/css/main.c051d8ca.chunk.css",
+    "static/js/main.a3908514.chunk.js"
+  ]
+}
