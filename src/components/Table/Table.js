@@ -11,14 +11,7 @@ import CreateIcon from "@material-ui/icons/Create";
 import DeleteIcon from "@material-ui/icons/Delete";
 import ShareIcon from "@material-ui/icons/Share";
 import Pagination from "@material-ui/lab/Pagination";
-import Tooltip from "@material-ui/core/Tooltip";
-import Edit from "@material-ui/icons/Edit";
-import Close from "@material-ui/icons/Close";
-import Share from "@material-ui/icons/Share";
-import Check from "@material-ui/icons/Check";
-import IconButton from "@material-ui/core/IconButton";
 import Button from "components/CustomButtons/Button.js";
-
 // core components
 import styles from "assets/jss/material-dashboard-react/components/tableStyle.js";
 
@@ -43,7 +36,8 @@ export default function CustomTable(props) {
                   </TableCell>
                 );
               })}
-              <TableCell></TableCell>
+              <TableCell>
+              </TableCell>
             </TableRow>
           </TableHead>
         ) : null}
@@ -51,65 +45,41 @@ export default function CustomTable(props) {
           {tableData.map((prop, key) => {
             return (
               <TableRow key={key} className={classes.tableBodyRow}>
-                {prop.map((prop, key) => {
-                  return (
-                    <TableCell className={classes.tableCell} key={key}>
-                      {prop}
-                    </TableCell>
-                  );
-                })}
-                <TableCell className={classes.tableActions}>
-                  <Tooltip
-                    id="tooltip-top"
-                    title="Edit Task"
-                    placement="top"
-                    classes={{ tooltip: classes.tooltip }}
+                <TableCell className={classes.tableCell} key={key}>
+                  {prop.name}
+                </TableCell>
+                <TableCell className={classes.tableCell} key={key}>
+                  {prop.createdBy}
+                </TableCell><TableCell className={classes.tableCell} key={key}>
+                  {prop.dateTime}
+                </TableCell><TableCell className={classes.tableCell} key={key}>
+                  {prop.title}
+                </TableCell>
+                <TableCell>
+                  <Button
+                    justIcon
+                    round
+                    color="transparent"
+                    className={classes.icon}
                   >
-                    <IconButton
-                      aria-label="Edit"
-                      className={classes.tableActionButton}
-                    >
-                      <Edit
-                        className={
-                          classes.tableActionButtonIcon + " " + classes.edit
-                        }
-                      />
-                    </IconButton>
-                  </Tooltip>
-                  <Tooltip
-                    id="tooltip-top-start"
-                    title="Remove"
-                    placement="top"
-                    classes={{ tooltip: classes.tooltip }}
+                    <CreateIcon />
+                  </Button>
+                  <Button
+                    justIcon
+                    round
+                    color="transparent"
+                    className={classes.icon}
                   >
-                    <IconButton
-                      aria-label="Close"
-                      className={classes.tableActionButton}
-                    >
-                      <Close
-                        className={
-                          classes.tableActionButtonIcon + " " + classes.close
-                        }
-                      />
-                    </IconButton>
-                  </Tooltip>
-                  <Tooltip
-                    id="tooltip-top-start"
-                    title="Share"
-                    placement="top"
-                    classes={{ tooltip: classes.tooltip }}
+                    <DeleteIcon />
+                  </Button>
+                  <Button
+                    justIcon
+                    round
+                    color="transparent"
+                    className={classes.icon}
                   >
-                    <IconButton
-                      aria-label="Share"
-                      className={classes.tableActionButton}
-                    >
-                      <Share
-                        className={
-                          classes.tableActionButtonIcon + " " + classes.close
-                        }
-                      />
-                    </IconButton>
-                  </Tooltip>
+                    <ShareIcon />
+                  </Button>
                 </TableCell>
               </TableRow>
             );
