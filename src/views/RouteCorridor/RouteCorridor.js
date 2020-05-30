@@ -13,6 +13,7 @@ import { Icon, TextField } from "@material-ui/core";
 import Button from "components/CustomButtons/Button";
 import AddIcon from "@material-ui/icons/Add";
 import { Autocomplete } from "@material-ui/lab";
+import { Link } from "react-router-dom";
 
 const styles = {
   buttonWrap: {
@@ -100,14 +101,16 @@ export default function TableList() {
         <div>
           <p className={classes.textTitle}>Báo cáo hành lang tuyến</p>
           <div className={classes.buttonWrap}>
-            <Button
-              className={classes.createButton}
-              type="button"
-              variant="contained"
-              color="info"
-            >
-              <AddIcon /> &nbsp; TẠO BÁO CÁO
-            </Button>
+            <Link to="/create">
+              <Button
+                className={classes.createButton}
+                type="button"
+                variant="contained"
+                color="info"
+              >
+                <AddIcon /> &nbsp; TẠO BÁO CÁO
+              </Button>
+            </Link>
           </div>
         </div>
 
@@ -119,6 +122,7 @@ export default function TableList() {
             </p> */}
 
             <SearchBar
+            
               placeholder="Tìm kiếm báo cáo"
               value={searchValue}
               onChange={newValue => setSearchValue(newValue)}

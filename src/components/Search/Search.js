@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 import "./styles.scss";
 import SearchInput, { createFilter } from "react-search-input";
 
-const SearchBar = (props) => {
+const SearchBar = dataSource => {
   // eslint-disable-next-line react/prop-types
-  const dataSource = props;
+  
+  console.log("ASDF", dataSource)
   const [searchTerm, setSearchTerm] = useState("");
   const KEYS_TO_FILTERS = ["name"];
 
