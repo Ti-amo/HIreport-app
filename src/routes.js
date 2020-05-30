@@ -19,6 +19,8 @@
 import Dashboard from "@material-ui/icons/Dashboard";
 import Person from "@material-ui/icons/Person";
 import LibraryBooks from "@material-ui/icons/LibraryBooks";
+import LabelImportant from "@material-ui/icons/LabelImportant";
+import History from "@material-ui/icons/History";
 import BubbleChart from "@material-ui/icons/BubbleChart";
 import LocationOn from "@material-ui/icons/LocationOn";
 import Notifications from "@material-ui/icons/Notifications";
@@ -70,7 +72,7 @@ const dashboardRoutes = [
     path: "/recentlyreports",
     name: "Báo cáo gần đây",
     rtlName: "طباعة",
-    icon: LibraryBooks,
+    icon: History,
     component: Typography,
     layout: "/admin"
   },
@@ -94,7 +96,7 @@ const dashboardRoutes = [
     path: "/importantreports",
     name: "Báo cáo quan trọng",
     rtlName: "إخطارات",
-    icon: Star,
+    icon: LabelImportant,
     component: NotificationsPage,
     layout: "/admin"
   }
