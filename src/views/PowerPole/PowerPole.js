@@ -63,28 +63,28 @@ const useStyles = makeStyles(styles);
 
 const dataSource = [
   {
-    name: "Đường dây điện số 5",
+    name: "Cột điện số 12",
     createdBy: "Thế Hùng",
     dateTime: "15/10/2019",
-    title: "Đường dây điện"
+    title: "Cột điện"
   },
   {
-    name: "Đường dây điện số 3",
+    name: "Cột điện số 32",
     createdBy: "Quang Anh",
     dateTime: "13/10/2019",
-    title: "Đường dây điện"
+    title: "Cột điện"
   },
   {
-    name: "Đường dây điện số 15",
+    name: "Cột điện số 11",
     createdBy: "Thế Tung",
     dateTime: "14/10/2019",
-    title: "Đường dây điện"
+    title: "Cột điện"
   },
   {
-    name: "Đường dây điện số 25",
+    name: "Cột điện số 16",
     createdBy: "Quang Hùng",
     dateTime: "15/10/2019",
-    title: "Đường dây điện"
+    title: "Cột điện"
   }
 
   // ["Cột điện số G4FGD", "Thế Hùng", "13/10/2019", "Cột điện"],
