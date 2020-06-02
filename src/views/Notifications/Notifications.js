@@ -1,22 +1,29 @@
-/*eslint-disable*/
 import React from "react";
-// nodejs library to set properties for components
-import PropTypes from "prop-types";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-// @material-ui/icons
-import AddAlert from "@material-ui/icons/AddAlert";
 // core components
 import GridItem from "components/Grid/GridItem.js";
 import GridContainer from "components/Grid/GridContainer.js";
-import Button from "components/CustomButtons/Button.js";
-import SnackbarContent from "components/Snackbar/SnackbarContent.js";
-import Snackbar from "components/Snackbar/Snackbar.js";
+import Table from "components/Table/Table.js";
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
+import SearchBar from "material-ui-search-bar";
+import { Icon, TextField } from "@material-ui/core";
+import Button from "components/CustomButtons/Button";
+import AddIcon from "@material-ui/icons/Add";
+import { Autocomplete } from "@material-ui/lab";
+import { Link } from "react-router-dom";
 
 const styles = {
+  buttonWrap: {
+    textAlign: "right"
+  },
+  createButton: {
+    marginLeft: "15px",
+    marginBottom: "20px",
+    justifyContent: "flex-end"
+  },
   cardCategoryWhite: {
     "&,& a,& a:hover,& a:focus": {
       color: "rgba(255,255,255,.62)",
@@ -43,304 +50,151 @@ const styles = {
       fontWeight: "400",
       lineHeight: "1"
     }
+  },
+  textTitle: {
+    fontSize: "2rem",
+    fontWeight: "400",
+    textAlign: "center",
+    color: "black"
   }
 };
 
 const useStyles = makeStyles(styles);
 
-export default function Notifications() {
+const dataSource = [
+  {
+    name: "Hành lang tuyến số 4",
+    createdBy: "Thế Hùng",
+    dateTime: "15/10/2019",
+    title: "Hành lang tuyến"
+  },
+  {
+    name: "Hành lang tuyến số 9",
+    createdBy: "Quang Anh",
+    dateTime: "13/10/2019",
+    title: "Hành lang tuyến"
+  },
+  {
+    name: "Hành lang tuyến số 10",
+    createdBy: "Thế Tung",
+    dateTime: "14/10/2019",
+    title: "Hành lang tuyến"
+  },
+  {
+    name: "Hành lang tuyến số 34",
+    createdBy: "Quang Hùng",
+    dateTime: "15/10/2019",
+    title: "Hành lang tuyến"
+  }
+
+  // ["Cột điện số G4FGD", "Thế Hùng", "13/10/2019", "Cột điện"],
+  // ["Đường dây điện số 3", "Thế Hùng", "15/10/2019", "Đường dây điện"],
+  // ["Đường dây điện số 5", "Thế Hùng", "15/10/2019", "Đường dây điện"],
+  // ["Đường dây điện số 5", "Thế Hùng", "15/10/2019", "Đường dây điện"]
+];
+export default function Notification() {
   const classes = useStyles();
-  const [tl, setTL] = React.useState(false);
-  const [tc, setTC] = React.useState(false);
-  const [tr, setTR] = React.useState(false);
-  const [bl, setBL] = React.useState(false);
-  const [bc, setBC] = React.useState(false);
-  const [br, setBR] = React.useState(false);
-  React.useEffect(() => {
-    // Specify how to clean up after this effect:
-    return function cleanup() {
-      // to stop the warning of calling setState of unmounted component
-      var id = window.setTimeout(null, 0);
-      while (id--) {
-        window.clearTimeout(id);
-      }
-    };
-  });
-  const showNotification = place => {
-    switch (place) {
-      case "tl":
-        if (!tl) {
-          setTL(true);
-          setTimeout(function() {
-            setTL(false);
-          }, 6000);
-        }
-        break;
-      case "tc":
-        if (!tc) {
-          setTC(true);
-          setTimeout(function() {
-            setTC(false);
-          }, 6000);
-        }
-        break;
-      case "tr":
-        if (!tr) {
-          setTR(true);
-          setTimeout(function() {
-            setTR(false);
-          }, 6000);
-        }
-        break;
-      case "bl":
-        if (!bl) {
-          setBL(true);
-          setTimeout(function() {
-            setBL(false);
-          }, 6000);
-        }
-        break;
-      case "bc":
-        if (!bc) {
-          setBC(true);
-          setTimeout(function() {
-            setBC(false);
-          }, 6000);
-        }
-        break;
-      case "br":
-        if (!br) {
-          setBR(true);
-          setTimeout(function() {
-            setBR(false);
-          }, 6000);
-        }
-        break;
-      default:
-        break;
-    }
-  };
+  const [searchValue, setSearchValue] = React.useState();
   return (
-    <Card>
-      <CardHeader color="primary">
-        <h4 className={classes.cardTitleWhite}>Notifications</h4>
-        <p className={classes.cardCategoryWhite}>
-          Handcrafted by our friends from{" "}
-          <a
-            target="_blank"
-            href="https://material-ui-next.com/?ref=creativetime"
-          >
-            Material UI
-          </a>{" "}
-          and styled by{" "}
-          <a
-            target="_blank"
-            href="https://www.creative-tim.com/?ref=mdr-notifications-page"
-          >
-            Creative Tim
-          </a>
-          . Please checkout the{" "}
-          <a href="#pablo" target="_blank">
-            full documentation
-          </a>
-          .
-        </p>
-      </CardHeader>
-      <CardBody>
-        <GridContainer>
-          <GridItem xs={12} sm={12} md={6}>
-            <h5>Notifications Style</h5>
-            <br />
-            <SnackbarContent message={"This is a plain notification"} />
-            <SnackbarContent
-              message={"This is a notification with close button."}
-              close
+    <GridContainer>
+      <GridItem xs={12} sm={12} md={12}>
+        <div>
+          <p className={classes.textTitle}>Báo cáo quan trọng</p>
+          <div className={classes.buttonWrap}>
+            <Link to="/create">
+              <Button
+                className={classes.createButton}
+                type="button"
+                variant="contained"
+                color="info"
+              >
+                <AddIcon /> &nbsp; TẠO BÁO CÁO
+              </Button>
+            </Link>
+          </div>
+        </div>
+
+        <Card>
+          <CardHeader color="info">
+            {/* <h4 className={classes.cardTitleWhite}>Simple Table</h4>
+            <p className={classes.cardCategoryWhite}>
+              Here is a subtitle for this table
+            </p> */}
+
+            <SearchBar
+            
+              placeholder="Tìm kiếm báo cáo"
+              value={searchValue}
+              onChange={newValue => setSearchValue(newValue)}
+              onRequestSearch={() => console.log(searchValue)}
+              style={{
+                margin: "0 auto",
+                maxWidth: 800
+              }}
             />
-            <SnackbarContent
-              message={"This is a notification with close button and icon."}
-              close
-              icon={AddAlert}
-            />
-            <SnackbarContent
-              message={
-                "This is a notification with close button and icon and have many lines. You can see that the icon and the close button are always vertically aligned. This is a beautiful notification. So you don't have to worry about the style."
-              }
-              close
-              icon={AddAlert}
-            />
-          </GridItem>
-          <GridItem xs={12} sm={12} md={6}>
-            <h5>Notifications States</h5>
-            <br />
-            <SnackbarContent
-              message={
-                'INFO - This is a regular notification made with color="info"'
-              }
-              close
-              color="info"
-            />
-            <SnackbarContent
-              message={
-                'SUCCESS - This is a regular notification made with color="success"'
-              }
-              close
-              color="success"
-            />
-            <SnackbarContent
-              message={
-                'WARNING - This is a regular notification made with color="warning"'
-              }
-              close
-              color="warning"
-            />
-            <SnackbarContent
-              message={
-                'DANGER - This is a regular notification made with color="danger"'
-              }
-              close
-              color="danger"
-            />
-            <SnackbarContent
-              message={
-                'PRIMARY - This is a regular notification made with color="primary"'
-              }
-              close
-              color="primary"
-            />
-          </GridItem>
-        </GridContainer>
-        <br />
-        <br />
-        <GridContainer justify="center">
-          <GridItem xs={12} sm={12} md={6} style={{ textAlign: "center" }}>
-            <h5>
-              Notifications Places
-              <br />
-              <small>Click to view notifications</small>
-            </h5>
-          </GridItem>
-        </GridContainer>
-        <GridContainer justify="center">
-          <GridItem xs={12} sm={12} md={10} lg={8}>
-            <GridContainer>
-              <GridItem xs={12} sm={12} md={4}>
-                <Button
-                  fullWidth
-                  color="primary"
-                  onClick={() => showNotification("tl")}
-                >
-                  Top Left
-                </Button>
-                <Snackbar
-                  place="tl"
-                  color="info"
-                  icon={AddAlert}
-                  message="Welcome to MATERIAL DASHBOARD React - a beautiful freebie for every web developer."
-                  open={tl}
-                  closeNotification={() => setTL(false)}
-                  close
+            {/* <Autocomplete
+              id="combo-box-demo"
+              options={dataSource}
+              getOptionLabel={option => option.name}
+              style={{ width: fullWidth, backgroundColor: "#FFF" }}
+              popupIcon={() => {
+                return null;
+              }}
+              renderInput={params => (
+                <TextField
+                  {...params}
+                  InputProps={{ ...params.InputProps, disableUnderline: true }}
                 />
-              </GridItem>
-              <GridItem xs={12} sm={12} md={4}>
-                <Button
-                  fullWidth
-                  color="primary"
-                  onClick={() => showNotification("tc")}
-                >
-                  Top Center
-                </Button>
-                <Snackbar
-                  place="tc"
-                  color="info"
-                  icon={AddAlert}
-                  message="Welcome to MATERIAL DASHBOARD React - a beautiful freebie for every web developer."
-                  open={tc}
-                  closeNotification={() => setTC(false)}
-                  close
-                />
-              </GridItem>
-              <GridItem xs={12} sm={12} md={4}>
-                <Button
-                  fullWidth
-                  color="primary"
-                  onClick={() => showNotification("tr")}
-                >
-                  Top Right
-                </Button>
-                <Snackbar
-                  place="tr"
-                  color="info"
-                  icon={AddAlert}
-                  message="Welcome to MATERIAL DASHBOARD React - a beautiful freebie for every web developer."
-                  open={tr}
-                  closeNotification={() => setTR(false)}
-                  close
-                />
-              </GridItem>
-            </GridContainer>
-          </GridItem>
-        </GridContainer>
-        <GridContainer justify={"center"}>
-          <GridItem xs={12} sm={12} md={10} lg={8}>
-            <GridContainer>
-              <GridItem xs={12} sm={12} md={4}>
-                <Button
-                  fullWidth
-                  color="primary"
-                  onClick={() => showNotification("bl")}
-                >
-                  Bottom Left
-                </Button>
-                <Snackbar
-                  place="bl"
-                  color="info"
-                  icon={AddAlert}
-                  message="Welcome to MATERIAL DASHBOARD React - a beautiful freebie for every web developer."
-                  open={bl}
-                  closeNotification={() => setBL(false)}
-                  close
-                />
-              </GridItem>
-              <GridItem xs={12} sm={12} md={4}>
-                <Button
-                  fullWidth
-                  color="primary"
-                  onClick={() => showNotification("bc")}
-                >
-                  Bottom Center
-                </Button>
-                <Snackbar
-                  place="bc"
-                  color="info"
-                  icon={AddAlert}
-                  message="Welcome to MATERIAL DASHBOARD React - a beautiful freebie for every web developer."
-                  open={bc}
-                  closeNotification={() => setBC(false)}
-                  close
-                />
-              </GridItem>
-              <GridItem xs={12} sm={12} md={4}>
-                <Button
-                  fullWidth
-                  color="primary"
-                  onClick={() => showNotification("br")}
-                >
-                  Bottom Right
-                </Button>
-                <Snackbar
-                  place="br"
-                  color="info"
-                  icon={AddAlert}
-                  message="Welcome to MATERIAL DASHBOARD React - a beautiful freebie for every web developer."
-                  open={br}
-                  closeNotification={() => setBR(false)}
-                  close
-                />
-              </GridItem>
-            </GridContainer>
-          </GridItem>
-        </GridContainer>
-      </CardBody>
-    </Card>
+              )}
+            /> */}
+          </CardHeader>
+          <CardBody>
+            <Table
+              tableHeaderColor="info"
+              tableHead={["Tên báo cáo", "Người tạo", "Thời gian", "Loại báo cáo"]}
+              tableData={dataSource}
+            />
+          </CardBody>
+        </Card>
+      </GridItem>
+      {/* <GridItem xs={12} sm={12} md={12}>
+        <Card plain>
+          <CardHeader plain color="primary">
+            <h4 className={classes.cardTitleWhite}>
+              Table on Plain Background
+            </h4>
+            <p className={classes.cardCategoryWhite}>
+              Here is a subtitle for this table
+            </p>
+          </CardHeader>
+          <CardBody>
+            <Table
+              tableHeaderColor="primary"
+              tableHead={["ID", "Name", "Country", "City", "Salary"]}
+              tableData={[
+                ["1", "Dakota Rice", "$36,738", "Niger", "Oud-Turnhout"],
+                ["2", "Minerva Hooper", "$23,789", "Curaçao", "Sinaai-Waas"],
+                ["3", "Sage Rodriguez", "$56,142", "Netherlands", "Baileux"],
+                [
+                  "4",
+                  "Philip Chaney",
+                  "$38,735",
+                  "Korea, South",
+                  "Overland Park"
+                ],
+                [
+                  "5",
+                  "Doris Greene",
+                  "$63,542",
+                  "Malawi",
+                  "Feldkirchen in Kärnten"
+                ],
+                ["6", "Mason Porter", "$78,615", "Chile", "Gloucester"]
+              ]}
+            />
+          </CardBody>
+        </Card>
+      </GridItem> */}
+    </GridContainer>
   );
 }

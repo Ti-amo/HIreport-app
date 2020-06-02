@@ -2,42 +2,39 @@ import React from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 // core components
-import Quote from "components/Typography/Quote.js";
-import Muted from "components/Typography/Muted.js";
-import Primary from "components/Typography/Primary.js";
-import Info from "components/Typography/Info.js";
-import Success from "components/Typography/Success.js";
-import Warning from "components/Typography/Warning.js";
-import Danger from "components/Typography/Danger.js";
+import GridItem from "components/Grid/GridItem.js";
+import GridContainer from "components/Grid/GridContainer.js";
+import Table from "components/Table/Table.js";
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
+import SearchBar from "material-ui-search-bar";
+import { Icon, TextField } from "@material-ui/core";
+import Button from "components/CustomButtons/Button";
+import AddIcon from "@material-ui/icons/Add";
+import { Autocomplete } from "@material-ui/lab";
+import { Link } from "react-router-dom";
 
 const styles = {
-  typo: {
-    paddingLeft: "25%",
-    marginBottom: "40px",
-    position: "relative"
+  buttonWrap: {
+    textAlign: "right"
   },
-  note: {
-    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
-    bottom: "10px",
-    color: "#c0c1c2",
-    display: "block",
-    fontWeight: "400",
-    fontSize: "13px",
-    lineHeight: "13px",
-    left: "0",
-    marginLeft: "20px",
-    position: "absolute",
-    width: "260px"
+  createButton: {
+    marginLeft: "15px",
+    marginBottom: "20px",
+    justifyContent: "flex-end"
   },
   cardCategoryWhite: {
-    color: "rgba(255,255,255,.62)",
-    margin: "0",
-    fontSize: "14px",
-    marginTop: "0",
-    marginBottom: "0"
+    "&,& a,& a:hover,& a:focus": {
+      color: "rgba(255,255,255,.62)",
+      margin: "0",
+      fontSize: "14px",
+      marginTop: "0",
+      marginBottom: "0"
+    },
+    "& a,& a:hover,& a:focus": {
+      color: "#FFFFFF"
+    }
   },
   cardTitleWhite: {
     color: "#FFFFFF",
@@ -46,117 +43,158 @@ const styles = {
     fontWeight: "300",
     fontFamily: "'Roboto', 'Helvetica', 'Arial', sans-serif",
     marginBottom: "3px",
-    textDecoration: "none"
+    textDecoration: "none",
+    "& small": {
+      color: "#777",
+      fontSize: "65%",
+      fontWeight: "400",
+      lineHeight: "1"
+    }
+  },
+  textTitle: {
+    fontSize: "2rem",
+    fontWeight: "400",
+    textAlign: "center",
+    color: "black"
   }
 };
 
 const useStyles = makeStyles(styles);
 
-export default function TypographyPage() {
+const dataSource = [
+  {
+    name: "Cột điện số 5",
+    createdBy: "Hoàng Hùng",
+    dateTime: "15/10/2019",
+    title: "Hành lang tuyến"
+  },
+  {
+    name: "Đường dây điện số 3",
+    createdBy: "Quỳnh Anh",
+    dateTime: "13/10/2019",
+    title: "Hành lang tuyến"
+  },
+  {
+    name: "Hành lang tuyến số 10",
+    createdBy: "Thế Dũng",
+    dateTime: "14/10/2019",
+    title: "Hành lang tuyến"
+  },
+  {
+    name: "Hành lang tuyến số 34",
+    createdBy: "Quang Hùng",
+    dateTime: "15/10/2019",
+    title: "Hành lang tuyến"
+  }
+
+  // ["Cột điện số G4FGD", "Thế Hùng", "13/10/2019", "Cột điện"],
+  // ["Đường dây điện số 3", "Thế Hùng", "15/10/2019", "Đường dây điện"],
+  // ["Đường dây điện số 5", "Thế Hùng", "15/10/2019", "Đường dây điện"],
+  // ["Đường dây điện số 5", "Thế Hùng", "15/10/2019", "Đường dây điện"]
+];
+export default function Typography() {
   const classes = useStyles();
+  const [searchValue, setSearchValue] = React.useState();
   return (
-    <Card>
-      <CardHeader color="primary">
-        <h4 className={classes.cardTitleWhite}>Material Dashboard Heading</h4>
-        <p className={classes.cardCategoryWhite}>
-          Created using Roboto Font Family
-        </p>
-      </CardHeader>
-      <CardBody>
-        <div className={classes.typo}>
-          <div className={classes.note}>Header 1</div>
-          <h1>The Life of Material Dashboard</h1>
+    <GridContainer>
+      <GridItem xs={12} sm={12} md={12}>
+        <div>
+          <p className={classes.textTitle}>Báo cáo gần đây</p>
+          <div className={classes.buttonWrap}>
+            <Link to="/create">
+              <Button
+                className={classes.createButton}
+                type="button"
+                variant="contained"
+                color="info"
+              >
+                <AddIcon /> &nbsp; TẠO BÁO CÁO
+              </Button>
+            </Link>
+          </div>
         </div>
-        <div className={classes.typo}>
-          <div className={classes.note}>Header 2</div>
-          <h2>The Life of Material Dashboard</h2>
-        </div>
-        <div className={classes.typo}>
-          <div className={classes.note}>Header 3</div>
-          <h3>The Life of Material Dashboard</h3>
-        </div>
-        <div className={classes.typo}>
-          <div className={classes.note}>Header 4</div>
-          <h4>The Life of Material Dashboard</h4>
-        </div>
-        <div className={classes.typo}>
-          <div className={classes.note}>Header 5</div>
-          <h5>The Life of Material Dashboard</h5>
-        </div>
-        <div className={classes.typo}>
-          <div className={classes.note}>Header 6</div>
-          <h6>The Life of Material Dashboard</h6>
-        </div>
-        <div className={classes.typo}>
-          <div className={classes.note}>Paragraph</div>
-          <p>
-            I will be the leader of a company that ends up being worth billions
-            of dollars, because I got the answers. I understand culture. I am
-            the nucleus. I think that’s a responsibility that I have, to push
-            possibilities, to show people, this is the level that things could
-            be at.
-          </p>
-        </div>
-        <div className={classes.typo}>
-          <div className={classes.note}>Quote</div>
-          <Quote
-            text="I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at."
-            author=" Kanye West, Musician"
-          />
-        </div>
-        <div className={classes.typo}>
-          <div className={classes.note}>Muted Text</div>
-          <Muted>
-            I will be the leader of a company that ends up being worth billions
-            of dollars, because I got the answers...
-          </Muted>
-        </div>
-        <div className={classes.typo}>
-          <div className={classes.note}>Primary Text</div>
-          <Primary>
-            I will be the leader of a company that ends up being worth billions
-            of dollars, because I got the answers...
-          </Primary>
-        </div>
-        <div className={classes.typo}>
-          <div className={classes.note}>Info Text</div>
-          <Info>
-            I will be the leader of a company that ends up being worth billions
-            of dollars, because I got the answers...
-          </Info>
-        </div>
-        <div className={classes.typo}>
-          <div className={classes.note}>Success Text</div>
-          <Success>
-            I will be the leader of a company that ends up being worth billions
-            of dollars, because I got the answers...
-          </Success>
-        </div>
-        <div className={classes.typo}>
-          <div className={classes.note}>Warning Text</div>
-          <Warning>
-            I will be the leader of a company that ends up being worth billions
-            of dollars, because I got the answers...
-          </Warning>
-        </div>
-        <div className={classes.typo}>
-          <div className={classes.note}>Danger Text</div>
-          <Danger>
-            I will be the leader of a company that ends up being worth billions
-            of dollars, because I got the answers...
-          </Danger>
-        </div>
-        <div className={classes.typo}>
-          <div className={classes.note}>Small Tag</div>
-          <h2>
-            Header with small subtitle
-            <br />
-            <small>
-              Use {'"'}Small{'"'} tag for the headers
-            </small>
-          </h2>
-        </div>
-      </CardBody>
-    </Card>
+
+        <Card>
+          <CardHeader color="info">
+            {/* <h4 className={classes.cardTitleWhite}>Simple Table</h4>
+            <p className={classes.cardCategoryWhite}>
+              Here is a subtitle for this table
+            </p> */}
+
+            <SearchBar
+            
+              placeholder="Tìm kiếm báo cáo"
+              value={searchValue}
+              onChange={newValue => setSearchValue(newValue)}
+              onRequestSearch={() => console.log(searchValue)}
+              style={{
+                margin: "0 auto",
+                maxWidth: 800
+              }}
+            />
+            {/* <Autocomplete
+              id="combo-box-demo"
+              options={dataSource}
+              getOptionLabel={option => option.name}
+              style={{ width: fullWidth, backgroundColor: "#FFF" }}
+              popupIcon={() => {
+                return null;
+              }}
+              renderInput={params => (
+                <TextField
+                  {...params}
+                  InputProps={{ ...params.InputProps, disableUnderline: true }}
+                />
+              )}
+            /> */}
+          </CardHeader>
+          <CardBody>
+            <Table
+              tableHeaderColor="info"
+              tableHead={["Tên báo cáo", "Người tạo", "Thời gian", "Loại báo cáo"]}
+              tableData={dataSource}
+            />
+          </CardBody>
+        </Card>
+      </GridItem>
+      {/* <GridItem xs={12} sm={12} md={12}>
+        <Card plain>
+          <CardHeader plain color="primary">
+            <h4 className={classes.cardTitleWhite}>
+              Table on Plain Background
+            </h4>
+            <p className={classes.cardCategoryWhite}>
+              Here is a subtitle for this table
+            </p>
+          </CardHeader>
+          <CardBody>
+            <Table
+              tableHeaderColor="primary"
+              tableHead={["ID", "Name", "Country", "City", "Salary"]}
+              tableData={[
+                ["1", "Dakota Rice", "$36,738", "Niger", "Oud-Turnhout"],
+                ["2", "Minerva Hooper", "$23,789", "Curaçao", "Sinaai-Waas"],
+                ["3", "Sage Rodriguez", "$56,142", "Netherlands", "Baileux"],
+                [
+                  "4",
+                  "Philip Chaney",
+                  "$38,735",
+                  "Korea, South",
+                  "Overland Park"
+                ],
+                [
+                  "5",
+                  "Doris Greene",
+                  "$63,542",
+                  "Malawi",
+                  "Feldkirchen in Kärnten"
+                ],
+                ["6", "Mason Porter", "$78,615", "Chile", "Gloucester"]
+              ]}
+            />
+          </CardBody>
+        </Card>
+      </GridItem> */}
+    </GridContainer>
   );
 }
