@@ -96,7 +96,7 @@ const dashboardRoutes = [
     path: "/importantreports",
     name: "Báo cáo quan trọng",
     rtlName: "إخطارات",
-    icon: LabelImportant,
+    icon: Star,
     component: NotificationsPage,
     layout: "/admin"
   }

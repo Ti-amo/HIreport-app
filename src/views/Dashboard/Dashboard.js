@@ -94,8 +94,8 @@ export default function Dashboard() {
         </GridItem>
         <GridItem xs={12} sm={6} md={3}>
           <Card>
-            <CardHeader color="danger" stats icon>
-              <CardIcon color="danger">
+            <CardHeader color="warning" stats icon>
+              <CardIcon color="warning">
                 <Icon>label_important</Icon>
               </CardIcon>
               <p className={classes.cardCategory}>Báo cáo quan trọng</p>
@@ -111,8 +111,8 @@ export default function Dashboard() {
         </GridItem>
         <GridItem xs={12} sm={6} md={3}>
           <Card>
-            <CardHeader color="warning" stats icon>
-              <CardIcon color="warning">
+            <CardHeader color="danger" stats icon>
+              <CardIcon color="danger">
                 <Icon>insert_drive_file</Icon>
               </CardIcon>
               <p className={classes.cardCategory}>Bản nháp</p>
