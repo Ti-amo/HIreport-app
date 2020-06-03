@@ -77,7 +77,6 @@ const styles = {
 const useStyles = makeStyles(styles);
 
 const SearchReport = props => {
-  console.log("AAA", props);
 
   const searchKey = props.searchKey;
 
@@ -91,7 +90,7 @@ const SearchReport = props => {
   );
 };
 
-export default function TableList() {
+const TableList = props => {
   const classes = useStyles();
   const [searchValue, setSearchValue] = React.useState();
   return (
@@ -99,7 +98,7 @@ export default function TableList() {
       <GridItem xs={12} sm={12} md={12}>
         <div>
           <Button
-            classname={classes.createButton}
+            className={classes.createButton}
             type="button"
             variant="contained"
             color="info"
@@ -115,7 +114,7 @@ export default function TableList() {
           <CardBody>
             <GridContainer>
               <GridItem xs={4} sm={4} md={4}>
-                <Link to="/admin/myreports/daydien">
+                <Link to="/create?type=daydien">
                   <RpTemplate
                     title="Đường dây điện"
                     des="Báo cáo về sự cố của đường dây điện"
@@ -124,7 +123,7 @@ export default function TableList() {
                 </Link>
               </GridItem>
               <GridItem xs={4} sm={4} md={4}>
-                <Link to="/admin/myreports/cotdien">
+                <Link to="/create?type=cotdien">
                   <RpTemplate
                     title="Cột điện"
                     des="Báo cáo về sự cố của cột điện"
@@ -133,7 +132,7 @@ export default function TableList() {
                 </Link>
               </GridItem>
               <GridItem xs={4} sm={4} md={4}>
-                <Link to="/admin/myreports/hanhlangtuyen">
+                <Link to="/create?type=hanhlangtuyen">
                   <RpTemplate
                     title="Hành lang tuyến"
                     des="Báo cáo về sự cố của hành lang lưới điện"
@@ -173,4 +172,6 @@ export default function TableList() {
       </GridItem>
     </GridContainer>
   );
-}
+};
+
+export default TableList;

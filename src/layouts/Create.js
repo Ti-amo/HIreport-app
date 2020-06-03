@@ -16,9 +16,10 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import Admin from "layouts/Admin.js";
+import DatePicker from "react-date-picker";
 
 import avatar from "assets/img/faces/marc.jpg";
-import { Router, Route, Switch, Redirect, Link } from "react-router-dom";
+import { Link, useLocation, BrowserRouter as Router } from "react-router-dom";
 
 const styles = {
   root: {
@@ -46,9 +47,16 @@ const styles = {
 
 const useStyles = makeStyles(styles);
 
-export default function Create() {
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
+const Create = props => {
+  let queryParam = useQuery().get("type");
+  console.log("AAA", queryParam);
+
   const classes = useStyles();
   const [age, setAge] = React.useState("");
+  const [date, setDate] = React.useState(new Date());
 
   const handleChange = event => {
     setAge(event.target.value);
@@ -59,7 +67,14 @@ export default function Create() {
         <GridItem xs={20} sm={15} md={10} clas>
           <Card>
             <CardHeader color="info">
-              <h4 className={classes.cardTitleWhite}>Báo cáo đường dây điện</h4>
+              <h4 className={classes.cardTitleWhite}>
+                Báo cáo{" "}
+                {queryParam == "daydien"
+                  ? "đường dây điện"
+                  : `${
+                  queryParam == "cotdien" ? "cột điện" : "hành lang tuyến"
+                  }`}
+              </h4>
               <p className={classes.cardCategoryWhite}>Bản báo cáo mới</p>
             </CardHeader>
             <CardBody>
@@ -85,15 +100,24 @@ export default function Create() {
                     }}
                   />
                 </GridItem>
-                <GridItem xs={12} sm={12} md={4}>
-                  <CustomInput
+                <div style={{paddingTop: "2.75rem"}}>
+                  <GridItem xs={12} sm={12} md={12}>
+                    {/* <CustomInput
                     labelText="Ngày tạo"
                     id="email-address"
                     formControlProps={{
                       fullWidth: true
                     }}
-                  />
-                </GridItem>
+                  /> */}
+                    <label htmlFor="male" style={{}}>Ngày tạo</label> &nbsp;
+                    <DatePicker
+                      calendarAriaLabel="ahiha"
+                      onChange={newDate => setDate(newDate)}
+                      value={date}
+                    />
+                  </GridItem>
+                </div>
+
               </GridContainer>
               <GridContainer>
                 <GridItem xs={12} sm={12} md={6}>
@@ -105,15 +129,6 @@ export default function Create() {
                     }}
                   />
                 </GridItem>
-                {/* <GridItem xs={12} sm={12} md={6}>
-                  <CustomInput
-                    labelText="Last Name"
-                    id="last-name"
-                    formControlProps={{
-                      fullWidth: true
-                    }}
-                  />
-                </GridItem> */}
               </GridContainer>
               <GridContainer>
                 <GridItem xs={12} sm={12} md={4}>
@@ -139,7 +154,9 @@ export default function Create() {
               <GridContainer>
                 <GridItem xs={3} sm={6} md={12}>
                   <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label">Tình trạng</InputLabel>
+                    <InputLabel id="demo-simple-select-label">
+                      Tình trạng
+                    </InputLabel>
                     <Select
                       labelId="demo-simple-select-label"
                       id="demo-simple-select"
@@ -168,18 +185,15 @@ export default function Create() {
               </GridContainer>
             </CardBody>
             <CardFooter>
-              <Link to="/admin/myreports">
-                <Button color="info">
-                  Tạo mới
-                </Button>
+              <Link to={`/admin/myreports/` + `${queryParam}`}>
+                <Button color="info">Tạo mới</Button>
               </Link>
-
-
-
             </CardFooter>
           </Card>
         </GridItem>
       </GridContainer>
     </div>
   );
-}
+};
+
+export default Create;

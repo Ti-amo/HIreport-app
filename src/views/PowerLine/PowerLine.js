@@ -17,6 +17,7 @@ import { Autocomplete } from "@material-ui/lab";
 import { Link } from "react-router-dom";
 import dataSource from "../../dataSource.js";
 import Table2 from "components/Table/Table2.js";
+import queryString from "querystring"
 
 const headCells = [
   { id: "important", numeric: false, disablePadding: false, label: "" },
@@ -83,7 +84,8 @@ const styles = {
 
 const useStyles = makeStyles(styles);
 
-export default function TableList() {
+const PowerLine = props => {
+  console.log("AAAAA", queryString.parse(props))
   const classes = useStyles();
   const [searchValue, setSearchValue] = React.useState();
   return (
@@ -92,7 +94,7 @@ export default function TableList() {
         <div>
           <p className={classes.textTitle}>Báo cáo đường dây điện</p>
           <div className={classes.buttonWrap}>
-            <Link to="/create">
+            <Link to="/create?type=daydien">
               <Button
                 className={classes.createButton}
                 type="button"
@@ -111,7 +113,7 @@ export default function TableList() {
               placeholder="Tìm kiếm báo cáo"
               value={searchValue}
               onChange={newValue => setSearchValue(newValue)}
-              onRequestSearch={() => console.log(searchValue)}
+              onRequestSearch={() => console.log("SEARCH VALUE", searchValue)}
               style={{
                 margin: "0 auto",
                 maxWidth: 800
@@ -128,4 +130,6 @@ export default function TableList() {
       </GridItem>
     </GridContainer>
   );
-}
+};
+
+export default PowerLine;

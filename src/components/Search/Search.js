@@ -6,7 +6,7 @@ import SearchInput, { createFilter } from "react-search-input";
 const SearchBar = dataSource => {
   // eslint-disable-next-line react/prop-types
   
-  console.log("ASDF", dataSource)
+  // console.log("ASDF", dataSource)
   const [searchTerm, setSearchTerm] = useState("");
   const KEYS_TO_FILTERS = ["name"];
 

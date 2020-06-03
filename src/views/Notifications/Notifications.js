@@ -122,11 +122,10 @@ export default function Notification() {
             </p> */}
 
             <SearchBar
-            
               placeholder="Tìm kiếm báo cáo"
               value={searchValue}
               onChange={newValue => setSearchValue(newValue)}
-              onRequestSearch={() => console.log(searchValue)}
+              onRequestSearch={() => console.log("SEARCH VALUE", searchValue)}
               style={{
                 margin: "0 auto",
                 maxWidth: 800

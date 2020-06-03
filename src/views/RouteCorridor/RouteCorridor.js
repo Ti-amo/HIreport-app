@@ -91,7 +91,7 @@ export default function TableList() {
         <div>
           <p className={classes.textTitle}>Báo cáo hành lang tuyến</p>
           <div className={classes.buttonWrap}>
-            <Link to="/create">
+            <Link to="/create?type=hanhlangtuyen">
               <Button
                 className={classes.createButton}
                 type="button"
@@ -110,7 +110,7 @@ export default function TableList() {
               placeholder="Tìm kiếm báo cáo"
               value={searchValue}
               onChange={newValue => setSearchValue(newValue)}
-              onRequestSearch={() => console.log(searchValue)}
+              onRequestSearch={() => console.log("SEARCH VALUE", searchValue)}
               style={{
                 margin: "0 auto",
                 maxWidth: 800
