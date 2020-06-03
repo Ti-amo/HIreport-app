@@ -14,6 +14,7 @@ import Button from "components/CustomButtons/Button";
 import AddIcon from "@material-ui/icons/Add";
 import RpTemplate from "../../components/Report/ReportTemplate";
 
+<<<<<<< HEAD
 import Table2 from "components/Table/Table2.js";
 
 function createData(reportName, owner, createdAt, type) {
@@ -51,6 +52,9 @@ const headCells = [
   { id: "type", numeric: true, disablePadding: false, label: "Loại báo cáo" },
   { id: "action", numeric: false, disablePadding: false, label: "" },
 ];
+=======
+import dataSource from "../../dataSource.js";
+>>>>>>> myreportdetail
 
 const styles = {
   reportTempaltes: {
@@ -91,37 +95,21 @@ const styles = {
 
 const useStyles = makeStyles(styles);
 
-const dataSource = [
-  {
-    name: "Đường dây điện số 12",
-    createdBy: "Thế Hùng",
-    dateTime: "14/10/2019",
-    title: "Đường dây điện"
-  },
-  {
-    name: "Đường dây điện số 7",
-    createdBy: "Quang Anh",
-    dateTime: "13/10/2019",
-    title: "Đường dây điện"
-  },
-  {
-    name: "Cột điện 15",
-    createdBy: "Thế Tung",
-    dateTime: "14/10/2019",
-    title: "Đường dây điện"
-  },
-  {
-    name: "Hành lang tuyến số 25",
-    createdBy: "Quang Hùng",
-    dateTime: "15/10/2019",
-    title: "Đường dây điện"
-  }
+const SearchReport = props => {
+  console.log("AAA", props);
 
-  // ["Cột điện số G4FGD", "Thế Hùng", "13/10/2019", "Cột điện"],
-  // ["Đường dây điện số 3", "Thế Hùng", "15/10/2019", "Đường dây điện"],
-  // ["Đường dây điện số 5", "Thế Hùng", "15/10/2019", "Đường dây điện"],
-  // ["Đường dây điện số 5", "Thế Hùng", "15/10/2019", "Đường dây điện"]
-];
+  const searchKey = props.searchKey;
+
+  const results = dataSource.filter(item => item.title == { searchKey });
+  return (
+    <div>
+      {results.map((item, index) => (
+        <li key={index}>{item.name}</li>
+      ))}
+    </div>
+  );
+};
+
 export default function TableList() {
   const classes = useStyles();
   const [searchValue, setSearchValue] = React.useState();
@@ -180,7 +168,9 @@ export default function TableList() {
                   placeholder="Tìm kiếm báo cáo"
                   value={searchValue}
                   onChange={newValue => setSearchValue(newValue)}
-                  onRequestSearch={() => console.log(searchValue)}
+                  onRequestSearch={() => (
+                    <SearchReport searchKey={searchValue} />
+                  )}
                   style={{
                     margin: "0 auto",
                     maxWidth: 800
@@ -211,6 +201,7 @@ export default function TableList() {
           </CardBody>
         </Card>
       </GridItem>
+<<<<<<< HEAD
       {/* <GridItem xs={12} sm={12} md={12}>
         <Card plain>
           <CardHeader plain color="primary">
@@ -250,5 +241,8 @@ export default function TableList() {
         </Card>
       </GridItem> */}
     </GridContainer >
+=======
+    </GridContainer>
+>>>>>>> myreportdetail
   );
 }
