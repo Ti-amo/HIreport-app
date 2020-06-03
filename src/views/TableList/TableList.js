@@ -14,6 +14,43 @@ import Button from "components/CustomButtons/Button";
 import AddIcon from "@material-ui/icons/Add";
 import RpTemplate from "../../components/Report/ReportTemplate";
 
+import Table2 from "components/Table/Table2.js";
+
+function createData(reportName, owner, createdAt, type) {
+  return { reportName, owner, createdAt, type };
+}
+
+const rows = [
+  createData("Đường dây điện số 12","Thế Hùng", "14/10/2019","Đường dây điện"),
+  createData("Đường dây điện số 7","Quang Anh", "13/10/2019","Đường dây điện"),
+  createData("Cột điện 15","Thế Tung","14/10/2019","Đường dây điện"),
+  createData("Hành lang tuyến số 25", "Quang Hùng", "15/10/2019","Hành lang tuyến"),
+  createData("Hành lang tuyến số 26", "Quang Anh", "16/10/2019","Hành lang tuyến"),
+  createData("Hành lang tuyến số 27", "Văn Hùng", "15/10/2019","Hành lang tuyến"),
+  createData("Hành lang tuyến số 28", "Quang Tùng", "12/10/2019","Hành lang tuyến"),
+  createData("Hành lang tuyến số 29", "Quang Hoàng", "15/10/2019","Hành lang tuyến"),
+  createData("Hành lang tuyến số 30", "Văn Hùng", "24/10/2019","Hành lang tuyến"),
+  createData("Hành lang tuyến số 31", "Phùng hoàng", "17/10/2019","Hành lang tuyến"),
+  createData("Hành lang tuyến số 32", "Quang Hùng", "19/10/2019","Hành lang tuyến")
+  // createData("Gingerbread", 356, 16.0, 49, 3.9),
+  // createData("Honeycomb", 408, 3.2, 87, 6.5),
+  // createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
+  // createData("Jelly Bean", 375, 0.0, 94, 0.0),
+  // createData("KitKat", 518, 26.0, 65, 7.0),
+  // createData("Lollipop", 392, 0.2, 98, 0.0),
+  // createData("Marshmallow", 318, 0, 81, 2.0),
+  // createData("Nougat", 360, 19.0, 9, 37.0),
+  // createData("Oreo", 437, 18.0, 63, 4.0),
+];
+
+const headCells = [
+  { id: "important", numeric: false, disablePadding: false, label: "" },
+  { id: "reportName", numeric: false, disablePadding: true, label: "Tên báo cáo" },
+  { id: "owner", numeric: true, disablePadding: false, label: "Người tạo" },
+  { id: "createdAt", numeric: true, disablePadding: false, label: "Thời gian tạo" },
+  { id: "type", numeric: true, disablePadding: false, label: "Loại báo cáo" },
+  { id: "action", numeric: false, disablePadding: false, label: "" },
+];
 
 const styles = {
   reportTempaltes: {
@@ -159,16 +196,18 @@ export default function TableList() {
 
           </CardHeader>
           <CardBody>
-            <Table
+            <Table2 rows={rows} headCells={headCells}></Table2>
+          {/* <Table
               tableHeaderColor="info"
               tableHead={[
+                "",
                 "Tên báo cáo",
                 "Người tạo",
-                "Thời gian",
+                "Thời gian tạo",
                 "Loại báo cáo"
               ]}
               tableData={dataSource}
-            />
+            /> */}
           </CardBody>
         </Card>
       </GridItem>
@@ -210,6 +249,6 @@ export default function TableList() {
           </CardBody>
         </Card>
       </GridItem> */}
-    </GridContainer>
+    </GridContainer >
   );
 }

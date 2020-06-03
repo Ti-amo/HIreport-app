@@ -8,6 +8,7 @@ import {
   grayColor,
   defaultFont
 } from "assets/jss/material-dashboard-react.js";
+import { blackColor } from "assets/jss/material-dashboard-react";
 
 const tableStyle = theme => ({
   warningTableHeader: {
@@ -50,7 +51,7 @@ const tableStyle = theme => ({
   tableCell: {
     ...defaultFont,
     lineHeight: "1.42857143",
-    padding: "12px 8px",
+    padding: "0px 10px",
     verticalAlign: "middle",
     fontSize: "0.9rem"
   },
@@ -67,8 +68,8 @@ const tableStyle = theme => ({
     verticalAlign: "middle"
   },
   tableBodyRow: {
-    height: "45px",
-    color: "inherit",
+    height: "40px",
+    color: blackColor,
     display: "table-row",
     outline: "none",
     verticalAlign: "middle"
@@ -76,6 +77,38 @@ const tableStyle = theme => ({
   icon: {
     marginLeft: "12px",
     marginRight: "12px"
+  },
+  tableActions: {
+    ...defaultFont,
+    lineHeight: "1.42857143",
+    padding: "0px 0px",
+    verticalAlign: "middle",
+    fontSize: "0.9rem"
+  },
+  tableActionButton: {
+    width: "35px",
+    height: "35px",
+    padding: "0",
+    margin: "0 10px"
+  },
+  tableActionButtonIcon: {
+    width: "23px",
+    height: "23px"
+  },
+  edit: {
+    backgroundColor: "transparent",
+    color: blackColor,
+    boxShadow: "none"
+  },
+  close: {
+    backgroundColor: "transparent",
+    color: blackColor,
+    boxShadow: "none"
+  },
+  share: {
+    backgroundColor: "transparent",
+    color: "inherit",
+    boxShadow: "none"
   }
 });
 
