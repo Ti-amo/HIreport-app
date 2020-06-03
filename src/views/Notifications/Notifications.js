@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 // core components
 import GridItem from "components/Grid/GridItem.js";
 import GridContainer from "components/Grid/GridContainer.js";
-import Table from "components/Table/Table.js";
+import Table2 from "components/Table/Table2.js";
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
@@ -14,6 +14,7 @@ import Button from "components/CustomButtons/Button";
 import AddIcon from "@material-ui/icons/Add";
 import { Autocomplete } from "@material-ui/lab";
 import { Link } from "react-router-dom";
+import dataSource from "../../dataSource.js";
 
 const styles = {
   buttonWrap: {
@@ -61,37 +62,25 @@ const styles = {
 
 const useStyles = makeStyles(styles);
 
-const dataSource = [
+const headCells = [
+  { id: "important", numeric: false, disablePadding: false, label: "" },
   {
-    name: "Hành lang tuyến số 4",
-    createdBy: "Thế Hùng",
-    dateTime: "15/10/2019",
-    title: "Hành lang tuyến"
+    id: "reportName",
+    numeric: false,
+    disablePadding: true,
+    label: "Tên báo cáo"
   },
+  { id: "owner", numeric: true, disablePadding: false, label: "Người tạo" },
   {
-    name: "Hành lang tuyến số 9",
-    createdBy: "Quang Anh",
-    dateTime: "13/10/2019",
-    title: "Hành lang tuyến"
+    id: "createdAt",
+    numeric: true,
+    disablePadding: false,
+    label: "Thời gian tạo"
   },
-  {
-    name: "Hành lang tuyến số 10",
-    createdBy: "Thế Tung",
-    dateTime: "14/10/2019",
-    title: "Hành lang tuyến"
-  },
-  {
-    name: "Hành lang tuyến số 34",
-    createdBy: "Quang Hùng",
-    dateTime: "15/10/2019",
-    title: "Hành lang tuyến"
-  }
-
-  // ["Cột điện số G4FGD", "Thế Hùng", "13/10/2019", "Cột điện"],
-  // ["Đường dây điện số 3", "Thế Hùng", "15/10/2019", "Đường dây điện"],
-  // ["Đường dây điện số 5", "Thế Hùng", "15/10/2019", "Đường dây điện"],
-  // ["Đường dây điện số 5", "Thế Hùng", "15/10/2019", "Đường dây điện"]
+  { id: "type", numeric: true, disablePadding: false, label: "Loại báo cáo" },
+  { id: "action", numeric: false, disablePadding: false, label: "" }
 ];
+
 export default function Notification() {
   const classes = useStyles();
   const [searchValue, setSearchValue] = React.useState();
@@ -122,7 +111,6 @@ export default function Notification() {
             </p> */}
 
             <SearchBar
-            
               placeholder="Tìm kiếm báo cáo"
               value={searchValue}
               onChange={newValue => setSearchValue(newValue)}
@@ -149,10 +137,9 @@ export default function Notification() {
             /> */}
           </CardHeader>
           <CardBody>
-            <Table
-              tableHeaderColor="info"
-              tableHead={["Tên báo cáo", "Người tạo", "Thời gian", "Loại báo cáo"]}
-              tableData={dataSource}
+            <Table2
+              rows={dataSource.filter(data => data.isImportant == true)}
+              headCells={headCells}
             />
           </CardBody>
         </Card>

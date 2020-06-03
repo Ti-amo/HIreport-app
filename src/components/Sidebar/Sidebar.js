@@ -69,7 +69,10 @@ export default function Sidebar(props) {
             key={key}
           >
 
-            <ListItem button className={classes.itemLink + listItemClasses} onClick={prop.path === "/myreports" ? (handleClick) : null} >
+            <ListItem 
+              button className={classes.itemLink + listItemClasses} 
+              // onClick={prop.path === "/myreports" ? (handleClick) : null} 
+            >
               {typeof prop.icon === "string" ? (
                 <Icon
                   className={classNames(classes.itemIcon, whiteFontClasses, {
@@ -93,7 +96,7 @@ export default function Sidebar(props) {
                 })}
                 disableTypography={true}
               />
-              {prop.path === "/myreports" ? (open ? <ExpandLess /> : <ExpandMore />)
+              {prop.path === "/myreports" ? (open ? <ExpandLess onClick={handleClick}/> : <ExpandMore onClick={handleClick}/>)
                 : null}
             </ListItem>
             {prop.path === "/myreports" ? (
