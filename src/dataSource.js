@@ -1,77 +1,77 @@
 const dataSource = [
     {
-        name: "Đường dây điện số 5",
-        createdBy: "Thế Hùng",
-        dateTime: "15/10/2019",
-        title: "Đường dây điện"
+        reportName: "Đường dây điện số 5",
+        owner: "Thế Hùng",
+        createdAt: "15/10/2019",
+        type: "Đường dây điện"
     },
     {
-        name: "Hành lang tuyến số 10",
-        createdBy: "Thế Tung",
-        dateTime: "14/10/2019",
-        title: "Hành lang tuyến"
-    },
-
-    {
-        name: "Đường dây điện số 15",
-        createdBy: "Thế Tung",
-        dateTime: "14/10/2019",
-        title: "Đường dây điện"
-    },
-    {
-        name: "Đường dây điện số 25",
-        createdBy: "Quang Hùng",
-        dateTime: "15/10/2019",
-        title: "Đường dây điện"
-    },
-    {
-        name: "Cột điện số 12",
-        createdBy: "Thế Hùng",
-        dateTime: "15/10/2019",
-        title: "Cột điện"
-    },
-    {
-        name: "Đường dây điện số 3",
-        createdBy: "Quang Anh",
-        dateTime: "13/10/2019",
-        title: "Đường dây điện"
-    },
-    {
-        name: "Hành lang tuyến số 34",
-        createdBy: "Quang Hùng",
-        dateTime: "15/10/2019",
-        title: "Hành lang tuyến"
-    },
-    {
-        name: "Cột điện số 32",
-        createdBy: "Quang Anh",
-        dateTime: "13/10/2019",
-        title: "Cột điện"
+        reportName: "Hành lang tuyến số 10",
+        owner: "Thế Tung",
+        createdAt: "14/10/2019",
+        type: "Hành lang tuyến"
     },
 
     {
-        name: "Cột điện số 16",
-        createdBy: "Quang Hùng",
-        dateTime: "15/10/2019",
-        title: "Cột điện"
+        reportName: "Đường dây điện số 15",
+        owner: "Thế Tung",
+        createdAt: "14/10/2019",
+        type: "Đường dây điện"
     },
     {
-        name: "Hành lang tuyến số 4",
-        createdBy: "Thế Hùng",
-        dateTime: "15/10/2019",
-        title: "Hành lang tuyến"
+        reportName: "Đường dây điện số 25",
+        owner: "Quang Hùng",
+        createdAt: "15/10/2019",
+        type: "Đường dây điện"
     },
     {
-        name: "Hành lang tuyến số 9",
-        createdBy: "Quang Anh",
-        dateTime: "13/10/2019",
-        title: "Hành lang tuyến"
+        reportName: "Cột điện số 12",
+        owner: "Thế Hùng",
+        createdAt: "15/10/2019",
+        type: "Cột điện"
     },
     {
-        name: "Cột điện số 11",
-        createdBy: "Thế Tung",
-        dateTime: "14/10/2019",
-        title: "Cột điện"
+        reportName: "Đường dây điện số 3",
+        owner: "Quang Anh",
+        createdAt: "13/10/2019",
+        type: "Đường dây điện"
+    },
+    {
+        reportName: "Hành lang tuyến số 34",
+        owner: "Quang Hùng",
+        createdAt: "15/10/2019",
+        type: "Hành lang tuyến"
+    },
+    {
+        reportName: "Cột điện số 32",
+        owner: "Quang Anh",
+        createdAt: "13/10/2019",
+        type: "Cột điện"
+    },
+
+    {
+        reportName: "Cột điện số 16",
+        owner: "Quang Hùng",
+        createdAt: "15/10/2019",
+        type: "Cột điện"
+    },
+    {
+        reportName: "Hành lang tuyến số 4",
+        owner: "Thế Hùng",
+        createdAt: "15/10/2019",
+        type: "Hành lang tuyến"
+    },
+    {
+        reportName: "Hành lang tuyến số 9",
+        owner: "Quang Anh",
+        createdAt: "13/10/2019",
+        type: "Hành lang tuyến"
+    },
+    {
+        reportName: "Cột điện số 11",
+        owner: "Thế Tung",
+        createdAt: "14/10/2019",
+        type: "Cột điện"
     },
 
 

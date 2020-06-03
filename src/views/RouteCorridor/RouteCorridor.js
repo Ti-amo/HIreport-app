@@ -15,6 +15,26 @@ import AddIcon from "@material-ui/icons/Add";
 import { Autocomplete } from "@material-ui/lab";
 import { Link } from "react-router-dom";
 import dataSource from "../../dataSource.js";
+import Table2 from "components/Table/Table2.js";
+
+const headCells = [
+  { id: "important", numeric: false, disablePadding: false, label: "" },
+  {
+    id: "reportName",
+    numeric: false,
+    disablePadding: true,
+    label: "Tên báo cáo"
+  },
+  { id: "owner", numeric: true, disablePadding: false, label: "Người tạo" },
+  {
+    id: "createdAt",
+    numeric: true,
+    disablePadding: false,
+    label: "Thời gian tạo"
+  },
+  { id: "type", numeric: true, disablePadding: false, label: "Loại báo cáo" },
+  { id: "action", numeric: false, disablePadding: false, label: "" }
+];
 
 const styles = {
   buttonWrap: {
@@ -86,13 +106,7 @@ export default function TableList() {
 
         <Card>
           <CardHeader color="info">
-            {/* <h4 className={classes.cardTitleWhite}>Simple Table</h4>
-            <p className={classes.cardCategoryWhite}>
-              Here is a subtitle for this table
-            </p> */}
-
             <SearchBar
-            
               placeholder="Tìm kiếm báo cáo"
               value={searchValue}
               onChange={newValue => setSearchValue(newValue)}
@@ -102,71 +116,15 @@ export default function TableList() {
                 maxWidth: 800
               }}
             />
-            {/* <Autocomplete
-              id="combo-box-demo"
-              options={dataSource}
-              getOptionLabel={option => option.name}
-              style={{ width: fullWidth, backgroundColor: "#FFF" }}
-              popupIcon={() => {
-                return null;
-              }}
-              renderInput={params => (
-                <TextField
-                  {...params}
-                  InputProps={{ ...params.InputProps, disableUnderline: true }}
-                />
-              )}
-            /> */}
           </CardHeader>
           <CardBody>
-            <Table
-              tableHeaderColor="info"
-              tableHead={["Tên báo cáo", "Người tạo", "Thời gian", "Loại báo cáo"]}
-              tableData={dataSource.filter(
-                data => data.title == "Hành lang tuyến"
-              )}
-            />
+            <Table2
+              rows={dataSource.filter(data => data.type == "Hành lang tuyến")}
+              headCells={headCells}
+            ></Table2>
           </CardBody>
         </Card>
       </GridItem>
-      {/* <GridItem xs={12} sm={12} md={12}>
-        <Card plain>
-          <CardHeader plain color="primary">
-            <h4 className={classes.cardTitleWhite}>
-              Table on Plain Background
-            </h4>
-            <p className={classes.cardCategoryWhite}>
-              Here is a subtitle for this table
-            </p>
-          </CardHeader>
-          <CardBody>
-            <Table
-              tableHeaderColor="primary"
-              tableHead={["ID", "Name", "Country", "City", "Salary"]}
-              tableData={[
-                ["1", "Dakota Rice", "$36,738", "Niger", "Oud-Turnhout"],
-                ["2", "Minerva Hooper", "$23,789", "Curaçao", "Sinaai-Waas"],
-                ["3", "Sage Rodriguez", "$56,142", "Netherlands", "Baileux"],
-                [
-                  "4",
-                  "Philip Chaney",
-                  "$38,735",
-                  "Korea, South",
-                  "Overland Park"
-                ],
-                [
-                  "5",
-                  "Doris Greene",
-                  "$63,542",
-                  "Malawi",
-                  "Feldkirchen in Kärnten"
-                ],
-                ["6", "Mason Porter", "$78,615", "Chile", "Gloucester"]
-              ]}
-            />
-          </CardBody>
-        </Card>
-      </GridItem> */}
     </GridContainer>
   );
 }
