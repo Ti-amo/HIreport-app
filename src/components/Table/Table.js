@@ -36,23 +36,24 @@ export default function CustomTable(props) {
                   </TableCell>
                 );
               })}
-              <TableCell>
-              </TableCell>
+              <TableCell></TableCell>
             </TableRow>
           </TableHead>
         ) : null}
         <TableBody>
           {tableData.map((prop, key) => {
             return (
-              <TableRow key={key} className={classes.tableBodyRow}>
-                <TableCell className={classes.tableCell} key={key}>
+              <TableRow key={key + prop} className={classes.tableBodyRow}>
+                <TableCell className={classes.tableCell} key={prop.name}>
                   {prop.name}
                 </TableCell>
-                <TableCell className={classes.tableCell} key={key}>
+                <TableCell className={classes.tableCell} key={prop.createdBy}>
                   {prop.createdBy}
-                </TableCell><TableCell className={classes.tableCell} key={key}>
+                </TableCell>
+                <TableCell className={classes.tableCell} key={prop.dateTime}>
                   {prop.dateTime}
-                </TableCell><TableCell className={classes.tableCell} key={key}>
+                </TableCell>
+                <TableCell className={classes.tableCell} key={prop.title}>
                   {prop.title}
                 </TableCell>
                 <TableCell>

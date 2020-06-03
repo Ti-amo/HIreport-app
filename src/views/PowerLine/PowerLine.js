@@ -15,6 +15,7 @@ import AddIcon from "@material-ui/icons/Add";
 import { Autocomplete } from "@material-ui/lab";
 // import SearchBar from "components/Search/Search.js";
 import { Link } from "react-router-dom";
+import dataSource from "../../dataSource.js";
 
 const styles = {
   buttonWrap: {
@@ -62,37 +63,6 @@ const styles = {
 
 const useStyles = makeStyles(styles);
 
-const dataSource = [
-  {
-    name: "Đường dây điện số 5",
-    createdBy: "Thế Hùng",
-    dateTime: "15/10/2019",
-    title: "Đường dây điện"
-  },
-  {
-    name: "Đường dây điện số 3",
-    createdBy: "Quang Anh",
-    dateTime: "13/10/2019",
-    title: "Đường dây điện"
-  },
-  {
-    name: "Đường dây điện số 15",
-    createdBy: "Thế Tung",
-    dateTime: "14/10/2019",
-    title: "Đường dây điện"
-  },
-  {
-    name: "Đường dây điện số 25",
-    createdBy: "Quang Hùng",
-    dateTime: "15/10/2019",
-    title: "Đường dây điện"
-  }
-
-  // ["Cột điện số G4FGD", "Thế Hùng", "13/10/2019", "Cột điện"],
-  // ["Đường dây điện số 3", "Thế Hùng", "15/10/2019", "Đường dây điện"],
-  // ["Đường dây điện số 5", "Thế Hùng", "15/10/2019", "Đường dây điện"],
-  // ["Đường dây điện số 5", "Thế Hùng", "15/10/2019", "Đường dây điện"]
-];
 export default function TableList() {
   const classes = useStyles();
   const [searchValue, setSearchValue] = React.useState();
@@ -153,7 +123,9 @@ export default function TableList() {
             <Table
               tableHeaderColor="info"
               tableHead={["Tên báo cáo", "Người tạo", "Thời gian", "Loại báo cáo"]}
-              tableData={dataSource}
+              tableData={dataSource.filter(
+                data => data.title == "Đường dây điện"
+              )}
             />
           </CardBody>
         </Card>
