@@ -23,14 +23,10 @@ import FilterListIcon from "@material-ui/icons/FilterList";
 import Edit from "@material-ui/icons/Edit";
 import ShareIcon from "@material-ui/icons/Share";
 import Close from "@material-ui/icons/Close";
-import LabelImportantTwoToneIcon from '@material-ui/icons/LabelImportantTwoTone';
-import StarBorderIcon from '@material-ui/icons/StarBorder';
-
-
-
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
+import StarBorderIcon from "@material-ui/icons/StarBorder";
+import StarIcon from '@material-ui/icons/Star';
+import { yellow } from "@material-ui/core/colors";
+import { warningColor } from "assets/jss/material-dashboard-react.js";
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -58,16 +54,18 @@ function stableSort(array, comparator) {
   return stabilizedThis.map((el) => el[0]);
 }
 
-// const headCells = [
-//   { id: "name", numeric: false, disablePadding: true, label: "Dessert (100g serving)" },
-//   { id: "calories", numeric: true, disablePadding: false, label: "Calories" },
-//   { id: "fat", numeric: true, disablePadding: false, label: "Fat (g)" },
-//   { id: "carbs", numeric: true, disablePadding: false, label: "Carbs (g)" },
-//   { id: "protein", numeric: true, disablePadding: false, label: "Protein (g)" },
-// ];
-
 function EnhancedTableHead(props) {
-  const {headCells, classes, onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort } = props;
+  const {
+    headCells,
+    classes,
+    onSelectAllClick,
+    order,
+    orderBy,
+    numSelected,
+    rowCount,
+    onRequestSort
+  } = props;
+
   const createSortHandler = (property) => (event) => {
     onRequestSort(event, property);
   };
@@ -151,11 +149,21 @@ const EnhancedTableToolbar = (props) => {
       })}
     >
       {numSelected > 0 ? (
-        <Typography className={classes.title} color="inherit" variant="subtitle1" component="div">
+        <Typography
+          className={classes.title}
+          color="inherit"
+          variant="subtitle1"
+          component="div"
+        >
           {numSelected} selected
         </Typography>
       ) : (
-        <Typography className={classes.title} variant="h6" id="tableTitle" component="div">
+        <Typography
+          className={classes.title}
+          variant="h6"
+          id="tableTitle"
+          component="div"
+        >
           {/* Nutrition */}
         </Typography>
       )}
@@ -309,76 +317,88 @@ export default function EnhancedTable(props) {
                         <Checkbox
                           checked={isItemSelected}
                           inputProps={{ "aria-labelledby": labelId }}
+                          onClick={(event) => handleClick(event, row.reportName)}
                         />
                       </TableCell>
                       <TableCell padding="checkbox">
-                        <StarBorderIcon></StarBorderIcon>
+                        <Tooltip
+                          id="tooltip-top"
+                          title="Chỉnh sửa"
+                          placement="top"
+                        >
+                          {row.isImportant === true ? <StarIcon style={{ color: yellow[800] }}/> : <StarBorderIcon/>}
+                        </Tooltip>
                       </TableCell>
-                      <TableCell component="th" id={labelId} scope="row" padding="none">
+                      <TableCell
+                        component="th"
+                        id={labelId}
+                        scope="row"
+                        padding="none"
+                      >
                         {row.reportName}
                       </TableCell>
                       <TableCell align="right">{row.owner}</TableCell>
                       <TableCell align="right">{row.createdAt}</TableCell>
                       <TableCell align="right">{row.type}</TableCell>
                       <TableCell align="right">
-                      <Tooltip
-                        id="tooltip-top"
-                        title="Chỉnh sửa"
-                        placement="top"
-                        classes={{ tooltip: classes.tooltip }}
-                      >
-                        <IconButton
-                        aria-label="Edit"
-                        className={classes.tableActionButton}
+                        <Tooltip
+                          id="tooltip-top"
+                          title="Chỉnh sửa"
+                          placement="top"
+                          classes={{ tooltip: classes.tooltip }}
                         >
-                        <Edit
-                            className={
-                            classes.tableActionButtonIcon + " " + classes.edit
-                            }
-                        />
-                        </IconButton>
-                    </Tooltip>
-                    <Tooltip
-                        id="tooltip-top-start"
-                        title="xóa"
-                        placement="top"
-                        classes={{ tooltip: classes.tooltip }}
-                    >
-                        <IconButton
-                        aria-label="Close"
-                        className={classes.tableActionButton}
+                          <IconButton
+                            aria-label="Edit"
+                            className={classes.tableActionButton}
+                          >
+                            <Edit
+                              className={
+                                classes.tableActionButtonIcon + " " + classes.edit
+                              }
+                            />
+                          </IconButton>
+                        </Tooltip>
+                        <Tooltip
+                          id="tooltip-top-start"
+                          title="xóa"
+                          placement="top"
+                          classes={{ tooltip: classes.tooltip }}
                         >
-                        <Close
-                            className={
-                            classes.tableActionButtonIcon + " " + classes.close
-                            }
-                        />
-                        </IconButton>
-                    </Tooltip>
-                    <Tooltip
-                        id="tooltip-top-start"
-                        title="Chia sẻ"
-                        placement="top"
-                        classes={{ tooltip: classes.tooltip }}
-                    >
-                        <IconButton
-                        aria-label="Share"
-                        className={classes.tableActionButton}
+                          <IconButton
+                            aria-label="Close"
+                            className={classes.tableActionButton}
+                          >
+                            <DeleteIcon
+                              className={
+                                classes.tableActionButtonIcon + " " + classes.close
+                              }
+                            />
+                          </IconButton>
+                        </Tooltip>
+                        <Tooltip
+                          id="tooltip-top-start"
+                          title="Chia sẻ"
+                          placement="top"
+                          classes={{ tooltip: classes.tooltip }}
                         >
-                        <ShareIcon
-                            className={
-                            classes.tableActionButtonIcon + " " + classes.share
-                            }
-                        />
-                        </IconButton>
-                    </Tooltip>
+                          <IconButton
+                            aria-label="Share"
+                            className={classes.tableActionButton}
+                          >
+                            <ShareIcon
+                              className={
+                                classes.tableActionButtonIcon + " " + classes.share
+                              }
+                            />
+                          </IconButton>
+                        </Tooltip>
                       </TableCell>
                     </TableRow>
                   );
                 })}
               {emptyRows > 0 && (
                 <TableRow style={{ height: (dense ? 33 : 53) * emptyRows }}>
-                  <TableCell colSpan={6} />
+                  <TableCell colSpan={7} />
                 </TableRow>
               )}
             </TableBody>
