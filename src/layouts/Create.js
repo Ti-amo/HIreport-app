@@ -16,9 +16,6 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import Admin from "layouts/Admin.js";
-<<<<<<< HEAD
-import DatePicker from "react-date-picker";
-=======
 import TextField from '@material-ui/core/TextField';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import Radio from '@material-ui/core/Radio';
@@ -33,7 +30,6 @@ import {
 } from '@material-ui/pickers';
 
 
->>>>>>> fix report form and dashboard page
 
 import avatar from "assets/img/faces/marc.jpg";
 import { Link, useLocation, BrowserRouter as Router } from "react-router-dom";
@@ -108,25 +104,6 @@ const Create = props => {
                     variant="outlined"
                   />
                 </GridItem>
-<<<<<<< HEAD
-                <div style={{paddingTop: "2.75rem"}}>
-                  <GridItem xs={12} sm={12} md={12}>
-                    {/* <CustomInput
-                    labelText="Ngày tạo"
-                    id="email-address"
-                    formControlProps={{
-                      fullWidth: true
-                    }}
-                  /> */}
-                    <label htmlFor="male" style={{}}>Ngày tạo</label> &nbsp;
-                    <DatePicker
-                      calendarAriaLabel="ahiha"
-                      onChange={newDate => setDate(newDate)}
-                      value={date}
-                    />
-                  </GridItem>
-                </div>
-=======
 
                 <GridItem xs={12} sm={12} md={2}>
                   <p>Ngày tạo :</p>
@@ -139,7 +116,6 @@ const Create = props => {
                     variant="outlined"
                   />
                 </GridItem>
->>>>>>> fix report form and dashboard page
 
               </GridContainer>
 
@@ -150,8 +126,6 @@ const Create = props => {
                 <GridItem xs={12} sm={12} md={2}>
                   <p>Đợt kiểm tra :</p>
                 </GridItem>
-<<<<<<< HEAD
-=======
 
                 <GridItem xs={12} sm={12} md={8}>
                   <FormControl variant="outlined" fullWidth>
@@ -172,7 +146,6 @@ const Create = props => {
                 </GridItem>
                 <GridItem xs={12} sm={12} md={2}></GridItem>
 
->>>>>>> fix report form and dashboard page
               </GridContainer>
 
               <br></br>
@@ -212,13 +185,6 @@ const Create = props => {
               <br></br>
 
               <GridContainer>
-<<<<<<< HEAD
-                <GridItem xs={3} sm={6} md={12}>
-                  <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label">
-                      Tình trạng
-                    </InputLabel>
-=======
 
                 <GridItem xs={12} sm={12} md={2}>
                   <p>Người kiểm tra :</p>
@@ -226,7 +192,6 @@ const Create = props => {
 
                 <GridItem xs={12} sm={12} md={5}>
                   <FormControl variant="outlined" fullWidth>
->>>>>>> fix report form and dashboard page
                     <Select
                       labelId="demo-simple-select-outlined-label"
                       id="demo-simple-select-outlined"
