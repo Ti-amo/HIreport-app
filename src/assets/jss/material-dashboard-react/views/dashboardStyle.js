@@ -4,6 +4,7 @@ import {
   grayColor,
   hexToRgb
 } from "assets/jss/material-dashboard-react.js";
+import { blue } from "@material-ui/core/colors";
 
 const dashboardStyle = {
   successText: {
@@ -51,7 +52,7 @@ const dashboardStyle = {
   },
   cardTitle: {
     color: grayColor[2],
-    marginTop: "0px",
+    marginTop: "10px",
     minHeight: "auto",
     fontWeight: "300",
     fontFamily: "'Roboto', 'Helvetica', 'Arial', sans-serif",
@@ -76,6 +77,12 @@ const dashboardStyle = {
       fontWeight: "400",
       lineHeight: "1"
     }
+  },
+  legendColor: {
+    // backgroundColor: grayColor[1],
+    width: 15,
+    height: 15,
+    borderRadius: "50%",
   }
 };
 

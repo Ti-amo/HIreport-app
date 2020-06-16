@@ -53,6 +53,49 @@
   display: flex;
 }
 
+.card .category {
+  font-size: 14px;
+  font-weight: 400;
+  color: #9A9A9A;
+  margin-bottom: 0px; 
+}
+
+.card .title {
+  margin: 0;
+  color: #333333;
+  font-weight: 300; 
+}
+
+.ct-chart {
+  margin: 0px 0 30px;
+  height: 245px; 
+}
+
+.ct-perfect-fourth {
+  display: block;
+  position: relative;
+  width: 100%; 
+}
+  .ct-perfect-fourth:before {
+    display: block;
+    float: left;
+    content: "";
+    width: 0;
+    height: 0;
+    padding-bottom: 50%; 
+  }
+  .ct-perfect-fourth:after {
+    content: "";
+    display: table;
+    clear: both; 
+  }
+  .ct-perfect-fourth > svg {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0; 
+}  
+
 .ct-label {
   fill: rgba(0, 0, 0, 0.4);
   line-height: 1;
