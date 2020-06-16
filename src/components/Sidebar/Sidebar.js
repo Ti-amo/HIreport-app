@@ -20,6 +20,8 @@ import ExpandMore from '@material-ui/icons/ExpandMore';
 import LinearScaleIcon from '@material-ui/icons/LinearScale';
 import PolymerIcon from '@material-ui/icons/Polymer';
 import VerticalSplitIcon from '@material-ui/icons/VerticalSplit';
+import ControlPoint from '@material-ui/icons/ControlPoint'
+import DonutLarge from '@material-ui/icons/DonutLarge'
 
 // core components
 import AdminNavbarLinks from "components/Navbars/AdminNavbarLinks.js";
@@ -28,7 +30,6 @@ import RTLNavbarLinks from "components/Navbars/RTLNavbarLinks.js";
 import styles from "assets/jss/material-dashboard-react/components/sidebarStyle.js";
 
 const useStyles = makeStyles(styles);
-
 export default function Sidebar(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
@@ -44,7 +45,7 @@ export default function Sidebar(props) {
   var links = (
     <List className={classes.list}>
       {routes.map((prop, key) => {
-        {/* console.log("PROPS", prop) */}
+        {/* console.log("PROPS", prop) */ }
         var activePro = " ";
         var listItemClasses;
         if (prop.path === "/upgrade-to-pro") {
@@ -69,9 +70,9 @@ export default function Sidebar(props) {
             key={key}
           >
 
-            <ListItem 
-              button className={classes.itemLink + listItemClasses} 
-              // onClick={prop.path === "/myreports" ? (handleClick) : null} 
+            <ListItem
+              button className={classes.itemLink + listItemClasses}
+            // onClick={prop.path === "/myreports" ? (handleClick) : null} 
             >
               {typeof prop.icon === "string" ? (
                 <Icon
@@ -96,7 +97,7 @@ export default function Sidebar(props) {
                 })}
                 disableTypography={true}
               />
-              {prop.path === "/myreports" ? (open ? <ExpandLess onClick={handleClick}/> : <ExpandMore onClick={handleClick}/>)
+              {prop.path === "/myreports" ? (open ? <ExpandLess onClick={handleClick} /> : <ExpandMore onClick={handleClick} />)
                 : null}
             </ListItem>
             {prop.path === "/myreports" ? (
@@ -178,6 +179,44 @@ export default function Sidebar(props) {
           </NavLink>
         );
       })}
+      <a
+        href="https://hi01-efd.web.app"
+        className={classes.item}
+        activeClassName="active"
+      >
+        <ListItem button className={classes.itemLink}>
+          <Icon
+            className={classNames(classes.itemIcon)}
+          >
+            <ControlPoint />
+          </Icon>
+          <ListItemText
+            primary="Tạo công trình khắc phục sự cố"
+            className={classes.itemText}
+            disableTypography={true}
+          />
+        </ListItem>
+      </a>
+      <a
+        href="https://hi02-qlgs-foradmin.web.app"
+        className={classes.item}
+        activeClassName="active"
+      >
+        <ListItem button className={classes.itemLink}>
+          <Icon
+            className={classNames(classes.itemIcon)}
+          >
+            <DonutLarge
+
+/>
+          </Icon>
+          <ListItemText
+            primary="Thông tin đợt kiểm tra"
+            className={classes.itemText}
+            disableTypography={true}
+          />
+        </ListItem>
+      </a>
     </List>
   );
   var brand = (
