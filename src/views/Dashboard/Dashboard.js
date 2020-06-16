@@ -1,7 +1,6 @@
 import React from "react";
 // react plugin for creating charts
 import ChartistGraph from "react-chartist";
-import ChartitGraphPieProps from "react-chartist";
 // @material-ui/core
 import { makeStyles } from "@material-ui/core/styles";
 import Icon from "@material-ui/core/Icon";
@@ -29,6 +28,17 @@ import CardHeader from "components/Card/CardHeader.js";
 import CardIcon from "components/Card/CardIcon.js";
 import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter.js";
+import { CardChart } from "components/Card/CardChart.jsx";
+import Button from "components/CustomButtons/Button.js";
+import {
+  dangerColor,
+  warningColor,
+  roseColor,
+  successColor,
+  whiteColor,
+  grayColor,
+  hexToRgb
+} from "assets/jss/material-dashboard-react.js";
 
 import { daydien, cotdien, hanhlang } from "variables/general.js";
 
@@ -39,8 +49,30 @@ import {
 } from "variables/charts.js";
 
 import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
+import { red } from "@material-ui/core/colors";
 
 const useStyles = makeStyles(styles);
+
+const createLegend = (json, classes) => {
+  var legend = [];
+  for (var i = 0; i < json["names"].length; i++) {
+    var type = "fa fa-circle text-" + json["types"][i];
+    if (json["types"][i] === "danger") {
+      var color = dangerColor[0];
+    } else if (json["types"][i] === "warning") {
+      var color = warningColor[1];
+    } else {
+      var color = roseColor[1];
+    }
+    legend.push(
+      <svg className={classes.legendColor} style={{ backgroundColor: color }} key={i}></svg>
+    
+    );
+    legend.push(" ");
+    legend.push(json["names"][i]+" ");
+  }
+  return legend;
+};
 
 export default function Dashboard() {
   const classes = useStyles();
@@ -129,18 +161,42 @@ export default function Dashboard() {
       </GridContainer>
       <GridContainer>
         <GridItem xs={12} sm={12} md={4}>
+        
           <Card chart>
-          <CardHeader color="warning">
-          <ChartistGraph
+            {/* <CardHeader color="warning">
+              <ChartistGraph
                 className="ct-chart"
                 data={{ labels: ["50%", "30%", "20%"], series: [50, 30, 20] }}
                 type="Pie"
+                legendPie={
+                  <div className="legend">
+                    {createLegend({
+                      names: ["Open", "Bounce", "Unsubscribe"],
+                      types: ["info", "danger", "warning"]
+                    })}
+                  </div>
+                }
               />
-            </CardHeader>
+            </CardHeader> */}
             <CardBody>
-              
-              <h4 className={classes.cardTitle}>Báo cáo đã tạo</h4>
-              <p className={classes.cardCategory}>Tỷ lệ phần trăm theo từng mẫu</p>
+            <CardChart
+                title="Phần trăm mỗi loại báo cáo"
+                category="Theo số lượng"
+                content={
+                  <div
+                    id="chartPreferences"
+                    className="ct-chart ct-perfect-fourth"
+                  >
+                    <ChartistGraph data={{ labels: ["50%", "30%", "20%"], series: [50, 30, 20] }} type="Pie" />
+                  </div>
+                }
+                legend={
+                  <div className="legend">{createLegend({
+                      names: ["Cột điện", "Dây điện", "Hành lang tuyến"],
+                      types: ["rose", "danger", "warning"]
+                    }, classes)}</div>
+                }
+              />
             </CardBody>
             <CardFooter chart>
               <div className={classes.stats}>

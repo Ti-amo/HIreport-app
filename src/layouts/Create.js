@@ -16,7 +16,24 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import Admin from "layouts/Admin.js";
+<<<<<<< HEAD
 import DatePicker from "react-date-picker";
+=======
+import TextField from '@material-ui/core/TextField';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormLabel from '@material-ui/core/FormLabel';
+import DateFnsUtils from '@date-io/date-fns';
+import {
+  MuiPickersUtilsProvider,
+  KeyboardTimePicker,
+  KeyboardDatePicker,
+} from '@material-ui/pickers';
+
+
+>>>>>>> fix report form and dashboard page
 
 import avatar from "assets/img/faces/marc.jpg";
 import { Link, useLocation, BrowserRouter as Router } from "react-router-dom";
@@ -79,27 +96,19 @@ const Create = props => {
             </CardHeader>
             <CardBody>
               <GridContainer>
-                <GridItem xs={12} sm={12} md={5}>
-                  <CustomInput
-                    labelText="Đơn vị"
-                    id="company-disabled"
-                    formControlProps={{
-                      fullWidth: true
-                    }}
-                    inputProps={{
-                      disabled: false
-                    }}
+
+                <GridItem xs={12} sm={12} md={2}>
+                  <p>Tên báo cáo :</p>
+                </GridItem>
+
+                <GridItem xs={12} sm={12} md={4}>
+                  <TextField
+                    id="filled-password-input"
+                    type="text"
+                    variant="outlined"
                   />
                 </GridItem>
-                <GridItem xs={12} sm={12} md={3}>
-                  <CustomInput
-                    labelText="Tên người tạo"
-                    id="username"
-                    formControlProps={{
-                      fullWidth: true
-                    }}
-                  />
-                </GridItem>
+<<<<<<< HEAD
                 <div style={{paddingTop: "2.75rem"}}>
                   <GridItem xs={12} sm={12} md={12}>
                     {/* <CustomInput
@@ -117,72 +126,347 @@ const Create = props => {
                     />
                   </GridItem>
                 </div>
+=======
 
-              </GridContainer>
-              <GridContainer>
-                <GridItem xs={12} sm={12} md={6}>
-                  <CustomInput
-                    labelText="Tên báo cáo"
-                    id="first-name"
-                    formControlProps={{
-                      fullWidth: true
-                    }}
-                  />
-                </GridItem>
-              </GridContainer>
-              <GridContainer>
-                <GridItem xs={12} sm={12} md={4}>
-                  <CustomInput
-                    labelText="Địa điểm kiểm tra"
-                    id="city"
-                    formControlProps={{
-                      fullWidth: true
-                    }}
-                  />
+                <GridItem xs={12} sm={12} md={2}>
+                  <p>Ngày tạo :</p>
                 </GridItem>
 
                 <GridItem xs={12} sm={12} md={4}>
-                  <CustomInput
-                    labelText="Thời gian kiểm tra"
-                    id="postal-code"
-                    formControlProps={{
-                      fullWidth: true
-                    }}
+                  <TextField
+                    id="filled-password-input"
+                    type="text"
+                    variant="outlined"
                   />
                 </GridItem>
+>>>>>>> fix report form and dashboard page
+
               </GridContainer>
+
+              <br></br>
+
               <GridContainer>
+
+                <GridItem xs={12} sm={12} md={2}>
+                  <p>Đợt kiểm tra :</p>
+                </GridItem>
+<<<<<<< HEAD
+=======
+
+                <GridItem xs={12} sm={12} md={8}>
+                  <FormControl variant="outlined" fullWidth>
+                    <Select
+                      labelId="demo-simple-select-outlined-label"
+                      id="demo-simple-select-outlined"
+                      value={age}
+                      onChange={handleChange}
+                    >
+                      <MenuItem value="">
+                        <em>None</em>
+                      </MenuItem>
+                      <MenuItem value={10}>Ten</MenuItem>
+                      <MenuItem value={20}>Twenty</MenuItem>
+                      <MenuItem value={30}>Thirty</MenuItem>
+                    </Select>
+                  </FormControl>
+                </GridItem>
+                <GridItem xs={12} sm={12} md={2}></GridItem>
+
+>>>>>>> fix report form and dashboard page
+              </GridContainer>
+
+              <br></br>
+
+              <GridContainer>
+
+                <GridItem xs={12} sm={12} md={2}>
+                  <p>Ngày kiểm tra :</p>
+                </GridItem>
+
+                <GridItem xs={12} sm={12} md={1}>
+                  <p>Từ</p>
+                </GridItem>
+
+                <GridItem xs={12} sm={12} md={4}>
+                  <TextField
+                    id="filled-password-input"
+                    type="text"
+                    variant="outlined"
+                  />
+                </GridItem>
+
+                <GridItem xs={12} sm={12} md={1}>
+                  <p>Đến</p>
+                </GridItem>
+
+                <GridItem xs={12} sm={12} md={4}>
+                  <TextField
+                    id="filled-password-input"
+                    type="text"
+                    variant="outlined"
+                  />
+                </GridItem>
+
+              </GridContainer>
+
+              <br></br>
+
+              <GridContainer>
+<<<<<<< HEAD
                 <GridItem xs={3} sm={6} md={12}>
                   <FormControl fullWidth>
                     <InputLabel id="demo-simple-select-label">
                       Tình trạng
                     </InputLabel>
+=======
+
+                <GridItem xs={12} sm={12} md={2}>
+                  <p>Người kiểm tra :</p>
+                </GridItem>
+
+                <GridItem xs={12} sm={12} md={5}>
+                  <FormControl variant="outlined" fullWidth>
+>>>>>>> fix report form and dashboard page
                     <Select
-                      labelId="demo-simple-select-label"
-                      id="demo-simple-select"
+                      labelId="demo-simple-select-outlined-label"
+                      id="demo-simple-select-outlined"
                       value={age}
                       onChange={handleChange}
                     >
-                      <MenuItem value={10}>Hỏng</MenuItem>
-                      <MenuItem value={20}>Sự cố chưa xác định</MenuItem>
-                      <MenuItem value={30}>Bình thường</MenuItem>
+                      <MenuItem value="">
+                        <em>None</em>
+                      </MenuItem>
+                      <MenuItem value={10}>Ten</MenuItem>
+                      <MenuItem value={20}>Twenty</MenuItem>
+                      <MenuItem value={30}>Thirty</MenuItem>
                     </Select>
                   </FormControl>
                 </GridItem>
+
+                <GridItem xs={12} sm={12} md={5}>
+                </GridItem>
+
               </GridContainer>
 
+              <br></br>
+
               <GridContainer>
-                <GridItem xs={3} sm={6} md={12}>
-                  <CustomInput
-                    labelText="Chi tiết về tình trạng"
-                    id="city"
-                    formControlProps={{
-                      fullWidth: true
-                    }}
+
+                <GridItem xs={12} sm={12} md={2}>
+                  <p>Địa điểm kiểm tra :</p>
+                </GridItem>
+
+                <GridItem xs={12} sm={12} md={1}>
+                  <p>Quận</p>
+                </GridItem>
+
+                <GridItem xs={12} sm={12} md={2}>
+                  <FormControl variant="outlined" fullWidth>
+                    <Select
+                      labelId="demo-simple-select-outlined-label"
+                      id="demo-simple-select-outlined"
+                      value={age}
+                      onChange={handleChange}
+                    >
+                      <MenuItem value="">
+                        <em>None</em>
+                      </MenuItem>
+                      <MenuItem value={10}>Ten</MenuItem>
+                      <MenuItem value={20}>Twenty</MenuItem>
+                      <MenuItem value={30}>Thirty</MenuItem>
+                    </Select>
+                  </FormControl>
+                </GridItem>
+
+                <GridItem xs={12} sm={12} md={1}>
+                  <p>Phường</p>
+                </GridItem>
+
+                <GridItem xs={12} sm={12} md={2}>
+                  <FormControl variant="outlined" fullWidth>
+                    <Select
+                      labelId="demo-simple-select-outlined-label"
+                      id="demo-simple-select-outlined"
+                      value={age}
+                      onChange={handleChange}
+                    >
+                      <MenuItem value="">
+                        <em>None</em>
+                      </MenuItem>
+                      <MenuItem value={10}>Ten</MenuItem>
+                      <MenuItem value={20}>Twenty</MenuItem>
+                      <MenuItem value={30}>Thirty</MenuItem>
+                    </Select>
+                  </FormControl>
+                </GridItem>
+
+                <GridItem xs={12} sm={12} md={1}>
+                  <p>Đường</p>
+                </GridItem>
+
+                <GridItem xs={12} sm={12} md={3}>
+                  <TextField
+                    id="filled-password-input"
+                    type="text"
+                    variant="outlined"
+                    fullWidth
                   />
                 </GridItem>
 
               </GridContainer>
+
+              <br></br>
+
+              <GridContainer>
+
+                <GridItem xs={12} sm={12} md={2}>
+                  <p>Vị trí dây điện :</p>
+                </GridItem>
+
+                <GridItem xs={12} sm={12} md={8}>
+                  <TextField
+                    id="filled-password-input"
+                    type="text"
+                    variant="outlined"
+                    fullWidth
+                  />
+                </GridItem>
+                <GridItem xs={12} sm={12} md={2}></GridItem>
+
+              </GridContainer>
+
+              <br></br>
+
+              <GridContainer>
+                <h6><b>Kết quả kiểm tra :</b></h6>
+              </GridContainer>
+
+              <br></br>
+
+              <GridContainer>
+
+                <GridItem xs={12} sm={12} md={2}>
+                  <p>Tình trạng dây điện :</p>
+                </GridItem>
+
+                <GridItem xs={12} sm={12} md={5}>
+                  <FormControl variant="outlined" fullWidth>
+                    <Select
+                      labelId="demo-simple-select-outlined-label"
+                      id="demo-simple-select-outlined"
+                      value={age}
+                      onChange={handleChange}
+                    >
+                      <MenuItem value="">
+                        <em>None</em>
+                      </MenuItem>
+                      <MenuItem value={10}>Ten</MenuItem>
+                      <MenuItem value={20}>Twenty</MenuItem>
+                      <MenuItem value={30}>Thirty</MenuItem>
+                    </Select>
+                  </FormControl>
+                </GridItem>
+
+                <GridItem xs={12} sm={12} md={5}>
+                </GridItem>
+
+              </GridContainer>
+
+              <br></br>
+
+              <GridContainer>
+
+                <GridItem xs={12} sm={12} md={2}>
+                  <p>Vị trí xảy ra sự cố (nếu có) :</p>
+                </GridItem>
+
+                <GridItem xs={12} sm={12} md={8}>
+                  <TextField
+                    id="filled-password-input"
+                    type="text"
+                    variant="outlined"
+                    fullWidth
+
+                  />
+                </GridItem>
+                <GridItem xs={12} sm={12} md={2}></GridItem>
+
+              </GridContainer>
+
+              <br></br>
+
+              <GridContainer>
+
+                <GridItem xs={12} sm={12} md={2}>
+                  <p>Mô tả thêm về sự cố :</p>
+                </GridItem>
+
+                <GridItem xs={12} sm={12} md={8}>
+                  <TextField
+                    id="filled-password-input"
+                    type="text"
+                    variant="outlined"
+                    fullWidth
+                    multiline
+                    rows={4}
+                  />
+                </GridItem>
+                <GridItem xs={12} sm={12} md={2}></GridItem>
+
+              </GridContainer>
+
+              <br></br>
+
+              <GridContainer>
+
+                <GridItem xs={12} sm={12} md={2}>
+                  <p>Ảnh chụp từ drone :</p>
+                </GridItem>
+
+                <GridItem xs={12} sm={12} md={8}>
+                  <label htmlFor="upload-photo">
+                    <input
+                      style={{ display: 'none' }}
+                      id="upload-photo"
+                      name="upload-photo"
+                      type="file"
+                    />
+
+                    <Button color="secondary" variant="contained" component="span">
+                      Upload image
+                    </Button>
+                  </label>
+                </GridItem>
+                <GridItem xs={12} sm={12} md={2}></GridItem>
+
+              </GridContainer>
+
+              <br></br>
+
+              <GridContainer>
+
+                <GridItem xs={12} sm={12} md={2}>
+                  <p>Đánh giá mức độ hỏng hóc :</p>
+                </GridItem>
+
+                <GridItem xs={12} sm={12} md={2}>
+                <FormControlLabel value="end" control={<Radio color="primary" />} label="Rất nghiêm trọng" />
+                </GridItem>
+                <GridItem xs={12} sm={12} md={2}>
+                <FormControlLabel value="end" control={<Radio color="primary" />} label="Nghiêm trọng" />
+                </GridItem>
+                <GridItem xs={12} sm={12} md={2}>
+                <FormControlLabel value="end" control={<Radio color="primary" />} label="An toàn" />
+                </GridItem>
+                <GridItem xs={12} sm={12} md={2}>
+                </GridItem>
+                <GridItem xs={12} sm={12} md={2}>
+                </GridItem>
+
+              </GridContainer>
+
+
+
             </CardBody>
             <CardFooter>
               <Link to={`/admin/myreports/` + `${queryParam}`}>
