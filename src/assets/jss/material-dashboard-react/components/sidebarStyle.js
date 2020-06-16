@@ -186,7 +186,10 @@ const sidebarStyle = theme => ({
     padding: "10px 15px",
     backgroundColor: "transparent",
     ...defaultFont,
-    marginLeft: "50px"
+    marginLeft: "50px",
+    "&:active,&:focus": {
+      backgroundColor: "#4db75b"
+    }
   },
   nestedText: {
     ...defaultFont,
