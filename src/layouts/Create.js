@@ -32,7 +32,7 @@ import {
 
 
 import avatar from "assets/img/faces/marc.jpg";
-import { Link, useLocation, BrowserRouter as Router } from "react-router-dom";
+import { Link, BrowserRouter as Router } from "react-router-dom";
 
 const styles = {
   root: {
@@ -60,12 +60,12 @@ const styles = {
 
 const useStyles = makeStyles(styles);
 
-function useQuery() {
-  return new URLSearchParams(useLocation().search);
-}
+// function useQuery() {
+//   return new URLSearchParams(useLocation().search);
+// }
 const Create = props => {
-  let queryParam = useQuery().get("type");
-  console.log("AAA", queryParam);
+  // let queryParam = useQuery().get("type");
+  // console.log("AAA", queryParam);
 
   const classes = useStyles();
   const [age, setAge] = React.useState("");
@@ -80,14 +80,14 @@ const Create = props => {
         <GridItem xs={20} sm={15} md={10} clas>
           <Card>
             <CardHeader color="info">
-              <h4 className={classes.cardTitleWhite}>
+              {/* <h4 className={classes.cardTitleWhite}>
                 Báo cáo{" "}
                 {queryParam == "daydien"
                   ? "đường dây điện"
                   : `${
                   queryParam == "cotdien" ? "cột điện" : "hành lang tuyến"
                   }`}
-              </h4>
+              </h4> */}
               <p className={classes.cardCategoryWhite}>Bản báo cáo mới</p>
             </CardHeader>
             <CardBody>
@@ -434,9 +434,9 @@ const Create = props => {
 
             </CardBody>
             <CardFooter>
-              <Link to={`/admin/myreports/` + `${queryParam}`}>
+              {/* <Link to={`/admin/myreports/` + `${queryParam}`}>
                 <Button color="info">Tạo mới</Button>
-              </Link>
+              </Link> */}
             </CardFooter>
           </Card>
         </GridItem>
