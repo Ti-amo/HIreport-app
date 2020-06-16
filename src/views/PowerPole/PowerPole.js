@@ -91,7 +91,7 @@ export default function TableList() {
         <div>
           <p className={classes.textTitle}>Báo cáo cột điện</p>
           <div className={classes.buttonWrap}>
-          <Link to="/create?type=cotdien">
+          <a href="/create?type=cotdien">
               <Button
                 className={classes.createButton}
                 type="button"
@@ -100,7 +100,7 @@ export default function TableList() {
               >
                 <AddIcon /> &nbsp; TẠO BÁO CÁO
               </Button>
-            </Link>
+            </a>
           </div>
         </div>
 

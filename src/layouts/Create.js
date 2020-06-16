@@ -32,7 +32,7 @@ import {
 
 
 import avatar from "assets/img/faces/marc.jpg";
-import { Link, BrowserRouter as Router } from "react-router-dom";
+import { Link, BrowserRouter as Router, useLocation } from "react-router-dom";
 
 const styles = {
   root: {
@@ -60,12 +60,12 @@ const styles = {
 
 const useStyles = makeStyles(styles);
 
-// function useQuery() {
-//   return new URLSearchParams(useLocation().search);
-// }
-const Create = props => {
-  // let queryParam = useQuery().get("type");
-  // console.log("AAA", queryParam);
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
+const Create = (props) => {
+  let queryParam = useQuery().get("type");
+  console.log("AAA", queryParam);
 
   const classes = useStyles();
   const [age, setAge] = React.useState("");
@@ -75,24 +75,23 @@ const Create = props => {
     setAge(event.target.value);
   };
   return (
-    <div className="width-100 justify-content-center">
+    <div className="width-100 justify-content-center overflow-scroll">
       <GridContainer className="justify-content-center">
         <GridItem xs={20} sm={15} md={10} clas>
           <Card>
             <CardHeader color="info">
-              {/* <h4 className={classes.cardTitleWhite}>
+              <h4 className={classes.cardTitleWhite}>
                 Báo cáo{" "}
                 {queryParam == "daydien"
                   ? "đường dây điện"
                   : `${
-                  queryParam == "cotdien" ? "cột điện" : "hành lang tuyến"
+                      queryParam == "cotdien" ? "cột điện" : "hành lang tuyến"
                   }`}
-              </h4> */}
+              </h4>
               <p className={classes.cardCategoryWhite}>Bản báo cáo mới</p>
             </CardHeader>
             <CardBody>
               <GridContainer>
-
                 <GridItem xs={12} sm={12} md={2}>
                   <p>Tên báo cáo :</p>
                 </GridItem>
@@ -415,28 +414,24 @@ const Create = props => {
                 </GridItem>
 
                 <GridItem xs={12} sm={12} md={2}>
-                <FormControlLabel value="end" control={<Radio color="primary" />} label="Rất nghiêm trọng" />
+                  <FormControlLabel value="end" control={<Radio color="primary" />} label="Rất nghiêm trọng" />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={2}>
-                <FormControlLabel value="end" control={<Radio color="primary" />} label="Nghiêm trọng" />
+                  <FormControlLabel value="end" control={<Radio color="primary" />} label="Nghiêm trọng" />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={2}>
-                <FormControlLabel value="end" control={<Radio color="primary" />} label="An toàn" />
-                </GridItem>
-                <GridItem xs={12} sm={12} md={2}>
+                  <FormControlLabel value="end" control={<Radio color="primary" />} label="An toàn" />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={2}>
                 </GridItem>
-
+                <GridItem xs={12} sm={12} md={2}>
+                </GridItem>
               </GridContainer>
-
-
-
             </CardBody>
             <CardFooter>
-              {/* <Link to={`/admin/myreports/` + `${queryParam}`}>
+              <Link to={`/admin/myreports/` + `${queryParam}`}>
                 <Button color="info">Tạo mới</Button>
-              </Link> */}
+              </Link>
             </CardFooter>
           </Card>
         </GridItem>
