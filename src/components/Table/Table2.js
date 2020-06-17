@@ -342,7 +342,7 @@ export default function EnhancedTable(props) {
                       <TableCell align="right">{row.createdAt}</TableCell>
                       <TableCell align="right">{row.type}</TableCell>
                       <TableCell align="right">
-                        <Link to={`/report/${row.id}`}>
+                        <a href={`/report/${row.id}`}>
                           <Tooltip
                             id="tooltip-top"
                             title="Chỉnh sửa"
@@ -360,7 +360,7 @@ export default function EnhancedTable(props) {
                               />
                             </IconButton>
                           </Tooltip>
-                        </Link>
+                        </a>
 
                         <Tooltip
                           id="tooltip-top-start"
