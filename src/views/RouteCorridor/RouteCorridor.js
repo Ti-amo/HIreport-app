@@ -23,16 +23,16 @@ const headCells = [
     id: "reportName",
     numeric: false,
     disablePadding: true,
-    label: "Tên báo cáo"
+    label: "Tên sự cố"
   },
-  { id: "owner", numeric: true, disablePadding: false, label: "Người tạo" },
+  { id: "owner", numeric: true, disablePadding: false, label: "Mức độ" },
   {
     id: "createdAt",
     numeric: true,
     disablePadding: false,
-    label: "Thời gian tạo"
+    label: "Thời gian phát hiện sự cố"
   },
-  { id: "type", numeric: true, disablePadding: false, label: "Loại báo cáo" },
+  { id: "type", numeric: true, disablePadding: false, label: "Loại sự cố" },
   { id: "action", numeric: false, disablePadding: false, label: "" }
 ];
 
@@ -91,7 +91,7 @@ export default function TableList() {
         <div>
           <p className={classes.textTitle}>Báo cáo hành lang tuyến</p>
           <div className={classes.buttonWrap}>
-            <a href="/create?type=hanhlangtuyen">
+            {/* <a href="/create?type=hanhlangtuyen">
               <Button
                 className={classes.createButton}
                 type="button"
@@ -100,7 +100,7 @@ export default function TableList() {
               >
                 <AddIcon /> &nbsp; TẠO BÁO CÁO
               </Button>
-            </a>
+            </a> */}
           </div>
         </div>
 

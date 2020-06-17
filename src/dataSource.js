@@ -7,7 +7,8 @@ const dataSource = [
         createdAt: "15/10/2019",
         type: "Đường dây điện",
         justOpen: true,
-        lastOpenAt: "10 giây trước"
+        lastOpenAt: "10 giây trước",
+        level: "Rất nghiêm trọng"
     },
     {
         id: 2,
@@ -17,7 +18,8 @@ const dataSource = [
         createdAt: "14/10/2019",
         type: "Hành lang tuyến",
         justOpen: true,
-        lastOpenAt: "5 phút trước"
+        lastOpenAt: "5 phút trước",
+        level: "Bình thường"
     },
 
     {
@@ -28,7 +30,8 @@ const dataSource = [
         createdAt: "14/10/2019",
         type: "Đường dây điện",
         justOpen: true,
-        lastOpenAt: "1 tiếng trước"
+        lastOpenAt: "1 tiếng trước",
+        level: "Nghiêm trọng"
     },
     {
         id: 4,
@@ -38,7 +41,8 @@ const dataSource = [
         createdAt: "15/10/2019",
         type: "Đường dây điện",
         justOpen: true,
-        lastOpenAt: "2 tiếng trước"
+        lastOpenAt: "2 tiếng trước",
+        level: "Bình thường"
     },
     {
         id: 5,
@@ -48,7 +52,8 @@ const dataSource = [
         createdAt: "15/10/2019",
         type: "Cột điện",
         justOpen: false,
-        lastOpenAt: "1 phút trước"
+        lastOpenAt: "1 phút trước",
+        level: "Nghiêm trọng"
     },
     {
         id: 6,
@@ -58,7 +63,8 @@ const dataSource = [
         createdAt: "13/10/2019",
         type: "Đường dây điện",
         justOpen: false,
-        lastOpenAt: "1 phút trước"
+        lastOpenAt: "1 phút trước",
+        level: "Rất nghiêm trọng"
     },
     {
         id: 7,
@@ -68,7 +74,8 @@ const dataSource = [
         createdAt: "15/10/2019",
         type: "Hành lang tuyến",
         justOpen: false,
-        lastOpenAt: "1 phút trước"
+        lastOpenAt: "1 phút trước",
+        level: "Bình thường"
     },
     {
         id: 8,
@@ -78,7 +85,8 @@ const dataSource = [
         createdAt: "13/10/2019",
         type: "Cột điện",
         justOpen: false,
-        lastOpenAt: "1 phút trước"
+        lastOpenAt: "1 phút trước",
+        level: "Nghiêm trọng"
     },
 
     {
@@ -89,7 +97,8 @@ const dataSource = [
         createdAt: "15/10/2019",
         type: "Cột điện",
         justOpen: false,
-        lastOpenAt: "1 phút trước"
+        lastOpenAt: "1 phút trước",
+        level: "Bình thường"
     },
     {
         id: 10,
@@ -99,7 +108,8 @@ const dataSource = [
         createdAt: "15/10/2019",
         type: "Hành lang tuyến",
         justOpen: false,
-        lastOpenAt: "1 phút trước"
+        lastOpenAt: "1 phút trước",
+        level: "Rất nghiêm trọng"
     },
     {
         id: 11,
@@ -109,7 +119,8 @@ const dataSource = [
         createdAt: "13/10/2019",
         type: "Hành lang tuyến",
         justOpen: false,
-        lastOpenAt: "1 phút trước"
+        lastOpenAt: "1 phút trước",
+        level: "Nghiêm trọng"
     },
     {
         id: 12,
@@ -119,7 +130,8 @@ const dataSource = [
         createdAt: "14/10/2019",
         type: "Cột điện",
         justOpen: false,
-        lastOpenAt: "1 phút trước"
+        lastOpenAt: "1 phút trước",
+        level: "Bình thường"
     },
 ];
 

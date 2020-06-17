@@ -91,6 +91,7 @@ const Create = (props) => {
                   }`}
               </h4>
               <p className={classes.cardCategoryWhite}>Bản báo cáo mới</p>
+              
             </CardHeader>
             <CardBody>
               <GridContainer>

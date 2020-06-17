@@ -25,6 +25,7 @@ import ShareIcon from "@material-ui/icons/Share";
 import Close from "@material-ui/icons/Close";
 import StarBorderIcon from "@material-ui/icons/StarBorder";
 import StarIcon from '@material-ui/icons/Star';
+import ExitToApp from '@material-ui/icons/ExitToApp'
 import { yellow } from "@material-ui/core/colors";
 import { warningColor } from "assets/jss/material-dashboard-react.js";
 import { Link } from "react-router-dom"
@@ -338,14 +339,14 @@ export default function EnhancedTable(props) {
                       >
                         {row.reportName}
                       </TableCell>
-                      <TableCell align="right">{row.owner}</TableCell>
+                      <TableCell align="right">{row.level}</TableCell>
                       <TableCell align="right">{row.createdAt}</TableCell>
                       <TableCell align="right">{row.type}</TableCell>
                       <TableCell align="right">
                         <a href={`/report/${row.id}`}>
                           <Tooltip
                             id="tooltip-top"
-                            title="Chỉnh sửa"
+                            title="Xuất báo cáo"
                             placement="top"
                             classes={{ tooltip: classes.tooltip }}
                           >
@@ -353,7 +354,7 @@ export default function EnhancedTable(props) {
                               aria-label="Edit"
                               className={classes.tableActionButton}
                             >
-                              <Edit
+                              <ExitToApp
                                 className={
                                   classes.tableActionButtonIcon + " " + classes.edit
                                 }
@@ -362,7 +363,7 @@ export default function EnhancedTable(props) {
                           </Tooltip>
                         </a>
 
-                        <Tooltip
+                        {/* <Tooltip
                           id="tooltip-top-start"
                           title="xóa"
                           placement="top"
@@ -395,7 +396,7 @@ export default function EnhancedTable(props) {
                               }
                             />
                           </IconButton>
-                        </Tooltip>
+                        </Tooltip> */}
                       </TableCell>
                     </TableRow>
                   );

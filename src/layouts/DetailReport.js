@@ -92,7 +92,7 @@ const Create = (props) => {
                       queryParam == "cotdien" ? "cột điện" : "hành lang tuyến"
                   }`} */}
               </h4>
-              <p className={classes.cardCategoryWhite}>Bản báo cáo mới</p>
+              <p className={classes.cardCategoryWhite}>Chi tiết báo cáo</p>
             </CardHeader>
             <CardBody>
               <GridContainer>
@@ -439,7 +439,7 @@ const Create = (props) => {
             </CardBody>
             <CardFooter>
               <Link to={`/admin/myreports/` + `${queryParam}`}>
-                <Button color="info">Lưu</Button>
+                <Button color="info">Xuất</Button>
               </Link>
             </CardFooter>
           </Card>

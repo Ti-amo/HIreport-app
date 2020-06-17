@@ -25,16 +25,16 @@ const headCells = [
     id: "reportName",
     numeric: false,
     disablePadding: true,
-    label: "Tên báo cáo"
+    label: "Tên sự cố"
   },
-  { id: "owner", numeric: true, disablePadding: false, label: "Người tạo" },
+  { id: "level", numeric: true, disablePadding: false, label: "Mức độ" },
   {
     id: "createdAt",
     numeric: true,
     disablePadding: false,
-    label: "Thời gian tạo"
+    label: "Thời gian phát hiện sự cố"
   },
-  { id: "type", numeric: true, disablePadding: false, label: "Loại báo cáo" },
+  { id: "type", numeric: true, disablePadding: false, label: "Loại sự cố" },
   { id: "action", numeric: false, disablePadding: false, label: "" }
 ];
 
@@ -94,7 +94,7 @@ const PowerLine = props => {
         <div>
           <p className={classes.textTitle}>Báo cáo đường dây điện</p>
           <div className={classes.buttonWrap}>
-            <a href="/create?type=daydien">
+            {/* <a href="/create?type=daydien">
               <Button
                 className={classes.createButton}
                 type="button"
@@ -103,7 +103,7 @@ const PowerLine = props => {
               >
                 <AddIcon /> &nbsp; TẠO BÁO CÁO
               </Button>
-            </a>
+            </a> */}
           </div>
         </div>
 
