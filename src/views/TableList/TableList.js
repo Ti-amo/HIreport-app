@@ -114,31 +114,31 @@ const TableList = props => {
           <CardBody>
             <GridContainer>
               <GridItem xs={4} sm={4} md={4}>
-                <Link to="/create?type=daydien">
+                <a href="/create?type=daydien">
                   <RpTemplate
                     title="Đường dây điện"
                     des="Báo cáo về sự cố của đường dây điện"
                     image="https://st2.depositphotos.com/2317051/11374/i/950/depositphotos_113748554-stock-photo-black-and-white-silhouette-of.jpg"
                   ></RpTemplate>
-                </Link>
+                </a>
               </GridItem>
               <GridItem xs={4} sm={4} md={4}>
-                <Link to="/create?type=cotdien">
+                <a href="/create?type=cotdien">
                   <RpTemplate
                     title="Cột điện"
                     des="Báo cáo về sự cố của cột điện"
                     image="https://previews.123rf.com/images/gbradic/gbradic1011/gbradic101100001/8202747-transmission-tower-silhouette.jpg"
                   ></RpTemplate>
-                </Link>
+                </a>
               </GridItem>
               <GridItem xs={4} sm={4} md={4}>
-                <Link to="/create?type=hanhlangtuyen">
+                <a href="/create?type=hanhlangtuyen">
                   <RpTemplate
                     title="Hành lang tuyến"
                     des="Báo cáo về sự cố của hành lang lưới điện"
                     image="https://st2.depositphotos.com/2193402/7266/v/950/depositphotos_72667421-stock-illustration-high-voltage-power-lines.jpg"
                   ></RpTemplate>
-                </Link>
+                </a>
               </GridItem>
             </GridContainer>
           </CardBody>
