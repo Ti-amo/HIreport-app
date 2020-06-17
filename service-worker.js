@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/HIreport-app/precache-manifest.e15366337a2b5387383b4b15fe07444e.js"
+  "/HIreport-app/precache-manifest.4003c086e786cee22b3f7f99f8c13a6c.js"
 );
 
 self.addEventListener('message', (event) => {
