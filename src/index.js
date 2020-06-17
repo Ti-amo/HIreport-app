@@ -24,6 +24,7 @@ import { Router, Route, Switch, Redirect } from "react-router-dom";
 import Admin from "layouts/Admin.js";
 import RTL from "layouts/RTL.js";
 import Create from "layouts/Create.js";
+import DetailReport from "layouts/DetailReport.js"
 
 import "assets/css/material-dashboard-react.css?v=1.8.0";
 
@@ -35,6 +36,7 @@ ReactDOM.render(
       <Route path="/admin" component={Admin} />
       <Route path="/rtl" component={RTL} />
       <Route path="/create" component={Create} />
+      <Route path="/report/:id" component={DetailReport} />
       <Redirect from="/" to="/admin/home" />
     </Switch>
   </Router>,

@@ -1,5 +1,6 @@
 const dataSource = [
     {
+        id: 1,
         isImportant: false,
         reportName: "Đường dây điện số 5",
         owner: "Thế Hùng",
@@ -9,6 +10,7 @@ const dataSource = [
         lastOpenAt: "10 giây trước"
     },
     {
+        id: 2,
         isImportant: false,
         reportName: "Hành lang tuyến số 10",
         owner: "Thế Tung",
@@ -19,6 +21,7 @@ const dataSource = [
     },
 
     {
+        id: 3,
         isImportant: false,
         reportName: "Đường dây điện số 15",
         owner: "Thế Tung",
@@ -28,6 +31,7 @@ const dataSource = [
         lastOpenAt: "1 tiếng trước"
     },
     {
+        id: 4,
         isImportant: false,
         reportName: "Đường dây điện số 25",
         owner: "Quang Hùng",
@@ -37,6 +41,7 @@ const dataSource = [
         lastOpenAt: "2 tiếng trước"
     },
     {
+        id: 5,
         isImportant: false,
         reportName: "Cột điện số 12",
         owner: "Thế Hùng",
@@ -46,6 +51,7 @@ const dataSource = [
         lastOpenAt: "1 phút trước"
     },
     {
+        id: 6,
         isImportant: false,
         reportName: "Đường dây điện số 3",
         owner: "Quang Anh",
@@ -55,6 +61,7 @@ const dataSource = [
         lastOpenAt: "1 phút trước"
     },
     {
+        id: 7,
         isImportant: true,
         reportName: "Hành lang tuyến số 34",
         owner: "Quang Hùng",
@@ -64,6 +71,7 @@ const dataSource = [
         lastOpenAt: "1 phút trước"
     },
     {
+        id: 8,
         isImportant: false,
         reportName: "Cột điện số 32",
         owner: "Quang Anh",
@@ -74,6 +82,7 @@ const dataSource = [
     },
 
     {
+        id: 9,
         isImportant: true,
         reportName: "Cột điện số 16",
         owner: "Quang Hùng",
@@ -83,6 +92,7 @@ const dataSource = [
         lastOpenAt: "1 phút trước"
     },
     {
+        id: 10,
         isImportant: false,
         reportName: "Hành lang tuyến số 4",
         owner: "Thế Hùng",
@@ -92,6 +102,7 @@ const dataSource = [
         lastOpenAt: "1 phút trước"
     },
     {
+        id: 11,
         isImportant: true,
         reportName: "Hành lang tuyến số 9",
         owner: "Quang Anh",
@@ -101,6 +112,7 @@ const dataSource = [
         lastOpenAt: "1 phút trước"
     },
     {
+        id: 12,
         isImportant: true,
         reportName: "Cột điện số 11",
         owner: "Thế Tung",

@@ -147,8 +147,8 @@ export default function Dashboard() {
               <CardIcon color="danger">
                 <Icon>insert_drive_file</Icon>
               </CardIcon>
-              <p className={classes.cardCategory}>Bản nháp</p>
-              <h3 className={classes.cardTitle}>1</h3>
+              <p className={classes.cardCategory}>Báo cáo mới nhất</p>
+              <h6 className={classes.cardTitle}>Đường dây điện số 3</h6>
             </CardHeader>
             <CardFooter stats>
               <div className={classes.stats}>

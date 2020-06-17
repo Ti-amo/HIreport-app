@@ -84,12 +84,13 @@ const Create = (props) => {
           <Card>
             <CardHeader color="info">
               <h4 className={classes.cardTitleWhite}>
-                Báo cáo{" "}
+                Báo cáo
+                {/* {" "}
                 {queryParam == "daydien"
                   ? "đường dây điện"
                   : `${
                       queryParam == "cotdien" ? "cột điện" : "hành lang tuyến"
-                  }`}
+                  }`} */}
               </h4>
               <p className={classes.cardCategoryWhite}>Bản báo cáo mới</p>
             </CardHeader>
@@ -438,7 +439,7 @@ const Create = (props) => {
             </CardBody>
             <CardFooter>
               <Link to={`/admin/myreports/` + `${queryParam}`}>
-                <Button color="info">Tạo mới</Button>
+                <Button color="info">Lưu</Button>
               </Link>
             </CardFooter>
           </Card>

@@ -27,6 +27,7 @@ import StarBorderIcon from "@material-ui/icons/StarBorder";
 import StarIcon from '@material-ui/icons/Star';
 import { yellow } from "@material-ui/core/colors";
 import { warningColor } from "assets/jss/material-dashboard-react.js";
+import { Link } from "react-router-dom"
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -108,7 +109,7 @@ function EnhancedTableHead(props) {
 }
 
 EnhancedTableHead.propTypes = {
-//   headCells: PropTypes.arrayOf(PropTypes.object).isRequired,
+  //   headCells: PropTypes.arrayOf(PropTypes.object).isRequired,
   classes: PropTypes.object.isRequired,
   numSelected: PropTypes.number.isRequired,
   onRequestSort: PropTypes.func.isRequired,
@@ -126,13 +127,13 @@ const useToolbarStyles = makeStyles((theme) => ({
   highlight:
     theme.palette.type === "light"
       ? {
-          color: theme.palette.secondary.main,
-          backgroundColor: lighten(theme.palette.secondary.light, 0.85),
-        }
+        color: theme.palette.secondary.main,
+        backgroundColor: lighten(theme.palette.secondary.light, 0.85),
+      }
       : {
-          color: theme.palette.text.primary,
-          backgroundColor: theme.palette.secondary.dark,
-        },
+        color: theme.palette.text.primary,
+        backgroundColor: theme.palette.secondary.dark,
+      },
   title: {
     flex: "1 1 100%",
   },
@@ -158,15 +159,15 @@ const EnhancedTableToolbar = (props) => {
           {numSelected} selected
         </Typography>
       ) : (
-        <Typography
-          className={classes.title}
-          variant="h6"
-          id="tableTitle"
-          component="div"
-        >
-          {/* Nutrition */}
-        </Typography>
-      )}
+          <Typography
+            className={classes.title}
+            variant="h6"
+            id="tableTitle"
+            component="div"
+          >
+            {/* Nutrition */}
+          </Typography>
+        )}
 
       {numSelected > 0 ? (
         <Tooltip title="Delete">
@@ -175,12 +176,12 @@ const EnhancedTableToolbar = (props) => {
           </IconButton>
         </Tooltip>
       ) : (
-        <Tooltip title="Filter list">
-          <IconButton aria-label="filter list">
-            <FilterListIcon />
-          </IconButton>
-        </Tooltip>
-      )}
+          <Tooltip title="Filter list">
+            <IconButton aria-label="filter list">
+              <FilterListIcon />
+            </IconButton>
+          </Tooltip>
+        )}
     </Toolbar>
   );
 };
@@ -326,7 +327,7 @@ export default function EnhancedTable(props) {
                           title="Chỉnh sửa"
                           placement="top"
                         >
-                          {row.isImportant === true ? <StarIcon style={{ color: yellow[800] }}/> : <StarBorderIcon/>}
+                          {row.isImportant === true ? <StarIcon style={{ color: yellow[800] }} /> : <StarBorderIcon />}
                         </Tooltip>
                       </TableCell>
                       <TableCell
@@ -341,23 +342,26 @@ export default function EnhancedTable(props) {
                       <TableCell align="right">{row.createdAt}</TableCell>
                       <TableCell align="right">{row.type}</TableCell>
                       <TableCell align="right">
-                        <Tooltip
-                          id="tooltip-top"
-                          title="Chỉnh sửa"
-                          placement="top"
-                          classes={{ tooltip: classes.tooltip }}
-                        >
-                          <IconButton
-                            aria-label="Edit"
-                            className={classes.tableActionButton}
+                        <Link to={`/report/${row.id}`}>
+                          <Tooltip
+                            id="tooltip-top"
+                            title="Chỉnh sửa"
+                            placement="top"
+                            classes={{ tooltip: classes.tooltip }}
                           >
-                            <Edit
-                              className={
-                                classes.tableActionButtonIcon + " " + classes.edit
-                              }
-                            />
-                          </IconButton>
-                        </Tooltip>
+                            <IconButton
+                              aria-label="Edit"
+                              className={classes.tableActionButton}
+                            >
+                              <Edit
+                                className={
+                                  classes.tableActionButtonIcon + " " + classes.edit
+                                }
+                              />
+                            </IconButton>
+                          </Tooltip>
+                        </Link>
+
                         <Tooltip
                           id="tooltip-top-start"
                           title="xóa"
