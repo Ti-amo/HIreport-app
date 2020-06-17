@@ -26,7 +26,7 @@ import Close from "@material-ui/icons/Close";
 import StarBorderIcon from "@material-ui/icons/StarBorder";
 import StarIcon from '@material-ui/icons/Star';
 import ExitToApp from '@material-ui/icons/ExitToApp';
-import Button from "components/CustomButtons/Button";
+import GetAppIcon from '@material-ui/icons/GetApp';
 import { yellow } from "@material-ui/core/colors";
 import { warningColor } from "assets/jss/material-dashboard-react.js";
 import { Link } from "react-router-dom"
@@ -323,15 +323,15 @@ export default function EnhancedTable(props) {
                           onClick={(event) => handleClick(event, row.reportName)}
                         />
                       </TableCell>
-                      {/* <TableCell padding="checkbox">
+                      <TableCell padding="checkbox">
                         <Tooltip
                           id="tooltip-top"
-                          title="Chỉnh sửa"
+                          title="Đánh dấu"
                           placement="top"
                         >
                           {row.isImportant === true ? <StarIcon style={{ color: yellow[800] }} /> : <StarBorderIcon />}
                         </Tooltip>
-                      </TableCell> */}
+                      </TableCell>
                       <TableCell
                         component="th"
                         id={labelId}
@@ -340,42 +340,31 @@ export default function EnhancedTable(props) {
                       >
                         {row.reportName}
                       </TableCell>
-                      <TableCell align="right">{row.level}</TableCell>
+                      <TableCell align="right">{row.owner}</TableCell>
                       <TableCell align="right">{row.createdAt}</TableCell>
-                      <TableCell align="right">{row.problem}</TableCell>
+                      <TableCell align="right">{row.type}</TableCell>
                       <TableCell align="right">
-                        <a href={`/report/${row.id}`}>
-                          <Button
-                            className={classes.createButton}
-                            type="button"
-                            variant="contained"
-                            color="info"
-                          >
-                            <ExitToApp />
-            &nbsp; Xuất báo cáo
-          </Button>
-                          {/* <Tooltip
-                            id="tooltip-top"
-                            title="Xuất báo cáo"
-                            placement="top"
-                            classes={{ tooltip: classes.tooltip }}
-                          >
-                            <IconButton
-                              aria-label="Edit"
-                              className={classes.tableActionButton}
-                            >
-                              <ExitToApp
-                                className={
-                                  classes.tableActionButtonIcon + " " + classes.edit
-                                }
-                              />
-                            </IconButton>
-                          </Tooltip> */}
-                        </a>
-
-                        {/* <Tooltip
+                        
+                        <Tooltip
                           id="tooltip-top-start"
-                          title="xóa"
+                          title="Chỉnh sửa"
+                          placement="top"
+                          classes={{ tooltip: classes.tooltip }}
+                        >
+                          <IconButton
+                            aria-label="Share"
+                            className={classes.tableActionButton}
+                          >
+                            <Edit
+                              className={
+                                classes.tableActionButtonIcon + " " + classes.share
+                              }
+                            />
+                          </IconButton>
+                        </Tooltip>
+                        <Tooltip
+                          id="tooltip-top-start"
+                          title="Xóa"
                           placement="top"
                           classes={{ tooltip: classes.tooltip }}
                         >
@@ -390,23 +379,27 @@ export default function EnhancedTable(props) {
                             />
                           </IconButton>
                         </Tooltip>
-                        <Tooltip
-                          id="tooltip-top-start"
-                          title="Chia sẻ"
-                          placement="top"
-                          classes={{ tooltip: classes.tooltip }}
-                        >
-                          <IconButton
-                            aria-label="Share"
-                            className={classes.tableActionButton}
+
+                        {/* <a href={`/report/${row.id}`}> */}
+                          <Tooltip
+                            id="tooltip-top"
+                            title="Tải về"
+                            placement="top"
+                            classes={{ tooltip: classes.tooltip }}
                           >
-                            <ShareIcon
-                              className={
-                                classes.tableActionButtonIcon + " " + classes.share
-                              }
-                            />
-                          </IconButton>
-                        </Tooltip> */}
+                            <IconButton
+                              aria-label="Download"
+                              className={classes.tableActionButton}
+                            >
+                              <GetAppIcon
+                                className={
+                                  classes.tableActionButtonIcon + " " + classes.edit
+                                }
+                              />
+                            </IconButton>
+                          </Tooltip>
+                        {/* </a> */}
+                        
                       </TableCell>
                     </TableRow>
                   );

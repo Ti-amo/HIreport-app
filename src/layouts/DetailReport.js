@@ -438,7 +438,7 @@ const Create = (props) => {
               </GridContainer>
             </CardBody>
             <CardFooter>
-              <Link to={`/admin/myreports/` + `${queryParam}`}>
+              <Link to={`/admin/myreports`}>
                 <Button color="info">Xuất</Button>
               </Link>
             </CardFooter>
