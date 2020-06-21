@@ -90,7 +90,7 @@ export default function Typography() {
         <div>
           <p className={classes.textTitle}>Báo cáo gần đây</p>
           <div className={classes.buttonWrap}>
-            <Link to="/create">
+            {/* <Link to="/create">
               <Button
                 className={classes.createButton}
                 type="button"
@@ -99,7 +99,7 @@ export default function Typography() {
               >
                 <AddIcon /> &nbsp; TẠO BÁO CÁO
               </Button>
-            </Link>
+            </Link> */}
           </div>
         </div>
 

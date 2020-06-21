@@ -18,7 +18,7 @@ import dataSource from "../../dataSource.js";
 import Table2 from "components/Table/Table2.js";
 
 const headCells = [
-  { id: "important", numeric: false, disablePadding: false, label: "" },
+  // { id: "important", numeric: false, disablePadding: false, label: "" },
   {
     id: "reportName",
     numeric: false,
@@ -89,7 +89,7 @@ export default function TableList() {
     <GridContainer>
       <GridItem xs={12} sm={12} md={12}>
         <div>
-          <p className={classes.textTitle}>Báo cáo cột điện</p>
+          <p className={classes.textTitle}>Báo cáo sự cố cột điện</p>
           <div className={classes.buttonWrap}>
           {/* <a href="/create?type=cotdien">
               <Button

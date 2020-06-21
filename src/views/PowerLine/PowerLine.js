@@ -20,7 +20,7 @@ import Table2 from "components/Table/Table2.js";
 import queryString from "querystring"
 
 const headCells = [
-  { id: "important", numeric: false, disablePadding: false, label: "" },
+  // { id: "important", numeric: false, disablePadding: false, label: "" },
   {
     id: "reportName",
     numeric: false,
@@ -92,7 +92,7 @@ const PowerLine = props => {
     <GridContainer>
       <GridItem xs={12} sm={12} md={12}>
         <div>
-          <p className={classes.textTitle}>Báo cáo đường dây điện</p>
+          <p className={classes.textTitle}>Báo cáo sự cố đường dây điện</p>
           <div className={classes.buttonWrap}>
             {/* <a href="/create?type=daydien">
               <Button
@@ -110,7 +110,7 @@ const PowerLine = props => {
         <Card>
           <CardHeader color="info">
             <SearchBar
-              placeholder="Tìm kiếm báo cáo"
+              placeholder="Tìm kiếm"
               value={searchValue}
               onChange={newValue => setSearchValue(newValue)}
               onRequestSearch={() => console.log("SEARCH VALUE", searchValue)}

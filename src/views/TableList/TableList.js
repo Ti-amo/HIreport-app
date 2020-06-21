@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 // core components
 import GridItem from "components/Grid/GridItem.js";
 import GridContainer from "components/Grid/GridContainer.js";
-import Table from "components/Table/Table.js";
+import Table3 from "components/Table/Table3.js";
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
@@ -166,7 +166,7 @@ const TableList = props => {
             </GridContainer>
           </CardHeader>
           <CardBody>
-            <Table2 rows={dataSource} headCells={headCells}></Table2>
+            <Table3 rows={dataSource} headCells={headCells}></Table3>
           </CardBody>
         </Card>
       </GridItem>

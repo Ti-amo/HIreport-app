@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 // core components
 import GridItem from "components/Grid/GridItem.js";
 import GridContainer from "components/Grid/GridContainer.js";
-import Table2 from "components/Table/Table2.js";
+import Table3 from "components/Table/Table3.js";
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
@@ -90,7 +90,7 @@ export default function Notification() {
         <div>
           <p className={classes.textTitle}>Báo cáo quan trọng</p>
           <div className={classes.buttonWrap}>
-            <Link to="/create">
+            {/* <Link to="/create">
               <Button
                 className={classes.createButton}
                 type="button"
@@ -99,7 +99,7 @@ export default function Notification() {
               >
                 <AddIcon /> &nbsp; TẠO BÁO CÁO
               </Button>
-            </Link>
+            </Link> */}
           </div>
         </div>
 
@@ -137,7 +137,7 @@ export default function Notification() {
             /> */}
           </CardHeader>
           <CardBody>
-            <Table2
+            <Table3
               rows={dataSource.filter(data => data.isImportant == true)}
               headCells={headCells}
             />

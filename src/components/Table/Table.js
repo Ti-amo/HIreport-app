@@ -25,6 +25,8 @@ import ShareIcon from "@material-ui/icons/Share";
 import Close from "@material-ui/icons/Close";
 import StarBorderIcon from "@material-ui/icons/StarBorder";
 import StarIcon from '@material-ui/icons/Star';
+import GetAppIcon from '@material-ui/icons/GetApp';
+
 import { yellow } from "@material-ui/core/colors";
 import { warningColor } from "assets/jss/material-dashboard-react.js";
 
@@ -377,7 +379,7 @@ export default function EnhancedTable(props) {
                         </Tooltip>
                         <Tooltip
                           id="tooltip-top-start"
-                          title="Chia sẻ"
+                          title="Tải về"
                           placement="top"
                           classes={{ tooltip: classes.tooltip }}
                         >
@@ -385,7 +387,7 @@ export default function EnhancedTable(props) {
                             aria-label="Share"
                             className={classes.tableActionButton}
                           >
-                            <ShareIcon
+                            <GetAppIcon
                               className={
                                 classes.tableActionButtonIcon + " " + classes.share
                               }

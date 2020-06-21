@@ -8,7 +8,8 @@ const dataSource = [
         type: "Đường dây điện",
         justOpen: true,
         lastOpenAt: "10 giây trước",
-        level: "Rất nghiêm trọng"
+        level: "Rất nghiêm trọng",
+        problem: "Đứt dây"
     },
     {
         id: 2,
@@ -19,7 +20,8 @@ const dataSource = [
         type: "Hành lang tuyến",
         justOpen: true,
         lastOpenAt: "5 phút trước",
-        level: "Bình thường"
+        level: "Bình thường",
+        problem: "Cháy rừng"
     },
 
     {
@@ -31,7 +33,8 @@ const dataSource = [
         type: "Đường dây điện",
         justOpen: true,
         lastOpenAt: "1 tiếng trước",
-        level: "Nghiêm trọng"
+        level: "Nghiêm trọng",
+        problem: "Cháy nổ"
     },
     {
         id: 4,
@@ -42,7 +45,8 @@ const dataSource = [
         type: "Đường dây điện",
         justOpen: true,
         lastOpenAt: "2 tiếng trước",
-        level: "Bình thường"
+        level: "Bình thường",
+        problem: "Đứt dây"
     },
     {
         id: 5,
@@ -53,7 +57,8 @@ const dataSource = [
         type: "Cột điện",
         justOpen: false,
         lastOpenAt: "1 phút trước",
-        level: "Nghiêm trọng"
+        level: "Nghiêm trọng",
+        problem: "Gãy cột điện"
     },
     {
         id: 6,
@@ -64,7 +69,8 @@ const dataSource = [
         type: "Đường dây điện",
         justOpen: false,
         lastOpenAt: "1 phút trước",
-        level: "Rất nghiêm trọng"
+        level: "Rất nghiêm trọng",
+        problem: "Hỏng dây"
     },
     {
         id: 7,
@@ -75,7 +81,8 @@ const dataSource = [
         type: "Hành lang tuyến",
         justOpen: false,
         lastOpenAt: "1 phút trước",
-        level: "Bình thường"
+        level: "Bình thường",
+        problem: "Sạt lở đất"
     },
     {
         id: 8,
@@ -86,7 +93,8 @@ const dataSource = [
         type: "Cột điện",
         justOpen: false,
         lastOpenAt: "1 phút trước",
-        level: "Nghiêm trọng"
+        level: "Nghiêm trọng",
+        problem: "Cháy nổ"
     },
 
     {
@@ -98,7 +106,8 @@ const dataSource = [
         type: "Cột điện",
         justOpen: false,
         lastOpenAt: "1 phút trước",
-        level: "Bình thường"
+        level: "Bình thường",
+        problem: "Dây quá cũ"
     },
     {
         id: 10,
@@ -109,7 +118,8 @@ const dataSource = [
         type: "Hành lang tuyến",
         justOpen: false,
         lastOpenAt: "1 phút trước",
-        level: "Rất nghiêm trọng"
+        level: "Rất nghiêm trọng",
+        problem: "Cháy rừng"
     },
     {
         id: 11,
@@ -120,7 +130,8 @@ const dataSource = [
         type: "Hành lang tuyến",
         justOpen: false,
         lastOpenAt: "1 phút trước",
-        level: "Nghiêm trọng"
+        level: "Nghiêm trọng",
+        problem: "Động đất"
     },
     {
         id: 12,
@@ -131,7 +142,8 @@ const dataSource = [
         type: "Cột điện",
         justOpen: false,
         lastOpenAt: "1 phút trước",
-        level: "Bình thường"
+        level: "Bình thường",
+        problem: "Nứt vỡ"
     },
 ];
 
