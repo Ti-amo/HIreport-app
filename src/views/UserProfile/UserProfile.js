@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import InputLabel from "@material-ui/core/InputLabel";
@@ -12,6 +12,7 @@ import CardHeader from "components/Card/CardHeader.js";
 import CardAvatar from "components/Card/CardAvatar.js";
 import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter.js";
+import MaterialTable from "material-table";
 
 import avatar from "assets/img/faces/marc.jpg";
 
@@ -37,142 +38,130 @@ const styles = {
 const useStyles = makeStyles(styles);
 
 export default function UserProfile() {
-  const classes = useStyles();
+  const [columns, setColumns] = useState([
+    {
+      title: "Đối tượng",
+      field: "name"
+    },
+    {
+      title: "Địa chỉ",
+      field: "address"
+    },
+    {
+      title: "Hỏng từ km số",
+      field: "from",
+      type: "numeric"
+    },
+    {
+      title: "đến km số",
+      field: "to",
+      type: "numeric"
+    },
+    {
+      title: "Số lần sửa chữa",
+      field: "brokentimes",
+      type: "numeric"
+      // lookup: { 34: "İstanbul", 63: "Şanlıurfa" }
+    }
+  ]);
+
+  const [data, setData] = useState([
+    {
+      name: "Cột điện số 12",
+      address: "đường Thanh Niên",
+      from: 5,
+      to: 13,
+      brokentimes: 2
+    },
+    {
+      name: "Cột điện số 15",
+      address: "đường Giải Phóng",
+      from: 2,
+      to: 4,
+      brokentimes: 0
+    },
+    {
+      name: "Cột điện số 7",
+      address: "đường Phan Đình Giót",
+      from: 1,
+      to: 4,
+      brokentimes: 1
+    },
+    {
+      name: "Cột điện số 9",
+      address: "đường Kim Liên",
+      from: 6,
+      to: 10,
+      brokentimes: 4
+    },
+    {
+      name: "Cột điện số 19",
+      address: "đường Hoang Hoa Thám",
+      from: 10,
+      to: 13,
+      brokentimes: 3
+    },
+    {
+      name: "Cột điện số 20",
+      address: "ga Hà Nội",
+      from: 3,
+      to: 5,
+      brokentimes: 2
+    }
+  ]);
+
   return (
-    <div>
-      <GridContainer>
-        <GridItem xs={12} sm={12} md={8}>
-          <Card>
-            <CardHeader color="info">
-              <h4 className={classes.cardTitleWhite}>Edit Profile</h4>
-              <p className={classes.cardCategoryWhite}>Complete your profile</p>
-            </CardHeader>
-            <CardBody>
-              <GridContainer>
-                <GridItem xs={12} sm={12} md={5}>
-                  <CustomInput
-                    labelText="Company (disabled)"
-                    id="company-disabled"
-                    formControlProps={{
-                      fullWidth: true
-                    }}
-                    inputProps={{
-                      disabled: true
-                    }}
-                  />
-                </GridItem>
-                <GridItem xs={12} sm={12} md={3}>
-                  <CustomInput
-                    labelText="Username"
-                    id="username"
-                    formControlProps={{
-                      fullWidth: true
-                    }}
-                  />
-                </GridItem>
-                <GridItem xs={12} sm={12} md={4}>
-                  <CustomInput
-                    labelText="Email address"
-                    id="email-address"
-                    formControlProps={{
-                      fullWidth: true
-                    }}
-                  />
-                </GridItem>
-              </GridContainer>
-              <GridContainer>
-                <GridItem xs={12} sm={12} md={6}>
-                  <CustomInput
-                    labelText="First Name"
-                    id="first-name"
-                    formControlProps={{
-                      fullWidth: true
-                    }}
-                  />
-                </GridItem>
-                <GridItem xs={12} sm={12} md={6}>
-                  <CustomInput
-                    labelText="Last Name"
-                    id="last-name"
-                    formControlProps={{
-                      fullWidth: true
-                    }}
-                  />
-                </GridItem>
-              </GridContainer>
-              <GridContainer>
-                <GridItem xs={12} sm={12} md={4}>
-                  <CustomInput
-                    labelText="City"
-                    id="city"
-                    formControlProps={{
-                      fullWidth: true
-                    }}
-                  />
-                </GridItem>
-                <GridItem xs={12} sm={12} md={4}>
-                  <CustomInput
-                    labelText="Country"
-                    id="country"
-                    formControlProps={{
-                      fullWidth: true
-                    }}
-                  />
-                </GridItem>
-                <GridItem xs={12} sm={12} md={4}>
-                  <CustomInput
-                    labelText="Postal Code"
-                    id="postal-code"
-                    formControlProps={{
-                      fullWidth: true
-                    }}
-                  />
-                </GridItem>
-              </GridContainer>
-              <GridContainer>
-                <GridItem xs={12} sm={12} md={12}>
-                  <InputLabel style={{ color: "#AAAAAA" }}>About me</InputLabel>
-                  <CustomInput
-                    labelText="Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo."
-                    id="about-me"
-                    formControlProps={{
-                      fullWidth: true
-                    }}
-                    inputProps={{
-                      multiline: true,
-                      rows: 5
-                    }}
-                  />
-                </GridItem>
-              </GridContainer>
-            </CardBody>
-            <CardFooter>
-              <Button color="info">Update Profile</Button>
-            </CardFooter>
-          </Card>
-        </GridItem>
-        <GridItem xs={12} sm={12} md={4}>
-          <Card profile>
-            <CardAvatar profile>
-              <a href="#pablo" onClick={e => e.preventDefault()}>
-                <img src={avatar} alt="..." />
-              </a>
-            </CardAvatar>
-            <CardBody profile>
-              <h6 className={classes.cardCategory}>CEO / CO-FOUNDER</h6>
-              <h4 className={classes.cardTitle}>Alec Thompson</h4>
-              <p className={classes.description}>
-                Don{"'"}t be scared of the truth because we need to restart the
-                human foundation in truth And I love you like Kanye loves Kanye
-                I love Rick Owens’ bed design but the back is...
-              </p>
-              {/* <Button color="info" round>
-                Follow
-              </Button> */}
-            </CardBody>
-          </Card>
-        </GridItem>
-      </GridContainer>
-    </div>
-  );
+    <MaterialTable
+      title="Quản lý đối tượng cột điện"
+      columns={columns}
+      data={data}
+      editable={{
+        onRowAdd: newData =>
+          new Promise((resolve, reject) => {
+            setTimeout(() => {
+              setData([...data, newData]);
+
+              resolve();
+            }, 1000)
+          }),
+        onRowUpdate: (newData, oldData) =>
+          new Promise((resolve, reject) => {
+            setTimeout(() => {
+              const dataUpdate = [...data];
+              const index = oldData.tableData.id;
+              dataUpdate[index] = newData;
+              setData([...dataUpdate]);
+
+              resolve();
+            }, 1000)
+          }),
+        onRowDelete: oldData =>
+          new Promise((resolve, reject) => {
+            setTimeout(() => {
+              const dataDelete = [...data];
+              const index = oldData.tableData.id;
+              dataDelete.splice(index, 1);
+              setData([...dataDelete]);
+              resolve()
+            }, 1000)
+          })
+      }}
+      detailPanel={rowData => {
+        return (
+          // <iframe
+          //   width="100%"
+          //   height="315"
+          //   src="https://www.youtube.com/embed/C0DPdy98e4c"
+          //   frameborder="0"
+          //   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          //   allowfullscreen
+          // />
+          <div className="d-flex" style={{ padding: "1rem" }}>
+            <h2>Chi tiết đối tượng {`${rowData.name}`}</h2>
+          </div>
+        )
+      }}
+      onRowClick={(event, rowData, togglePanel) => togglePanel()}
+    />
+  )
 }

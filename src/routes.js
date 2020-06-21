@@ -52,14 +52,14 @@ const dashboardRoutes = [
     component: DashboardPage,
     layout: "/admin"
   },
-  // {
-  //   path: "/user",
-  //   name: "Người dùng",
-  //   rtlName: "ملف تعريفي للمستخدم",
-  //   icon: Person,
-  //   component: UserProfile,
-  //   layout: "/admin"
-  // },
+  {
+    path: "/object",
+    name: "Quản lý đối tượng",
+    rtlName: "ملف تعريفي للمستخدم",
+    icon: LibraryBooks,
+    component: UserProfile,
+    layout: "/admin"
+  },
   {
     path: "/myreports",
     name: "Báo cáo của tôi",
