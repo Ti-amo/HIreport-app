@@ -20,21 +20,12 @@ import TextField from '@material-ui/core/TextField';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormLabel from '@material-ui/core/FormLabel';
-import DateFnsUtils from '@date-io/date-fns';
-import {
-  MuiPickersUtilsProvider,
-  KeyboardTimePicker,
-  KeyboardDatePicker,
-} from '@material-ui/pickers';
-
-
-
 import avatar from "assets/img/faces/marc.jpg";
-import { Link, BrowserRouter as Router, 
-  useLocation 
-} from "react-router-dom";
+import { Link, BrowserRouter as Router, useLocation } from "react-router-dom";
+
+import objectSource from "../objectSource";
 
 const styles = {
   root: {
@@ -65,13 +56,23 @@ const useStyles = makeStyles(styles);
 function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
-const Create = (props) => {
+const Create = props => {
   let queryParam = useQuery().get("type");
   console.log("AAA", queryParam);
 
   const classes = useStyles();
   const [age, setAge] = React.useState("");
-  const [date, setDate] = React.useState(new Date());
+  const [name, setName] = React.useState("");
+  const [valueRadio, setValueRadio] = React.useState("");
+
+  const handleChangeValueRadio = event => {
+    setValueRadio(event.target.value);
+  };
+  const today = new Date();
+
+  const handleChangeName = event => {
+    setName(event.target.value);
+  };
 
   const handleChange = event => {
     setAge(event.target.value);
@@ -87,11 +88,10 @@ const Create = (props) => {
                 {queryParam == "daydien"
                   ? "đường dây điện"
                   : `${
-                      queryParam == "cotdien" ? "cột điện" : "hành lang tuyến"
+                  queryParam == "cotdien" ? "cột điện" : "hành lang tuyến"
                   }`}
               </h4>
               <p className={classes.cardCategoryWhite}>Bản báo cáo mới</p>
-              
             </CardHeader>
             <CardBody>
               <GridContainer>
@@ -99,7 +99,7 @@ const Create = (props) => {
                   <p>Tên báo cáo :</p>
                 </GridItem>
 
-                <GridItem xs={12} sm={12} md={4}>
+                <GridItem xs={12} sm={12} md={2}>
                   <TextField
                     id="filled-password-input"
                     type="text"
@@ -108,52 +108,123 @@ const Create = (props) => {
                 </GridItem>
 
                 <GridItem xs={12} sm={12} md={2}>
+                  <p>Đối tượng :</p>
+                </GridItem>
+
+                <GridItem xs={12} sm={12} md={2}>
+                  <TextField
+                    id="filled-password-input"
+                    type="text"
+                    variant="outlined"
+                    select
+                    label="Chọn đối tượng"
+                    value={name}
+                    onChange={handleChangeName}
+                    helperText="Chọn đối tượng trong danh sách đối tượng đã quản lý"
+                  >
+                    {objectSource.map((obj, index) => (
+                      <MenuItem key={index} value={obj.name}>
+                        {obj.name}
+                      </MenuItem>
+                    ))}
+                  </TextField>
+                </GridItem>
+
+                <GridItem xs={12} sm={12} md={1}>
                   <p>Ngày tạo :</p>
                 </GridItem>
 
-                <GridItem xs={12} sm={12} md={4}>
+                <GridItem xs={12} sm={12} md={2}>
                   <TextField
                     id="filled-password-input"
                     type="text"
                     variant="outlined"
+                    value={
+                      today.getDate() +
+                      "/" +
+                      (today.getMonth() + 1) +
+                      "/" +
+                      today.getFullYear()
+                    }
                   />
                 </GridItem>
-
               </GridContainer>
+
+              <br></br>
+              {objectSource.map(obj => {
+                if (obj.name === name)
+                  return (
+                    <React.Fragment>
+                      <GridContainer>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <p>Địa điểm kiểm tra :</p>
+                        </GridItem>
+
+                        <GridItem xs={12} sm={12} md={1}>
+                          <p>Quận</p>
+                        </GridItem>
+
+                        <GridItem xs={12} sm={12} md={2}>
+                          <TextField
+                            id="filled-password-input"
+                            type="text"
+                            variant="outlined"
+                            value={obj.quan}
+                          />
+                        </GridItem>
+
+                        <GridItem xs={12} sm={12} md={1}>
+                          <p>Phường</p>
+                        </GridItem>
+
+                        <GridItem xs={12} sm={12} md={2}>
+                          <TextField
+                            id="filled-password-input"
+                            type="text"
+                            variant="outlined"
+                            value={obj.phuong}
+                          />
+                        </GridItem>
+
+                        <GridItem xs={12} sm={12} md={1}>
+                          <p>Đường</p>
+                        </GridItem>
+
+                        <GridItem xs={12} sm={12} md={3}>
+                          <TextField
+                            id="filled-password-input"
+                            type="text"
+                            variant="outlined"
+                            value={obj.address}
+                          />
+                        </GridItem>
+                      </GridContainer>
+
+                      <br></br>
+
+                      <GridContainer>
+                        <GridItem xs={12} sm={12} md={2}>
+                          <p>Vị trí dây điện :</p>
+                        </GridItem>
+
+                        <GridItem xs={12} sm={12} md={8}>
+                          <TextField
+                            id="filled-password-input"
+                            type="text"
+                            variant="outlined"
+                            fullWidth
+                            value={`Từ km số ${obj.from} đến km số ${obj.to}`}
+                          />
+                        </GridItem>
+                        <GridItem xs={12} sm={12} md={2}></GridItem>
+                      </GridContainer>
+                    </React.Fragment>
+                  );
+              })}
 
               <br></br>
 
               <GridContainer>
-
-                <GridItem xs={12} sm={12} md={2}>
-                  <p>Đợt kiểm tra :</p>
-                </GridItem>
-
-                <GridItem xs={12} sm={12} md={8}>
-                  <FormControl variant="outlined" fullWidth>
-                    <Select
-                      labelId="demo-simple-select-outlined-label"
-                      id="demo-simple-select-outlined"
-                      value={age}
-                      onChange={handleChange}
-                    >
-                      <MenuItem value="">
-                        <em>None</em>
-                      </MenuItem>
-                      <MenuItem value={10}>Ten</MenuItem>
-                      <MenuItem value={20}>Twenty</MenuItem>
-                      <MenuItem value={30}>Thirty</MenuItem>
-                    </Select>
-                  </FormControl>
-                </GridItem>
-                <GridItem xs={12} sm={12} md={2}></GridItem>
-
-              </GridContainer>
-
-              <br></br>
-
-              <GridContainer>
-
                 <GridItem xs={12} sm={12} md={2}>
                   <p>Ngày kiểm tra :</p>
                 </GridItem>
@@ -164,9 +235,13 @@ const Create = (props) => {
 
                 <GridItem xs={12} sm={12} md={4}>
                   <TextField
-                    id="filled-password-input"
-                    type="text"
-                    variant="outlined"
+                    id="date"
+                    type="date"
+                    // defaultValue={today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate()}
+                    className={classes.textField}
+                    InputLabelProps={{
+                      shrink: true
+                    }}
                   />
                 </GridItem>
 
@@ -176,18 +251,20 @@ const Create = (props) => {
 
                 <GridItem xs={12} sm={12} md={4}>
                   <TextField
-                    id="filled-password-input"
-                    type="text"
-                    variant="outlined"
+                    id="date"
+                    type="date"
+                    // defaultValue={today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate()}
+                    className={classes.textField}
+                    InputLabelProps={{
+                      shrink: true
+                    }}
                   />
                 </GridItem>
-
               </GridContainer>
 
               <br></br>
 
               <GridContainer>
-
                 <GridItem xs={12} sm={12} md={2}>
                   <p>Người kiểm tra :</p>
                 </GridItem>
@@ -201,148 +278,29 @@ const Create = (props) => {
                       onChange={handleChange}
                     >
                       <MenuItem value="">
-                        <em>None</em>
+                        <em>Văn Hoàng</em>
                       </MenuItem>
-                      <MenuItem value={10}>Ten</MenuItem>
-                      <MenuItem value={20}>Twenty</MenuItem>
-                      <MenuItem value={30}>Thirty</MenuItem>
+                      <MenuItem value={10}>Quang Anh</MenuItem>
+                      <MenuItem value={20}>Thế Hùng</MenuItem>
+                      <MenuItem value={30}>Việt Tùng</MenuItem>
                     </Select>
                   </FormControl>
                 </GridItem>
 
-                <GridItem xs={12} sm={12} md={5}>
-                </GridItem>
-
+                <GridItem xs={12} sm={12} md={5}></GridItem>
               </GridContainer>
 
               <br></br>
 
               <GridContainer>
-
-                <GridItem xs={12} sm={12} md={2}>
-                  <p>Địa điểm kiểm tra :</p>
-                </GridItem>
-
-                <GridItem xs={12} sm={12} md={1}>
-                  <p>Quận</p>
-                </GridItem>
-
-                <GridItem xs={12} sm={12} md={2}>
-                  <FormControl variant="outlined" fullWidth>
-                    <Select
-                      labelId="demo-simple-select-outlined-label"
-                      id="demo-simple-select-outlined"
-                      value={age}
-                      onChange={handleChange}
-                    >
-                      <MenuItem value="">
-                        <em>None</em>
-                      </MenuItem>
-                      <MenuItem value={10}>Ten</MenuItem>
-                      <MenuItem value={20}>Twenty</MenuItem>
-                      <MenuItem value={30}>Thirty</MenuItem>
-                    </Select>
-                  </FormControl>
-                </GridItem>
-
-                <GridItem xs={12} sm={12} md={1}>
-                  <p>Phường</p>
-                </GridItem>
-
-                <GridItem xs={12} sm={12} md={2}>
-                  <FormControl variant="outlined" fullWidth>
-                    <Select
-                      labelId="demo-simple-select-outlined-label"
-                      id="demo-simple-select-outlined"
-                      value={age}
-                      onChange={handleChange}
-                    >
-                      <MenuItem value="">
-                        <em>None</em>
-                      </MenuItem>
-                      <MenuItem value={10}>Ten</MenuItem>
-                      <MenuItem value={20}>Twenty</MenuItem>
-                      <MenuItem value={30}>Thirty</MenuItem>
-                    </Select>
-                  </FormControl>
-                </GridItem>
-
-                <GridItem xs={12} sm={12} md={1}>
-                  <p>Đường</p>
-                </GridItem>
-
-                <GridItem xs={12} sm={12} md={3}>
-                  <TextField
-                    id="filled-password-input"
-                    type="text"
-                    variant="outlined"
-                    fullWidth
-                  />
-                </GridItem>
-
+                <h6>
+                  <b>Kết quả kiểm tra :</b>
+                </h6>
               </GridContainer>
 
               <br></br>
 
               <GridContainer>
-
-                <GridItem xs={12} sm={12} md={2}>
-                  <p>Vị trí dây điện :</p>
-                </GridItem>
-
-                <GridItem xs={12} sm={12} md={8}>
-                  <TextField
-                    id="filled-password-input"
-                    type="text"
-                    variant="outlined"
-                    fullWidth
-                  />
-                </GridItem>
-                <GridItem xs={12} sm={12} md={2}></GridItem>
-
-              </GridContainer>
-
-              <br></br>
-
-              <GridContainer>
-                <h6><b>Kết quả kiểm tra :</b></h6>
-              </GridContainer>
-
-              <br></br>
-
-              <GridContainer>
-
-                <GridItem xs={12} sm={12} md={2}>
-                  <p>Tình trạng dây điện :</p>
-                </GridItem>
-
-                <GridItem xs={12} sm={12} md={5}>
-                  <FormControl variant="outlined" fullWidth>
-                    <Select
-                      labelId="demo-simple-select-outlined-label"
-                      id="demo-simple-select-outlined"
-                      value={age}
-                      onChange={handleChange}
-                    >
-                      <MenuItem value="">
-                        <em>None</em>
-                      </MenuItem>
-                      <MenuItem value={10}>Ten</MenuItem>
-                      <MenuItem value={20}>Twenty</MenuItem>
-                      <MenuItem value={30}>Thirty</MenuItem>
-                    </Select>
-                  </FormControl>
-                </GridItem>
-
-                <GridItem xs={12} sm={12} md={5}>
-                </GridItem>
-
-              </GridContainer>
-
-              <br></br>
-
-              <GridContainer>
-
                 <GridItem xs={12} sm={12} md={2}>
                   <p>Vị trí xảy ra sự cố (nếu có) :</p>
                 </GridItem>
@@ -353,17 +311,14 @@ const Create = (props) => {
                     type="text"
                     variant="outlined"
                     fullWidth
-
                   />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={2}></GridItem>
-
               </GridContainer>
 
               <br></br>
 
               <GridContainer>
-
                 <GridItem xs={12} sm={12} md={2}>
                   <p>Mô tả thêm về sự cố :</p>
                 </GridItem>
@@ -379,13 +334,11 @@ const Create = (props) => {
                   />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={2}></GridItem>
-
               </GridContainer>
 
               <br></br>
 
               <GridContainer>
-
                 <GridItem xs={12} sm={12} md={2}>
                   <p>Ảnh chụp từ drone :</p>
                 </GridItem>
@@ -393,42 +346,58 @@ const Create = (props) => {
                 <GridItem xs={12} sm={12} md={8}>
                   <label htmlFor="upload-photo">
                     <input
-                      style={{ display: 'none' }}
+                      style={{ display: "none" }}
                       id="upload-photo"
                       name="upload-photo"
                       type="file"
                     />
 
-                    <Button color="secondary" variant="contained" component="span">
+                    <Button
+                      color="secondary"
+                      variant="contained"
+                      component="span"
+                    >
                       Upload image
                     </Button>
                   </label>
                 </GridItem>
                 <GridItem xs={12} sm={12} md={2}></GridItem>
-
               </GridContainer>
 
               <br></br>
 
               <GridContainer>
-
                 <GridItem xs={12} sm={12} md={2}>
                   <p>Đánh giá mức độ hỏng hóc :</p>
                 </GridItem>
-
                 <GridItem xs={12} sm={12} md={2}>
-                  <FormControlLabel value="end" control={<Radio color="primary" />} label="Rất nghiêm trọng" />
+                  <FormControl component="fieldset">
+                    <RadioGroup
+                      row
+                      aria-label="position"
+                      name="position"
+                      value={valueRadio} onChange={handleChangeValueRadio}
+                    >
+                      <FormControlLabel
+                        value="Rất nghiêm trọng"
+                        control={<Radio color="primary" />}
+                        label="Rất nghiêm trọng"
+                      />
+                      <FormControlLabel
+                        value="Nghiêm trọng"
+                        control={<Radio color="primary" />}
+                        label="Nghiêm trọng"
+                      />
+                      <FormControlLabel
+                        value="An toàn"
+                        control={<Radio color="primary" />}
+                        label="An toàn"
+                      />
+                    </RadioGroup>
+                  </FormControl>
                 </GridItem>
-                <GridItem xs={12} sm={12} md={2}>
-                  <FormControlLabel value="end" control={<Radio color="primary" />} label="Nghiêm trọng" />
-                </GridItem>
-                <GridItem xs={12} sm={12} md={2}>
-                  <FormControlLabel value="end" control={<Radio color="primary" />} label="An toàn" />
-                </GridItem>
-                <GridItem xs={12} sm={12} md={2}>
-                </GridItem>
-                <GridItem xs={12} sm={12} md={2}>
-                </GridItem>
+                <GridItem xs={12} sm={12} md={2}></GridItem>
+                <GridItem xs={12} sm={12} md={2}></GridItem>
               </GridContainer>
             </CardBody>
             <CardFooter>

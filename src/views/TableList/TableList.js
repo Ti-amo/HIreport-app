@@ -114,7 +114,7 @@ const TableList = props => {
           <CardBody>
             <GridContainer>
               <GridItem xs={4} sm={4} md={4}>
-                <a href="/admin/myreports/daydien">
+                <a href="/create?type=daydien">
                   <RpTemplate
                     title="Đường dây điện"
                     des="Báo cáo về sự cố của đường dây điện"
@@ -123,7 +123,7 @@ const TableList = props => {
                 </a>
               </GridItem>
               <GridItem xs={4} sm={4} md={4}>
-                <a href="/admin/myreports/cotdien">
+                <a href="/create?type=cotdien">
                   <RpTemplate
                     title="Cột điện"
                     des="Báo cáo về sự cố của cột điện"
@@ -132,7 +132,7 @@ const TableList = props => {
                 </a>
               </GridItem>
               <GridItem xs={4} sm={4} md={4}>
-                <a href="/admin/myreports/hanhlangtuyen">
+                <a href="/create?type=hanhlangtuyen">
                   <RpTemplate
                     title="Hành lang tuyến"
                     des="Báo cáo về sự cố của hành lang lưới điện"

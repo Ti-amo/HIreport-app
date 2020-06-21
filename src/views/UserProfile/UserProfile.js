@@ -15,6 +15,7 @@ import CardFooter from "components/Card/CardFooter.js";
 import MaterialTable from "material-table";
 
 import avatar from "assets/img/faces/marc.jpg";
+import objectSource from "../../objectSource.js";
 
 const styles = {
   cardCategoryWhite: {
@@ -48,7 +49,7 @@ export default function UserProfile() {
       field: "address"
     },
     {
-      title: "Hỏng từ km số",
+      title: "Chiều dài từ km số",
       field: "from",
       type: "numeric"
     },
@@ -65,50 +66,7 @@ export default function UserProfile() {
     }
   ]);
 
-  const [data, setData] = useState([
-    {
-      name: "Cột điện số 12",
-      address: "đường Thanh Niên",
-      from: 5,
-      to: 13,
-      brokentimes: 2
-    },
-    {
-      name: "Cột điện số 15",
-      address: "đường Giải Phóng",
-      from: 2,
-      to: 4,
-      brokentimes: 0
-    },
-    {
-      name: "Cột điện số 7",
-      address: "đường Phan Đình Giót",
-      from: 1,
-      to: 4,
-      brokentimes: 1
-    },
-    {
-      name: "Cột điện số 9",
-      address: "đường Kim Liên",
-      from: 6,
-      to: 10,
-      brokentimes: 4
-    },
-    {
-      name: "Cột điện số 19",
-      address: "đường Hoang Hoa Thám",
-      from: 10,
-      to: 13,
-      brokentimes: 3
-    },
-    {
-      name: "Cột điện số 20",
-      address: "ga Hà Nội",
-      from: 3,
-      to: 5,
-      brokentimes: 2
-    }
-  ]);
+  const [data, setData] = useState(objectSource);
 
   return (
     <MaterialTable
@@ -156,8 +114,15 @@ export default function UserProfile() {
           //   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
           //   allowfullscreen
           // />
-          <div className="d-flex" style={{ padding: "1rem" }}>
+          <div className="d-flex" style={{ paddingLeft: "2rem" }}>
             <h2>Chi tiết đối tượng {`${rowData.name}`}</h2>
+            <div>
+              <p>Địa chỉ: {rowData.address}</p>
+              <p>
+                Chiều dài từ km số {rowData.from} đến {rowData.to}
+              </p>
+              <p>Số lần đã sửa chữa: {rowData.brokentimes}</p>
+            </div>
           </div>
         )
       }}
