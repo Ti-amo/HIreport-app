@@ -16,25 +16,25 @@ import { Autocomplete } from "@material-ui/lab";
 // import SearchBar from "components/Search/Search.js";
 import { Link } from "react-router-dom";
 import dataSource from "../../dataSource.js";
-import Table2 from "components/Table/Table2.js";
-import queryString from "querystring"
+import Table3 from "components/Table/Table3.js";
+import queryString from "querystring";
 
 const headCells = [
-  // { id: "important", numeric: false, disablePadding: false, label: "" },
+  { id: "important", numeric: false, disablePadding: false, label: "" },
   {
     id: "reportName",
     numeric: false,
     disablePadding: true,
     label: "Tên sự cố"
   },
-  { id: "level", numeric: true, disablePadding: false, label: "Mức độ" },
+  { id: "owner", numeric: true, disablePadding: false, label: "Người tạo" },
   {
     id: "createdAt",
     numeric: true,
     disablePadding: false,
-    label: "Thời gian phát hiện sự cố"
+    label: "Thời gian tạo"
   },
-  { id: "type", numeric: true, disablePadding: false, label: "Loại sự cố" },
+  { id: "type", numeric: true, disablePadding: false, label: "Loại báo cáo" },
   { id: "action", numeric: false, disablePadding: false, label: "" }
 ];
 
@@ -121,10 +121,10 @@ const PowerLine = props => {
             />
           </CardHeader>
           <CardBody>
-            <Table2
+            <Table3
               rows={dataSource.filter(data => data.type == "Đường dây điện")}
               headCells={headCells}
-            ></Table2>
+            ></Table3>
           </CardBody>
         </Card>
       </GridItem>

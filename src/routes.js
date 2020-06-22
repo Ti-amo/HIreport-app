@@ -54,7 +54,7 @@ const dashboardRoutes = [
   },
   {
     path: "/object",
-    name: "Quản lý đối tượng",
+    name: "Quản lý dữ liệu",
     rtlName: "ملف تعريفي للمستخدم",
     icon: LibraryBooks,
     component: UserProfile,

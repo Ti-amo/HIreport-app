@@ -74,6 +74,8 @@ const styles = {
   }
 };
 
+
+
 const useStyles = makeStyles(styles);
 
 const SearchReport = props => {
@@ -92,6 +94,24 @@ const SearchReport = props => {
 
 const TableList = props => {
   const classes = useStyles();
+  const [rpTemplate, setRpTemplate] = React.useState([
+    {
+      id: "daydien",
+      title: "Đường dây điện",
+      link: "https://st2.depositphotos.com/2317051/11374/i/950/depositphotos_113748554-stock-photo-black-and-white-silhouette-of.jpg"
+    },
+    {
+      id: "cotdien",
+      title: "Cột điện",
+      link: "https://previews.123rf.com/images/gbradic/gbradic1011/gbradic101100001/8202747-transmission-tower-silhouette.jpg"
+    },
+    {
+      id: "hanhlangtuyen",
+      title: "Hành lang tuyến",
+      link: "https://st2.depositphotos.com/2193402/7266/v/950/depositphotos_72667421-stock-illustration-high-voltage-power-lines.jpg",
+      // type: "numeric"
+    }
+  ]);
   const [searchValue, setSearchValue] = React.useState();
   return (
     <GridContainer>
@@ -113,8 +133,21 @@ const TableList = props => {
           </CardHeader>
           <CardBody>
             <GridContainer>
-              <GridItem xs={4} sm={4} md={4}>
-                <a href="/create?type=daydien">
+              {rpTemplate.map((report,index) => {
+                return (
+                  <GridItem xs={4} sm={4} md={4} key={index}>
+                    <a href={"/admin/myreports/" + report.id}>
+                      <RpTemplate
+                        title={report.title}
+                        des={"Báo cáo về sự cố của " + report.title}
+                        image={report.link}
+                      ></RpTemplate>
+                    </a>
+                  </GridItem>
+                );
+              })}
+              {/* <GridItem xs={4} sm={4} md={4}>
+                <a href="/admin/myreports/daydien">
                   <RpTemplate
                     title="Đường dây điện"
                     des="Báo cáo về sự cố của đường dây điện"
@@ -139,7 +172,7 @@ const TableList = props => {
                     image="https://st2.depositphotos.com/2193402/7266/v/950/depositphotos_72667421-stock-illustration-high-voltage-power-lines.jpg"
                   ></RpTemplate>
                 </a>
-              </GridItem>
+              </GridItem> */}
             </GridContainer>
           </CardBody>
         </Card>
