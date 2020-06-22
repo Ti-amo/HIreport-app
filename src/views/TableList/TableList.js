@@ -117,7 +117,7 @@ const TableList = props => {
     <GridContainer>
       <GridItem xs={12} sm={12} md={12}>
         <div>
-          <Button
+          {/* <Button
             className={classes.createButton}
             type="button"
             variant="contained"
@@ -125,7 +125,7 @@ const TableList = props => {
           >
             <AddIcon />
             &nbsp; TẠO BÁO CÁO
-          </Button>
+          </Button> */}
         </div>
         <Card className={classes.reportTempaltes}>
           <CardHeader color="info">
