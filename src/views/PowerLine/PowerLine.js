@@ -94,7 +94,7 @@ const PowerLine = props => {
         <div>
           <p className={classes.textTitle}>Báo cáo sự cố đường dây điện</p>
           <div className={classes.buttonWrap}>
-            {/* <a href="/create?type=daydien">
+            <a href="/create?type=daydien">
               <Button
                 className={classes.createButton}
                 type="button"
@@ -103,7 +103,7 @@ const PowerLine = props => {
               >
                 <AddIcon /> &nbsp; TẠO BÁO CÁO
               </Button>
-            </a> */}
+            </a>
           </div>
         </div>
 
