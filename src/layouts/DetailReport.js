@@ -16,26 +16,22 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import Admin from "layouts/Admin.js";
-import TextField from '@material-ui/core/TextField';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormLabel from '@material-ui/core/FormLabel';
-import DateFnsUtils from '@date-io/date-fns';
+import TextField from "@material-ui/core/TextField";
+import FormHelperText from "@material-ui/core/FormHelperText";
+import Radio from "@material-ui/core/Radio";
+import RadioGroup from "@material-ui/core/RadioGroup";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import FormLabel from "@material-ui/core/FormLabel";
+import DateFnsUtils from "@date-io/date-fns";
+import InputBase from '@material-ui/core/InputBase';
 import {
   MuiPickersUtilsProvider,
   KeyboardTimePicker,
   KeyboardDatePicker,
-} from '@material-ui/pickers';
-
-
+} from "@material-ui/pickers";
 
 import avatar from "assets/img/faces/marc.jpg";
-import {
-  Link, BrowserRouter as Router,
-  useLocation 
-} from "react-router-dom";
+import { Link, BrowserRouter as Router, useLocation } from "react-router-dom";
 
 const styles = {
   root: {
@@ -95,31 +91,42 @@ const Create = (props) => {
               <p className={classes.cardCategoryWhite}>Chi tiết báo cáo</p>
             </CardHeader>
             <CardBody>
+              <br></br>
               <GridContainer>
                 <GridItem xs={12} sm={12} md={2}>
-                  <p>Tên báo cáo :</p>
+                  <label>Tên báo cáo :</label>
                 </GridItem>
 
                 <GridItem xs={12} sm={12} md={4}>
-                  <TextField
+                  {/* <TextField
                     id="filled-password-input"
                     type="text"
                     variant="outlined"
                     value="Báo cáo đường dây điện số 5"
                     fullWidth
+                  /> */}
+                  <InputBase
+                    defaultValue="Báo cáo đường dây điện số 5"
+                    inputProps={{ "aria-label": "naked" }}
+                    fullWidth
                   />
                 </GridItem>
 
                 <GridItem xs={12} sm={12} md={2}>
-                  <p>Ngày tạo :</p>
+                  <label>Ngày tạo :</label>
                 </GridItem>
 
                 <GridItem xs={12} sm={12} md={4}>
-                  <TextField
+                  {/* <TextField
                     id="filled-password-input"
                     type="text"
                     variant="outlined"
                     value="19/5/2020"
+                  /> */}
+                  <InputBase
+                    defaultValue="19/5/2020"
+                    inputProps={{ "aria-label": "naked" }}
+                    fullWidth
                   />
                 </GridItem>
 
@@ -130,73 +137,36 @@ const Create = (props) => {
               <GridContainer>
 
                 <GridItem xs={12} sm={12} md={2}>
-                  <p>Đợt kiểm tra :</p>
+                  <label>Đợt kiểm tra :</label>
                 </GridItem>
 
-                <GridItem xs={12} sm={12} md={8}>
+                <GridItem xs={12} sm={12} md={4}>
                   <FormControl variant="outlined" fullWidth>
-                    <Select
+                    {/* <Select
                       labelId="demo-simple-select-outlined-label"
                       id="demo-simple-select-outlined"
                       value={10}
                     >
-                      <MenuItem value={10} selected>Quý II tháng 1 năm 2020</MenuItem>
+                      <MenuItem value={10} selected>
+                        Quý II tháng 1 năm 2020
+                      </MenuItem>
                       <MenuItem value={20}>Twenty</MenuItem>
                       <MenuItem value={30}>Thirty</MenuItem>
-                    </Select>
+                    </Select> */}
+                    <InputBase
+                      defaultValue="Quý II tháng 1 tuần 2 năm 2020"
+                      inputProps={{ "aria-label": "naked" }}
+                      fullWidth
+                    />
                   </FormControl>
                 </GridItem>
-                <GridItem xs={12} sm={12} md={2}></GridItem>
-
-              </GridContainer>
-
-              <br></br>
-
-              <GridContainer>
-
                 <GridItem xs={12} sm={12} md={2}>
-                  <p>Ngày kiểm tra :</p>
-                </GridItem>
-
-                <GridItem xs={12} sm={12} md={1}>
-                  <p>Từ</p>
+                  <label>Người kiểm tra :</label>
                 </GridItem>
 
                 <GridItem xs={12} sm={12} md={4}>
-                  <TextField
-                    id="filled-password-input"
-                    type="text"
-                    variant="outlined"
-                    value="10/5/2020"
-                  />
-                </GridItem>
-
-                <GridItem xs={12} sm={12} md={1}>
-                  <p>Đến</p>
-                </GridItem>
-
-                <GridItem xs={12} sm={12} md={4}>
-                  <TextField
-                    id="filled-password-input"
-                    type="text"
-                    variant="outlined"
-                    value="15/5/2020"
-                  />
-                </GridItem>
-
-              </GridContainer>
-
-              <br></br>
-
-              <GridContainer>
-
-                <GridItem xs={12} sm={12} md={2}>
-                  <p>Người kiểm tra :</p>
-                </GridItem>
-
-                <GridItem xs={12} sm={12} md={5}>
                   <FormControl variant="outlined" fullWidth>
-                    <Select
+                    {/* <Select
                       labelId="demo-simple-select-outlined-label"
                       id="demo-simple-select-outlined"
                       value={10}
@@ -208,11 +178,13 @@ const Create = (props) => {
                       <MenuItem value={10}>Phùng Văn Tùng</MenuItem>
                       <MenuItem value={20}>Trần Văn Hoàng</MenuItem>
                       <MenuItem value={30}>Nguyễn Quang Anh</MenuItem>
-                    </Select>
+                    </Select> */}
+                    <InputBase
+                      defaultValue="Phùng Văn Tùng"
+                      inputProps={{ "aria-label": "naked" }}
+                      fullWidth
+                    />
                   </FormControl>
-                </GridItem>
-
-                <GridItem xs={12} sm={12} md={5}>
                 </GridItem>
 
               </GridContainer>
@@ -222,15 +194,64 @@ const Create = (props) => {
               <GridContainer>
 
                 <GridItem xs={12} sm={12} md={2}>
-                  <p>Địa điểm kiểm tra :</p>
+                  <label>Ngày kiểm tra :</label>
+                </GridItem>
+
+                {/* <GridItem xs={12} sm={12} md={1}>
+                  <label>Từ</label>
+                </GridItem> */}
+
+                <GridItem xs={12} sm={12} md={10}>
+                  {/* <TextField
+                    id="filled-password-input"
+                    type="text"
+                    variant="outlined"
+                    value="10/5/2020"
+                  /> */}
+                  <InputBase
+                      defaultValue="10/5/2020    -    15/05/2020"
+                      inputProps={{ "aria-label": "naked" }}
+                      fullWidth
+                    />
+                </GridItem>
+
+                
+
+                {/* <GridItem xs={12} sm={12} md={1}>
+                  <label>Đến</label>
+                </GridItem> */}
+
+                {/* <GridItem xs={12} sm={12} md={2}>
+                  <TextField
+                    id="filled-password-input"
+                    type="text"
+                    variant="outlined"
+                    value="15/5/2020"
+                  />
+                  <InputBase
+                      defaultValue="15/5/2020"
+                      inputProps={{ "aria-label": "naked" }}
+                      fullWidth
+                    />
+                </GridItem>
+                <GridItem xs={12} sm={12} md={4}></GridItem> */}
+
+              </GridContainer>
+
+              <br></br>
+
+              <GridContainer>
+
+                <GridItem xs={12} sm={12} md={2}>
+                  <label>Địa điểm kiểm tra :</label>
                 </GridItem>
 
                 <GridItem xs={12} sm={12} md={1}>
-                  <p>Quận</p>
+                  <label>Quận</label>
                 </GridItem>
 
                 <GridItem xs={12} sm={12} md={2}>
-                  <FormControl variant="outlined" fullWidth>
+                  {/* <FormControl variant="outlined" fullWidth>
                     <Select
                       labelId="demo-simple-select-outlined-label"
                       id="demo-simple-select-outlined"
@@ -244,15 +265,20 @@ const Create = (props) => {
                       <MenuItem value={20}>Hai Bà Trưng</MenuItem>
                       <MenuItem value={30}>Thanh Xuân</MenuItem>
                     </Select>
-                  </FormControl>
+                  </FormControl> */}
+                  <InputBase
+                      defaultValue="Hoàng Mai"
+                      inputProps={{ "aria-label": "naked" }}
+                      fullWidth
+                  />
                 </GridItem>
 
                 <GridItem xs={12} sm={12} md={1}>
-                  <p>Phường</p>
+                  <label>Phường</label>
                 </GridItem>
 
                 <GridItem xs={12} sm={12} md={2}>
-                  <FormControl variant="outlined" fullWidth>
+                  {/* <FormControl variant="outlined" fullWidth>
                     <Select
                       labelId="demo-simple-select-outlined-label"
                       id="demo-simple-select-outlined"
@@ -266,20 +292,30 @@ const Create = (props) => {
                       <MenuItem value={20}>Bách Khoa</MenuItem>
                       <MenuItem value={30}>Láng Thượng</MenuItem>
                     </Select>
-                  </FormControl>
+                  </FormControl> */}
+                  <InputBase
+                      defaultValue="Giáp Bát"
+                      inputProps={{ "aria-label": "naked" }}
+                      fullWidth
+                  />
                 </GridItem>
 
                 <GridItem xs={12} sm={12} md={1}>
-                  <p>Đường</p>
+                  <label>Đường</label>
                 </GridItem>
 
                 <GridItem xs={12} sm={12} md={3}>
-                  <TextField
+                  {/* <TextField
                     id="filled-password-input"
                     type="text"
                     variant="outlined"
                     value="Nguyễn Chí Thanh"
                     fullWidth
+                  /> */}
+                  <InputBase
+                      defaultValue="Giải Phóng"
+                      inputProps={{ "aria-label": "naked" }}
+                      fullWidth
                   />
                 </GridItem>
 
@@ -290,17 +326,43 @@ const Create = (props) => {
               <GridContainer>
 
                 <GridItem xs={12} sm={12} md={2}>
-                  <p>Vị trí dây điện :</p>
+                  <label>Vị trí dây điện :</label>
                 </GridItem>
 
-                <GridItem xs={12} sm={12} md={8}>
-                  <TextField
+                <GridItem xs={12} sm={12} md={1}>
+                  <label>Từ</label>
+                </GridItem>
+
+                <GridItem xs={12} sm={12} md={3}>
+                  {/* <TextField
                     id="filled-password-input"
                     type="text"
                     variant="outlined"
-                    value="Đường dây điện từ số nhà 71 đến số nhà 301"
-                    fullWidth
-                  />
+                    value="10/5/2020"
+                  /> */}
+                  <InputBase
+                      defaultValue="Cột điện số 3"
+                      inputProps={{ "aria-label": "naked" }}
+                      fullWidth
+                    />
+                </GridItem>
+
+                <GridItem xs={12} sm={12} md={1}>
+                  <label>Đến</label>
+                </GridItem>
+
+                <GridItem xs={12} sm={12} md={3}>
+                  {/* <TextField
+                    id="filled-password-input"
+                    type="text"
+                    variant="outlined"
+                    value="15/5/2020"
+                  /> */}
+                  <InputBase
+                      defaultValue="Cột điện số 5"
+                      inputProps={{ "aria-label": "naked" }}
+                      fullWidth
+                    />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={2}></GridItem>
 
@@ -309,7 +371,9 @@ const Create = (props) => {
               <br></br>
 
               <GridContainer>
-                <h6><b>Kết quả kiểm tra :</b></h6>
+                <h6>
+                  <b>Kết quả kiểm tra :</b>
+                </h6>
               </GridContainer>
 
               <br></br>
@@ -317,11 +381,11 @@ const Create = (props) => {
               <GridContainer>
 
                 <GridItem xs={12} sm={12} md={2}>
-                  <p>Tình trạng dây điện :</p>
+                  <label>Tình trạng dây điện :</label>
                 </GridItem>
 
                 <GridItem xs={12} sm={12} md={5}>
-                  <FormControl variant="outlined" fullWidth>
+                  {/* <FormControl variant="outlined" fullWidth>
                     <Select
                       labelId="demo-simple-select-outlined-label"
                       id="demo-simple-select-outlined"
@@ -335,12 +399,15 @@ const Create = (props) => {
                       <MenuItem value={20}>Dây điện bị đứt</MenuItem>
                       <MenuItem value={30}>Dậy điện cũ, có nguy cơ bị đứt</MenuItem>
                     </Select>
-                  </FormControl>
+                  </FormControl> */}
+                  <InputBase
+                      defaultValue="Chập cháy dây điện"
+                      inputProps={{ "aria-label": "naked" }}
+                      fullWidth
+                    />
                 </GridItem>
 
-                <GridItem xs={12} sm={12} md={5}>
-                </GridItem>
-
+                <GridItem xs={12} sm={12} md={5}></GridItem>
               </GridContainer>
 
               <br></br>
@@ -348,17 +415,22 @@ const Create = (props) => {
               <GridContainer>
 
                 <GridItem xs={12} sm={12} md={2}>
-                  <p>Vị trí xảy ra sự cố (nếu có) :</p>
+                  <label>Vị trí xảy ra sự cố (nếu có) :</label>
                 </GridItem>
 
                 <GridItem xs={12} sm={12} md={8}>
-                  <TextField
+                  {/* <TextField
                     id="filled-password-input"
                     type="text"
                     variant="outlined"
                     fullWidth
-                    value="Tại đường dây đi qua cột điện gần gõ 107, ngay trước quán Photocopy"
-                  />
+                    value="Tại vị trí ngay trước quán Photocopy Văn Tùng"
+                  /> */}
+                  <InputBase
+                      defaultValue="Tại vị trí ngay trước quán Photocopy Văn Tùng"
+                      inputProps={{ "aria-label": "naked" }}
+                      fullWidth
+                    />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={2}></GridItem>
 
@@ -369,11 +441,11 @@ const Create = (props) => {
               <GridContainer>
 
                 <GridItem xs={12} sm={12} md={2}>
-                  <p>Mô tả thêm về sự cố :</p>
+                  <label>Mô tả thêm về sự cố :</label>
                 </GridItem>
 
                 <GridItem xs={12} sm={12} md={8}>
-                  <TextField
+                  {/* <TextField
                     id="filled-password-input"
                     type="text"
                     variant="outlined"
@@ -381,7 +453,14 @@ const Create = (props) => {
                     multiline
                     rows={4}
                     value="Vào khoảng 12h trưa, đường dây điện được phát hiện là đang bốc cháy dữ dội, nguyên nhân có thể là nhiệt độ ngoài trời quá cao và quá tải điện "
-                  />
+                  /> */}
+                  <InputBase
+                      defaultValue="Vào khoảng 12h trưa, đường dây điện được phát hiện là đang bốc cháy dữ dội, nguyên nhân có thể là nhiệt độ ngoài trời quá cao và quá tải điện"
+                      inputProps={{ "aria-label": "naked" }}
+                      fullWidth
+                      multiline
+                    rows={4}
+                    />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={2}></GridItem>
 
@@ -392,24 +471,44 @@ const Create = (props) => {
               <GridContainer>
 
                 <GridItem xs={12} sm={12} md={2}>
-                  <p>Ảnh chụp từ drone :</p>
+                  <label>Ảnh chụp từ drone :</label>
                 </GridItem>
 
                 <GridItem xs={12} sm={12} md={8}>
                   <GridContainer>
                     <GridItem xs={12} sm={12} md={6}>
-                      <img src="https://image.tienphong.vn/665x449/Uploaded/2020/lce_cyqlv/2018_12_25/tien_phong_chay_1_stlr.jpg" alt="Girl in a jacket" width="400" height="300" />
+                      <img
+                        src="https://image.tienphong.vn/665x449/Uploaded/2020/lce_cyqlv/2018_12_25/tien_phong_chay_1_stlr.jpg"
+                        alt="Girl in a jacket"
+                        width="400"
+                        height="300"
+                      />
                     </GridItem>
                     <GridItem xs={12} sm={12} md={1}></GridItem>
                     <GridItem xs={12} sm={12} md={5}>
-                      <img src="https://image2.tienphong.vn/w665/Uploaded/2020/lce_cyqlv/2018_12_25/tien_phong_chay_2_qvey.jpg" alt="Girl in a jacket" width="400" height="300" />
+                      <img
+                        src="https://image2.tienphong.vn/w665/Uploaded/2020/lce_cyqlv/2018_12_25/tien_phong_chay_2_qvey.jpg"
+                        alt="Girl in a jacket"
+                        width="400"
+                        height="300"
+                      />
                     </GridItem>
                     <GridItem xs={12} sm={12} md={6}>
-                      <img src="https://image2.tienphong.vn/w665/Uploaded/2020/lce_cyqlv/2018_12_25/tien_phong_chay_jpqr.jpg" alt="Girl in a jacket" width="400" height="300" />
+                      <img
+                        src="https://image2.tienphong.vn/w665/Uploaded/2020/lce_cyqlv/2018_12_25/tien_phong_chay_jpqr.jpg"
+                        alt="Girl in a jacket"
+                        width="400"
+                        height="300"
+                      />
                     </GridItem>
                     <GridItem xs={12} sm={12} md={1}></GridItem>
                     <GridItem xs={12} sm={12} md={5}>
-                      <img src="https://thanhtra.com.vn/portals/0/news_images/2016/07/khaithacngan/hien_truong_vu_chay_1707.jpg" alt="Girl in a jacket" width="400" height="300" />
+                      <img
+                        src="https://thanhtra.com.vn/portals/0/news_images/2016/07/khaithacngan/hien_truong_vu_chay_1707.jpg"
+                        alt="Girl in a jacket"
+                        width="400"
+                        height="300"
+                      />
                     </GridItem>
                   </GridContainer>
 
@@ -423,18 +522,29 @@ const Create = (props) => {
               <GridContainer>
 
                 <GridItem xs={12} sm={12} md={2}>
-                  <p>Đánh giá mức độ hỏng hóc :</p>
+                  <label>Đánh giá mức độ hỏng hóc :</label>
                 </GridItem>
 
                 <GridItem xs={12} sm={12} md={10}>
                   <RadioGroup aria-label="level" value="1" name="gender1" >
-                    <FormControlLabel value="1" control={<Radio color="primary" />} label="Rất nghiêm trọng" />
-                    <FormControlLabel value="2" control={<Radio color="primary" />} label="Nghiêm trọng" />
-                    <FormControlLabel value="3" control={<Radio color="primary" />} label="An toàn" />
+                    <FormControlLabel
+                      value="1"
+                      control={<Radio color="primary" />}
+                      label="Rất nghiêm trọng"
+                    />
+                    <FormControlLabel
+                      value="2"
+                      control={<Radio color="primary" />}
+                      label="Nghiêm trọng"
+                    />
+                    <FormControlLabel
+                      value="3"
+                      control={<Radio color="primary" />}
+                      label="An toàn"
+                    />
                   </RadioGroup>
                 </GridItem>
-                <GridItem xs={12} sm={12} md={2}>
-                </GridItem>
+                <GridItem xs={12} sm={12} md={2}></GridItem>
               </GridContainer>
             </CardBody>
             <CardFooter>

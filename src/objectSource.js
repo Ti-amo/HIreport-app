@@ -1,57 +1,94 @@
 const objectSource = [
     {
-        name: "Cột điện số 12",
+        name: "Cột điện số TN12",
         address: "đường Thanh Niên",
-        from: 5,
-        to: 13,
-        brokentimes: 2,
-        phuong: "Thụy Khuê",
-        quan: "Tây Hồ"
+        precinct: "Thụy Khuê",
+        district: "Tây Hồ",
+        brokentimes: 2
     },
     {
-        name: "Cột điện số 15",
+        name: "Cột điện số TN15",
+        address: "đường Thanh Niên",
+        precinct: "Thụy Khuê",
+        district: "Tây Hồ",
+        brokentimes: 2
+    },
+    {
+        name: "Cột điện số TN17",
+        address: "đường Thanh Niên",
+        precinct: "Thụy Khuê",
+        district: "Tây Hồ",
+        brokentimes: 2
+    },
+    {
+        name: "Cột điện số GP15",
         address: "đường Giải Phóng",
-        from: 2,
-        to: 4,
-        brokentimes: 0,
-        phuong: "Phương Mai",
-        quan: "Hai Bà Trưng"
+        precinct: "Giáp Bát",
+        district: "Hoàng Mai",
+        brokentimes: 0
     },
     {
-        name: "Cột điện số 7",
+        name: "Cột điện số GP17",
+        address: "đường Giải Phóng",
+        precinct: "Giáp Bát",
+        district: "Hoàng Mai",
+        brokentimes: 0
+    },
+    {
+        name: "Cột điện số PDG7",
         address: "đường Phan Đình Giót",
-        from: 1,
-        to: 4,
-        brokentimes: 1,
-        phuong: "Phương Liệt",
-        quan: "Thanh Xuân"
+        precinct: "Phương Liệt",
+        district: "Thanh Xuân",
+        brokentimes: 1
     },
     {
-        name: "Cột điện số 9",
-        address: "đường Xã Đàn",
-        from: 6,
-        to: 10,
-        brokentimes: 4,
-        phuong: "Kim Lien",
-        quan: "Đống Đa"
+        name: "Cột điện số PDG10",
+        address: "đường Phan Đình Giót",
+        precinct: "Phương Liệt",
+        district: "Thanh Xuân",
+        brokentimes: 1
     },
     {
-        name: "Cột điện số 19",
-        address: "đường Hoang Hoa Thám",
-        from: 10,
-        to: 13,
-        brokentimes: 3,
-        phuong: "Vĩnh Phúc",
-        quan: "Ba Đình"
+        name: "Cột điện số KL9",
+        address: "đường Kim Liên",
+        precinct: "Kim Liên",
+        district: "Đống Đa",
+        brokentimes: 4
     },
     {
-        name: "Cột điện số 20",
-        address: "ga Hà Nội",
-        from: 3,
-        to: 5,
-        brokentimes: 2,
-        phuong: "Văn Miếu",
-        quan: "Đống Đa"
+        name: "Cột điện số KL11",
+        address: "đường Kim Liên",
+        precinct: "Kim Liên",
+        district: "Đống Đa",
+        brokentimes: 4
+    },
+    {
+        name: "Cột điện số HHT19",
+        address: "đường Hoàng Hoa Thám",
+        precinct: "Thụy Khuê",
+        district: "Tây Hồ",
+        brokentimes: 3
+    },
+    {
+        name: "Cột điện số HHT22",
+        address: "đường Hoàng Hoa Thám",
+        precinct: "Thụy Khuê",
+        district: "Tây Hồ",
+        brokentimes: 3
+    },
+    {
+        name: "Cột điện số LD20",
+        address: "đường Lê Duẩn",
+        precinct: "Văn Miếu",
+        district: "Đống Đa",
+        brokentimes: 2
+    },
+    {
+        name: "Cột điện số LD23",
+        address: "đường Lê Duẩn",
+        precinct: "Văn Miếu",
+        district: "Đống Đa",
+        brokentimes: 2
     }
 ]
 

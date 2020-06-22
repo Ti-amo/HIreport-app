@@ -16,6 +16,8 @@ import MaterialTable from "material-table";
 
 import avatar from "assets/img/faces/marc.jpg";
 import objectSource from "../../objectSource.js";
+import problemSource from "problemSource.js";
+import stageSource from "stageSource.js";
 
 const styles = {
   cardCategoryWhite: {
@@ -49,14 +51,14 @@ export default function UserProfile() {
       field: "address"
     },
     {
-      title: "Chiều dài từ km số",
-      field: "from",
-      type: "numeric"
+      title: "Phường",
+      field: "precinct",
+      // type: "numeric"
     },
     {
-      title: "đến km số",
-      field: "to",
-      type: "numeric"
+      title: "Quận",
+      field: "district",
+      // type: "numeric"
     },
     {
       title: "Số lần sửa chữa",
@@ -66,67 +68,209 @@ export default function UserProfile() {
     }
   ]);
 
+  const [probColumns, setProbColumns] = useState([
+    {
+      title: "Tên sự cố",
+      field: "name"
+    },
+    {
+      title: "Loại sự cố",
+      field: "type"
+    },
+    {
+      title: "Mức độ nghiêm trọng",
+      field: "level",
+      // type: "numeric"
+    }
+  ]);
+
+  const [stageColumns, setStageColumns] = useState([
+    {
+      title: "Đợt kiểm tra",
+      field: "name"
+    },
+    {
+      title: "Ngày bắt đầu",
+      field: "startDate"
+    },
+    {
+      title: "Ngày kết thúc",
+      field: "endDate"
+    }
+  ]);
+
+  const [probData, setProbData] = useState(problemSource);
+
+  const [stageData, setStageData] = useState(stageSource);
+
   const [data, setData] = useState(objectSource);
 
   return (
-    <MaterialTable
-      title="Quản lý đối tượng cột điện"
-      columns={columns}
-      data={data}
-      editable={{
-        onRowAdd: newData =>
-          new Promise((resolve, reject) => {
-            setTimeout(() => {
-              setData([...data, newData]);
+    <div>
+      <MaterialTable
+        title="Quản lý dữ liệu cột điện"
+        columns={columns}
+        data={data}
+        editable={{
+          onRowAdd: newData =>
+            new Promise((resolve, reject) => {
+              setTimeout(() => {
+                setData([...data, newData]);
 
-              resolve();
-            }, 1000)
-          }),
-        onRowUpdate: (newData, oldData) =>
-          new Promise((resolve, reject) => {
-            setTimeout(() => {
-              const dataUpdate = [...data];
-              const index = oldData.tableData.id;
-              dataUpdate[index] = newData;
-              setData([...dataUpdate]);
+                resolve();
+              }, 1000)
+            }),
+          onRowUpdate: (newData, oldData) =>
+            new Promise((resolve, reject) => {
+              setTimeout(() => {
+                const dataUpdate = [...data];
+                const index = oldData.tableData.id;
+                dataUpdate[index] = newData;
+                setData([...dataUpdate]);
 
-              resolve();
-            }, 1000)
-          }),
-        onRowDelete: oldData =>
-          new Promise((resolve, reject) => {
-            setTimeout(() => {
-              const dataDelete = [...data];
-              const index = oldData.tableData.id;
-              dataDelete.splice(index, 1);
-              setData([...dataDelete]);
-              resolve()
-            }, 1000)
-          })
-      }}
-      detailPanel={rowData => {
-        return (
-          // <iframe
-          //   width="100%"
-          //   height="315"
-          //   src="https://www.youtube.com/embed/C0DPdy98e4c"
-          //   frameborder="0"
-          //   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-          //   allowfullscreen
-          // />
-          <div className="d-flex" style={{ paddingLeft: "2rem" }}>
-            <h2>Chi tiết đối tượng {`${rowData.name}`}</h2>
-            <div>
-              <p>Địa chỉ: {rowData.address}</p>
-              <p>
-                Chiều dài từ km số {rowData.from} đến {rowData.to}
-              </p>
-              <p>Số lần đã sửa chữa: {rowData.brokentimes}</p>
+                resolve();
+              }, 1000)
+            }),
+          onRowDelete: oldData =>
+            new Promise((resolve, reject) => {
+              setTimeout(() => {
+                const dataDelete = [...data];
+                const index = oldData.tableData.id;
+                dataDelete.splice(index, 1);
+                setData([...dataDelete]);
+                resolve()
+              }, 1000)
+            })
+        }}
+        detailPanel={rowData => {
+          return (
+            // <iframe
+            //   width="100%"
+            //   height="315"
+            //   src="https://www.youtube.com/embed/C0DPdy98e4c"
+            //   frameborder="0"
+            //   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            //   allowfullscreen
+            // />
+            <div className="d-flex" style={{ padding: "1rem" }}>
+              <h2>Chi tiết đối tượng {`${rowData.name}`}</h2>
             </div>
-          </div>
-        )
-      }}
-      onRowClick={(event, rowData, togglePanel) => togglePanel()}
-    />
+          )
+        }}
+        onRowClick={(event, rowData, togglePanel) => togglePanel()}
+      />
+
+      <br></br>
+
+      <MaterialTable
+        title="Quản lý dữ liệu về các loại sự cố"
+        columns={probColumns}
+        data={probData}
+        editable={{
+          onRowAdd: newData =>
+            new Promise((resolve, reject) => {
+              setTimeout(() => {
+                setData([...data, newData]);
+
+                resolve();
+              }, 1000)
+            }),
+          onRowUpdate: (newData, oldData) =>
+            new Promise((resolve, reject) => {
+              setTimeout(() => {
+                const dataUpdate = [...data];
+                const index = oldData.tableData.id;
+                dataUpdate[index] = newData;
+                setData([...dataUpdate]);
+
+                resolve();
+              }, 1000)
+            }),
+          onRowDelete: oldData =>
+            new Promise((resolve, reject) => {
+              setTimeout(() => {
+                const dataDelete = [...data];
+                const index = oldData.tableData.id;
+                dataDelete.splice(index, 1);
+                setData([...dataDelete]);
+                resolve()
+              }, 1000)
+            })
+        }}
+        detailPanel={rowData => {
+          return (
+            // <iframe
+            //   width="100%"
+            //   height="315"
+            //   src="https://www.youtube.com/embed/C0DPdy98e4c"
+            //   frameborder="0"
+            //   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            //   allowfullscreen
+            // />
+            <div className="d-flex" style={{ padding: "1rem" }}>
+              <h2>Chi tiết đối tượng {`${rowData.name}`}</h2>
+            </div>
+          )
+        }}
+        onRowClick={(event, rowData, togglePanel) => togglePanel()}
+      />
+
+      <br></br>
+
+      <MaterialTable
+        title="Quản lý dữ liệu về các đợt kiểm tra"
+        columns={stageColumns}
+        data={stageData}
+        editable={{
+          onRowAdd: newData =>
+            new Promise((resolve, reject) => {
+              setTimeout(() => {
+                setData([...data, newData]);
+
+                resolve();
+              }, 1000)
+            }),
+          onRowUpdate: (newData, oldData) =>
+            new Promise((resolve, reject) => {
+              setTimeout(() => {
+                const dataUpdate = [...data];
+                const index = oldData.tableData.id;
+                dataUpdate[index] = newData;
+                setData([...dataUpdate]);
+
+                resolve();
+              }, 1000)
+            }),
+          onRowDelete: oldData =>
+            new Promise((resolve, reject) => {
+              setTimeout(() => {
+                const dataDelete = [...data];
+                const index = oldData.tableData.id;
+                dataDelete.splice(index, 1);
+                setData([...dataDelete]);
+                resolve()
+              }, 1000)
+            })
+        }}
+        detailPanel={rowData => {
+          return (
+            // <iframe
+            //   width="100%"
+            //   height="315"
+            //   src="https://www.youtube.com/embed/C0DPdy98e4c"
+            //   frameborder="0"
+            //   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            //   allowfullscreen
+            // />
+            <div className="d-flex" style={{ padding: "1rem" }}>
+              <h2>Chi tiết đối tượng {`${rowData.name}`}</h2>
+            </div>
+          )
+        }}
+        onRowClick={(event, rowData, togglePanel) => togglePanel()}
+      />
+    </div>
+    
+
   )
 }

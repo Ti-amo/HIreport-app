@@ -354,6 +354,7 @@ export default function EnhancedTable(props) {
                           <IconButton
                             aria-label="Share"
                             className={classes.tableActionButton}
+                            href={`/report/${row.id}`}
                           >
                             <Edit
                               className={
