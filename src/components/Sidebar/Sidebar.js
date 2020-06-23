@@ -183,6 +183,7 @@ export default function Sidebar(props) {
         href="https://hi01-efd.web.app"
         className={classes.item}
         activeClassName="active"
+        target="_blank"
       >
         <ListItem button className={classes.itemLink}>
           <Icon
@@ -201,6 +202,7 @@ export default function Sidebar(props) {
         href="https://hi02-qlgs-foradmin.web.app"
         className={classes.item}
         activeClassName="active"
+        target="_blank"
       >
         <ListItem button className={classes.itemLink}>
           <Icon
@@ -208,7 +210,7 @@ export default function Sidebar(props) {
           >
             <DonutLarge
 
-/>
+            />
           </Icon>
           <ListItemText
             primary="Thông tin đợt kiểm tra"
