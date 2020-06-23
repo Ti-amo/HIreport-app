@@ -29,7 +29,7 @@ import ExitToApp from '@material-ui/icons/ExitToApp';
 import GetAppIcon from '@material-ui/icons/GetApp';
 import { yellow } from "@material-ui/core/colors";
 import { warningColor } from "assets/jss/material-dashboard-react.js";
-import { Link } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -344,24 +344,27 @@ export default function EnhancedTable(props) {
                       <TableCell align="right">{row.createdAt}</TableCell>
                       <TableCell align="right">{row.type}</TableCell>
                       <TableCell align="right">
-                        
+
                         <Tooltip
                           id="tooltip-top-start"
                           title="Chỉnh sửa"
                           placement="top"
                           classes={{ tooltip: classes.tooltip }}
                         >
-                          <IconButton
-                            aria-label="Share"
-                            className={classes.tableActionButton}
-                            href={`/report/${row.id}`}
-                          >
-                            <Edit
-                              className={
-                                classes.tableActionButtonIcon + " " + classes.share
-                              }
-                            />
-                          </IconButton>
+                          <NavLink to={`/report/${row.id}`}>
+                            <IconButton
+                              aria-label="Share"
+                              className={classes.tableActionButton}
+                              // href={`/report/${row.id}`}
+                            >
+                              <Edit
+                                className={
+                                  classes.tableActionButtonIcon + " " + classes.share
+                                }
+                              />
+                            </IconButton>
+                          </NavLink>
+
                         </Tooltip>
                         <Tooltip
                           id="tooltip-top-start"
@@ -382,25 +385,25 @@ export default function EnhancedTable(props) {
                         </Tooltip>
 
                         {/* <a href={`/report/${row.id}`}> */}
-                          <Tooltip
-                            id="tooltip-top"
-                            title="Tải về"
-                            placement="top"
-                            classes={{ tooltip: classes.tooltip }}
+                        <Tooltip
+                          id="tooltip-top"
+                          title="Tải về"
+                          placement="top"
+                          classes={{ tooltip: classes.tooltip }}
+                        >
+                          <IconButton
+                            aria-label="Download"
+                            className={classes.tableActionButton}
                           >
-                            <IconButton
-                              aria-label="Download"
-                              className={classes.tableActionButton}
-                            >
-                              <GetAppIcon
-                                className={
-                                  classes.tableActionButtonIcon + " " + classes.edit
-                                }
-                              />
-                            </IconButton>
-                          </Tooltip>
+                            <GetAppIcon
+                              className={
+                                classes.tableActionButtonIcon + " " + classes.edit
+                              }
+                            />
+                          </IconButton>
+                        </Tooltip>
                         {/* </a> */}
-                        
+
                       </TableCell>
                     </TableRow>
                   );

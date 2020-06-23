@@ -14,7 +14,7 @@ import Button from "components/CustomButtons/Button";
 import AddIcon from "@material-ui/icons/Add";
 import { Autocomplete } from "@material-ui/lab";
 // import SearchBar from "components/Search/Search.js";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import dataSource from "../../dataSource.js";
 import Table3 from "components/Table/Table3.js";
 import queryString from "querystring";
@@ -94,7 +94,7 @@ const PowerLine = props => {
         <div>
           <p className={classes.textTitle}>Báo cáo sự cố đường dây điện</p>
           <div className={classes.buttonWrap}>
-            <a href="/create?type=daydien">
+            <NavLink to="/create?type=daydien">
               <Button
                 className={classes.createButton}
                 type="button"
@@ -103,7 +103,7 @@ const PowerLine = props => {
               >
                 <AddIcon /> &nbsp; TẠO BÁO CÁO
               </Button>
-            </a>
+            </NavLink>
           </div>
         </div>
 
