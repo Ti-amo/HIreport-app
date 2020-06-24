@@ -13,7 +13,7 @@ import { Icon } from "@material-ui/core";
 import Button from "components/CustomButtons/Button";
 import AddIcon from "@material-ui/icons/Add";
 import RpTemplate from "../../components/Report/ReportTemplate";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import dataSource from "../../dataSource.js";
 
 import Table2 from "components/Table/Table2.js";
@@ -74,13 +74,11 @@ const styles = {
   }
 };
 
-
-
 const useStyles = makeStyles(styles);
 
 const SearchReport = props => {
 
-  const searchKey = props.searchKey;
+  const  searchKey = props.searchKey;
 
   const results = dataSource.filter(item => item.title == { searchKey });
   return (
@@ -136,13 +134,13 @@ const TableList = props => {
               {rpTemplate.map((report,index) => {
                 return (
                   <GridItem xs={4} sm={4} md={4} key={index}>
-                    <a href={"/admin/myreports/" + report.id}>
+                    <NavLink to={"/admin/myreports/" + report.id}>
                       <RpTemplate
                         title={report.title}
                         des={"Báo cáo về sự cố của " + report.title}
                         image={report.link}
                       ></RpTemplate>
-                    </a>
+                    </NavLink>
                   </GridItem>
                 );
               })}
