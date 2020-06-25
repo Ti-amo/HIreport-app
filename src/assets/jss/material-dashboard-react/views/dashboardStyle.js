@@ -4,7 +4,6 @@ import {
   grayColor,
   hexToRgb
 } from "assets/jss/material-dashboard-react.js";
-import { blue } from "@material-ui/core/colors";
 
 const dashboardStyle = {
   successText: {

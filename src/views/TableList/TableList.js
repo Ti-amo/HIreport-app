@@ -1,7 +1,5 @@
 import React from "react";
-// @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-// core components
 import GridItem from "components/Grid/GridItem.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import Table3 from "components/Table/Table3.js";
@@ -9,14 +7,9 @@ import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
 import SearchBar from "material-ui-search-bar";
-import { Icon } from "@material-ui/core";
-import Button from "components/CustomButtons/Button";
-import AddIcon from "@material-ui/icons/Add";
 import RpTemplate from "../../components/Report/ReportTemplate";
 import { Link, NavLink } from "react-router-dom";
 import dataSource from "../../dataSource.js";
-
-import Table2 from "components/Table/Table2.js";
 
 const headCells = [
   { id: "important", numeric: false, disablePadding: false, label: "" },
@@ -77,8 +70,7 @@ const styles = {
 const useStyles = makeStyles(styles);
 
 const SearchReport = props => {
-
-  const  searchKey = props.searchKey;
+  const searchKey = props.searchKey;
 
   const results = dataSource.filter(item => item.title == { searchKey });
   return (
@@ -144,33 +136,6 @@ const TableList = props => {
                   </GridItem>
                 );
               })}
-              {/* <GridItem xs={4} sm={4} md={4}>
-                <a href="/admin/myreports/daydien">
-                  <RpTemplate
-                    title="Đường dây điện"
-                    des="Báo cáo về sự cố của đường dây điện"
-                    image="https://st2.depositphotos.com/2317051/11374/i/950/depositphotos_113748554-stock-photo-black-and-white-silhouette-of.jpg"
-                  ></RpTemplate>
-                </a>
-              </GridItem>
-              <GridItem xs={4} sm={4} md={4}>
-                <a href="/create?type=cotdien">
-                  <RpTemplate
-                    title="Cột điện"
-                    des="Báo cáo về sự cố của cột điện"
-                    image="https://previews.123rf.com/images/gbradic/gbradic1011/gbradic101100001/8202747-transmission-tower-silhouette.jpg"
-                  ></RpTemplate>
-                </a>
-              </GridItem>
-              <GridItem xs={4} sm={4} md={4}>
-                <a href="/create?type=hanhlangtuyen">
-                  <RpTemplate
-                    title="Hành lang tuyến"
-                    des="Báo cáo về sự cố của hành lang lưới điện"
-                    image="https://st2.depositphotos.com/2193402/7266/v/950/depositphotos_72667421-stock-illustration-high-voltage-power-lines.jpg"
-                  ></RpTemplate>
-                </a>
-              </GridItem> */}
             </GridContainer>
           </CardBody>
         </Card>

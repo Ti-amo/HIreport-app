@@ -1,29 +1,19 @@
 import React from "react";
-// @material-ui/core components
 import { makeStyles, useTheme } from "@material-ui/core/styles";
-import InputLabel from "@material-ui/core/InputLabel";
-// core components
 import GridItem from "components/Grid/GridItem.js";
 import GridContainer from "components/Grid/GridContainer.js";
-import CustomInput from "components/CustomInput/CustomInput.js";
 import Button from "components/CustomButtons/Button.js";
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
-import CardAvatar from "components/Card/CardAvatar.js";
 import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter.js";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
-import Admin from "layouts/Admin.js";
 import TextField from "@material-ui/core/TextField";
-import FormHelperText from "@material-ui/core/FormHelperText";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
-import FormLabel from "@material-ui/core/FormLabel";
-import avatar from "assets/img/faces/marc.jpg";
-import Input from '@material-ui/core/Input';
 import Chip from '@material-ui/core/Chip';
 
 import { Link, BrowserRouter as Router, useLocation } from "react-router-dom";
@@ -134,9 +124,6 @@ const Create = props => {
     setPersonName(value);
   };
 
-  // const handleChangeValueRadio = event => {
-  //   setValueRadio(event.target.value);
-  // };
   const today = new Date();
 
   const handleChangeName1 = event => {
@@ -285,49 +272,6 @@ const Create = props => {
                       </React.Fragment>
                     );
                 })}
-
-                {/* <br></br> */}
-
-                {/* <GridContainer>
-                <GridItem xs={12} sm={12} md={2}>
-                  <p>Ngày kiểm tra :</p>
-                </GridItem>
-
-                <GridItem xs={12} sm={12} md={1}>
-                  <p>Từ</p>
-                </GridItem>
-
-                <GridItem xs={12} sm={12} md={4}>
-                  <TextField
-                    id="date"
-                    type="date"
-                    variant="outlined"
-                    // defaultValue={today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate()}
-                    className={classes.textField}
-                    InputLabelProps={{
-                      shrink: true
-                    }}
-                  />
-                </GridItem>
-
-                <GridItem xs={12} sm={12} md={1}>
-                  <p>Đến</p>
-                </GridItem>
-
-                <GridItem xs={12} sm={12} md={4}>
-                  <TextField
-                    id="date"
-                    type="date"
-                    variant="outlined"
-                    // defaultValue={today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate()}
-                    className={classes.textField}
-                    InputLabelProps={{
-                      shrink: true
-                    }}
-                  />
-                </GridItem>
-              </GridContainer> */}
-
                 <br></br>
 
                 <GridContainer>
@@ -336,11 +280,7 @@ const Create = props => {
                   </GridItem>
 
                   <GridItem xs={12} sm={12} md={5}>
-                    <FormControl
-                    // variant="outlined"
-                    // fullWidth
-                    // className={classes.formControl}
-                    >
+                    <FormControl>
                       <Select
                         labelId="demo-mutiple-chip-label"
                         id="demo-mutiple-chip"
@@ -363,23 +303,6 @@ const Create = props => {
                         ))}
                       </Select>
                     </FormControl>
-                    {/* <FormControl variant="outlined" fullWidth>
-                    <Select
-                      labelId="demo-simple-select-outlined-label"
-                      id="demo-simple-select-outlined"
-                      value={creater}
-                      onChange={handleChange}
-                    >
-                      <MenuItem value={5}>Văn Hoàng</MenuItem>
-                      <MenuItem value={10}>Quang Anh</MenuItem>
-                      <MenuItem value={20}>Thế Hùng</MenuItem>
-                      <MenuItem value={30}>Việt Tùng</MenuItem>
-                      <MenuItem value={40}>Quang Tùng</MenuItem>
-                      <MenuItem value={50}>Phùng Văn</MenuItem>
-                      <MenuItem value={60}>Việt Hùng</MenuItem>
-                      <MenuItem value={70}>Quang Hoàng</MenuItem>
-                    </Select>
-                  </FormControl> */}
                   </GridItem>
 
                   <GridItem xs={12} sm={12} md={5}></GridItem>
@@ -490,23 +413,6 @@ const Create = props => {
                         </GridContainer>
 
                         <br></br>
-
-                        {/* <GridContainer>
-                        <GridItem xs={12} sm={12} md={2}>
-                          <p>Vị trí dây điện :</p>
-                        </GridItem>
-
-                        <GridItem xs={12} sm={12} md={8}>
-                          <TextField
-                            id="filled-password-input"
-                            type="text"
-                            variant="outlined"
-                            fullWidth
-                            value={`Từ km số ${obj.from} đến km số ${obj.to}`}
-                          />
-                        </GridItem>
-                        <GridItem xs={12} sm={12} md={2}></GridItem>
-                      </GridContainer> */}
                       </React.Fragment>
                     );
                 })}
@@ -656,39 +562,6 @@ const Create = props => {
 
                 <br></br>
 
-                {/* <GridContainer>
-                <GridItem xs={12} sm={12} md={2}>
-                  <p>Đánh giá mức độ hỏng hóc :</p>
-                </GridItem>
-                <GridItem xs={12} sm={12} md={2}>
-                  <FormControl component="fieldset">
-                    <RadioGroup
-                      row
-                      aria-label="position"
-                      name="position"
-                      value={valueRadio} onChange={handleChangeValueRadio}
-                    >
-                      <FormControlLabel
-                        value="Rất nghiêm trọng"
-                        control={<Radio color="primary" />}
-                        label="Rất nghiêm trọng"
-                      />
-                      <FormControlLabel
-                        value="Nghiêm trọng"
-                        control={<Radio color="primary" />}
-                        label="Nghiêm trọng"
-                      />
-                      <FormControlLabel
-                        value="An toàn"
-                        control={<Radio color="primary" />}
-                        label="An toàn"
-                      />
-                    </RadioGroup>
-                  </FormControl>
-                </GridItem>
-                <GridItem xs={12} sm={12} md={2}></GridItem>
-                <GridItem xs={12} sm={12} md={2}></GridItem>
-              </GridContainer> */}
               </CardBody>
               <CardFooter>
                 <div>

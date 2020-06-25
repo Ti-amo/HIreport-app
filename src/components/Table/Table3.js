@@ -21,15 +21,11 @@ import Switch from "@material-ui/core/Switch";
 import DeleteIcon from "@material-ui/icons/Delete";
 import FilterListIcon from "@material-ui/icons/FilterList";
 import Edit from "@material-ui/icons/Edit";
-import ShareIcon from "@material-ui/icons/Share";
-import Close from "@material-ui/icons/Close";
 import StarBorderIcon from "@material-ui/icons/StarBorder";
 import StarIcon from '@material-ui/icons/Star';
-import ExitToApp from '@material-ui/icons/ExitToApp';
 import GetAppIcon from '@material-ui/icons/GetApp';
 import { yellow } from "@material-ui/core/colors";
-import { warningColor } from "assets/jss/material-dashboard-react.js";
-import { Link, NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
